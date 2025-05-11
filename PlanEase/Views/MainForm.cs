@@ -12,9 +12,21 @@ namespace PlanEase
 {
     public partial class MainForm : Form
     {
+
+
+        
+
         public MainForm()
         {
             InitializeComponent();
+            
         }
+
+        private void tblTasks_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        
     }
 }
