@@ -50,29 +50,34 @@ namespace PlanEase
             this.pnlLeft.Controls.Add(this.monthCalendarCurrent);
             this.pnlLeft.Controls.Add(this.monthCalendarNext);
             this.pnlLeft.Controls.Add(this.lblTodayDate);
-            this.pnlLeft.Location = new System.Drawing.Point(12, 12);
+            this.pnlLeft.Location = new System.Drawing.Point(6, 6);
+            this.pnlLeft.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlLeft.Name = "pnlLeft";
-            this.pnlLeft.Size = new System.Drawing.Size(493, 669);
+            this.pnlLeft.Size = new System.Drawing.Size(265, 334);
             this.pnlLeft.TabIndex = 0;
             // 
             // monthCalendarCurrent
             // 
-            this.monthCalendarCurrent.Location = new System.Drawing.Point(10, 10);
+            this.monthCalendarCurrent.Location = new System.Drawing.Point(5, 5);
+            this.monthCalendarCurrent.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.monthCalendarCurrent.Name = "monthCalendarCurrent";
             this.monthCalendarCurrent.ShowToday = false;
             this.monthCalendarCurrent.TabIndex = 0;
+            this.monthCalendarCurrent.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendarCurrent_DateChanged);
             // 
             // monthCalendarNext
             // 
-            this.monthCalendarNext.Location = new System.Drawing.Point(10, 325);
+            this.monthCalendarNext.Location = new System.Drawing.Point(5, 162);
+            this.monthCalendarNext.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.monthCalendarNext.Name = "monthCalendarNext";
             this.monthCalendarNext.TabIndex = 1;
             // 
             // lblTodayDate
             // 
-            this.lblTodayDate.Location = new System.Drawing.Point(10, 350);
+            this.lblTodayDate.Location = new System.Drawing.Point(5, 175);
+            this.lblTodayDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTodayDate.Name = "lblTodayDate";
-            this.lblTodayDate.Size = new System.Drawing.Size(280, 23);
+            this.lblTodayDate.Size = new System.Drawing.Size(151, 12);
             this.lblTodayDate.TabIndex = 2;
             this.lblTodayDate.Text = "오늘 날짜: 2025-05-11";
             // 
@@ -90,35 +95,39 @@ namespace PlanEase
             this.pnlRight.Controls.Add(this.btnDelete);
             this.pnlRight.Controls.Add(this.btnSave);
             this.pnlRight.Controls.Add(this.btnLoad);
-            this.pnlRight.Location = new System.Drawing.Point(540, 12);
+            this.pnlRight.Location = new System.Drawing.Point(291, 6);
+            this.pnlRight.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlRight.Name = "pnlRight";
-            this.pnlRight.Size = new System.Drawing.Size(1025, 785);
+            this.pnlRight.Size = new System.Drawing.Size(552, 392);
             this.pnlRight.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(47, 20);
+            this.label3.Location = new System.Drawing.Point(25, 10);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 24);
+            this.label3.Size = new System.Drawing.Size(38, 12);
             this.label3.TabIndex = 11;
             this.label3.Text = "label3";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(47, 566);
+            this.label2.Location = new System.Drawing.Point(25, 283);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(130, 24);
+            this.label2.Size = new System.Drawing.Size(65, 12);
             this.label2.TabIndex = 10;
             this.label2.Text = "우선순위：";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(47, 511);
+            this.label1.Location = new System.Drawing.Point(25, 256);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(106, 24);
+            this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 9;
             this.label1.Text = "할　일：";
             // 
@@ -130,10 +139,11 @@ namespace PlanEase
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4});
-            this.tblTasks.Location = new System.Drawing.Point(51, 72);
+            this.tblTasks.Location = new System.Drawing.Point(27, 36);
+            this.tblTasks.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tblTasks.Name = "tblTasks";
             this.tblTasks.RowHeadersWidth = 82;
-            this.tblTasks.Size = new System.Drawing.Size(879, 402);
+            this.tblTasks.Size = new System.Drawing.Size(473, 201);
             this.tblTasks.TabIndex = 0;
             this.tblTasks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblTasks_CellContentClick);
             // 
@@ -167,16 +177,18 @@ namespace PlanEase
             // 
             // txtAddTask
             // 
-            this.txtAddTask.Location = new System.Drawing.Point(183, 506);
+            this.txtAddTask.Location = new System.Drawing.Point(99, 253);
+            this.txtAddTask.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtAddTask.Name = "txtAddTask";
-            this.txtAddTask.Size = new System.Drawing.Size(400, 35);
+            this.txtAddTask.Size = new System.Drawing.Size(217, 21);
             this.txtAddTask.TabIndex = 1;
             // 
             // btnAddTask
             // 
-            this.btnAddTask.Location = new System.Drawing.Point(613, 511);
+            this.btnAddTask.Location = new System.Drawing.Point(330, 256);
+            this.btnAddTask.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAddTask.Name = "btnAddTask";
-            this.btnAddTask.Size = new System.Drawing.Size(100, 30);
+            this.btnAddTask.Size = new System.Drawing.Size(54, 15);
             this.btnAddTask.TabIndex = 2;
             this.btnAddTask.Text = "추가";
             // 
@@ -186,58 +198,65 @@ namespace PlanEase
             "높음",
             "중간",
             "낮음"});
-            this.cboPriority.Location = new System.Drawing.Point(183, 563);
+            this.cboPriority.Location = new System.Drawing.Point(99, 282);
+            this.cboPriority.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboPriority.Name = "cboPriority";
-            this.cboPriority.Size = new System.Drawing.Size(150, 32);
+            this.cboPriority.Size = new System.Drawing.Size(83, 20);
             this.cboPriority.TabIndex = 3;
             // 
             // btnChangePriority
             // 
-            this.btnChangePriority.Location = new System.Drawing.Point(613, 562);
+            this.btnChangePriority.Location = new System.Drawing.Point(330, 281);
+            this.btnChangePriority.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnChangePriority.Name = "btnChangePriority";
-            this.btnChangePriority.Size = new System.Drawing.Size(210, 32);
+            this.btnChangePriority.Size = new System.Drawing.Size(113, 16);
             this.btnChangePriority.TabIndex = 4;
             this.btnChangePriority.Text = "우선순위 변경";
             // 
             // btnComplete
             // 
-            this.btnComplete.Location = new System.Drawing.Point(854, 660);
+            this.btnComplete.Location = new System.Drawing.Point(460, 330);
+            this.btnComplete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnComplete.Name = "btnComplete";
-            this.btnComplete.Size = new System.Drawing.Size(127, 51);
+            this.btnComplete.Size = new System.Drawing.Size(68, 26);
             this.btnComplete.TabIndex = 5;
             this.btnComplete.Text = "완료";
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(531, 660);
+            this.btnDelete.Location = new System.Drawing.Point(286, 330);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(127, 51);
+            this.btnDelete.Size = new System.Drawing.Size(68, 26);
             this.btnDelete.TabIndex = 6;
             this.btnDelete.Text = "삭제";
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(696, 660);
+            this.btnSave.Location = new System.Drawing.Point(375, 330);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(127, 51);
+            this.btnSave.Size = new System.Drawing.Size(68, 26);
             this.btnSave.TabIndex = 7;
             this.btnSave.Text = "저장";
             // 
             // btnLoad
             // 
-            this.btnLoad.Location = new System.Drawing.Point(362, 660);
+            this.btnLoad.Location = new System.Drawing.Point(195, 330);
+            this.btnLoad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(127, 51);
+            this.btnLoad.Size = new System.Drawing.Size(68, 26);
             this.btnLoad.TabIndex = 8;
             this.btnLoad.Text = "불러오기";
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1577, 933);
+            this.ClientSize = new System.Drawing.Size(849, 466);
             this.Controls.Add(this.pnlLeft);
             this.Controls.Add(this.pnlRight);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MainForm";
             this.Text = "PlanEase";
             this.pnlLeft.ResumeLayout(false);

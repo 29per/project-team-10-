@@ -27,6 +27,9 @@ namespace PlanEase
 
         }
 
-        
+        private void monthCalendarCurrent_DateChanged(object sender, DateRangeEventArgs e)
+        {
+
+        }
     }
 }
