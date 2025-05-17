@@ -5,28 +5,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using MySql.Data.MySqlClient;
 
 namespace PlanEase.Services
 {
     // 일정 데이터를 관리하는 클래스
     // CRUD 기능과 파일 저장/불러오기를 담당
-    internal class ScheduleManager
+    public class ScheduleManager
     {
         private List<Schedule> schedules = new List<Schedule>(); // 전체 일정 데이터를 메모리에서 관리하는 리스트
         private const string FilePath = "schedules.txt"; // 일정 데이터를 저장할 파일 경로
+        private readonly string connStr = "Server=gondola.proxy.rlwy.net;Port=22404;Database=railway;Uid=root;Pwd=vMbiAFpyuiYNKkWXyMCsxdbOFmkqbUHt;SslMode=Required;";
 
         // 새로운 일정을 리스트에 추가하고 파일에 저장
         public void AddSchedule(Schedule s)
         {
             schedules.Add(s);
-            SaveSchedules();
+            //SaveSchedules();
+            AddScheduleToDb(s); // DB에 추가
         }
 
         // ID에 해당하는 일정을 삭제하고 파일에 저장
         public void RemoveSchedule(int id)
         {
             schedules.RemoveAll(s => s.Id == id);
-            SaveSchedules();
+            //SaveSchedules();
+            DeleteScheduleFromDb(id); // DB에서 삭제
+        }
+
+        // DB에서 일정 로드
+        public void LoadSchedules(int userId)
+        {
+            schedules = LoadSchedulesFromDb(userId);
         }
 
         // 일정 전체 목록을 외부로 반환
@@ -36,17 +46,90 @@ namespace PlanEase.Services
         }
 
         // 파일에서 일정 데이터를 불러와 리스트에 저장
-        public void LoadSchedules()
-        {
-            List<string> lines = File.Exists(FilePath) ? File.ReadAllLines(FilePath).ToList(): new List<string>();
-            schedules = lines.Select(line=>Schedule.FromCsv(line)).ToList();
-        }
+        //public void LoadSchedules()
+        //{
+        //    List<string> lines = File.Exists(FilePath) ? File.ReadAllLines(FilePath).ToList(): new List<string>();
+        //    schedules = lines.Select(line=>Schedule.FromCsv(line)).ToList();
+        //}
 
         // 현재 일정 리스트를 파일로 저장
-        public void SaveSchedules()
+        //public void SaveSchedules()
+        //{
+        //    List<string> lines = schedules.Select(s => s.ToCsv()).ToList();
+        //    File.WriteAllLines(FilePath, lines);
+        //}
+
+        public void AddScheduleToDb(Schedule schedule)
         {
-            List<string> lines = schedules.Select(s => s.ToCsv()).ToList();
-            File.WriteAllLines(FilePath, lines);
+            using var conn = new MySqlConnection(connStr);
+            conn.Open();
+
+            string tagString = string.Join("|", schedule.Tags);
+
+            string query = @"INSERT INTO Schedules (UserId, Title, StartTime, EndTime, Tags, Priority, IsCompleted, Description)
+                     VALUES (@UserId, @Title, @StartTime, @EndTime, @Tags, @Priority, @IsCompleted, @Description)";
+
+            using var cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@UserId", schedule.UserId);
+            cmd.Parameters.AddWithValue("@Title", schedule.Title);
+            cmd.Parameters.AddWithValue("@StartTime", schedule.StartTime);
+            cmd.Parameters.AddWithValue("@EndTime", schedule.EndTime);
+            cmd.Parameters.AddWithValue("@Tags", tagString);
+            cmd.Parameters.AddWithValue("@Priority", (int)schedule.Priority);
+            cmd.Parameters.AddWithValue("@IsCompleted", schedule.IsCompleted);
+            cmd.Parameters.AddWithValue("@Description", schedule.Description ?? "");
+
+            cmd.ExecuteNonQuery();
+            schedule.Id = (int)cmd.LastInsertedId;
+        }
+
+        public void DeleteScheduleFromDb(int id)
+        {
+            using var conn = new MySqlConnection(connStr);
+            conn.Open();
+
+            string query = "DELETE FROM Schedules WHERE Id = @Id";
+            using var cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@Id", id);
+            cmd.ExecuteNonQuery();
+        }
+
+        public List<Schedule> LoadSchedulesFromDb(int userId)
+        {
+            List<Schedule> result = new List<Schedule>();
+
+            using var conn = new MySqlConnection(connStr);
+            conn.Open();
+
+            string query = "SELECT * FROM Schedules WHERE UserId = @UserId ORDER BY StartTime";
+            using var cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@UserId", userId);
+
+            using var reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                Schedule schedule = new Schedule
+                {
+                    Id = reader.GetInt32("Id"),
+                    UserId = reader.GetInt32("UserId"),
+                    Title = reader.GetString("Title"),
+                    StartTime = reader.GetDateTime("StartTime"),
+                    EndTime = reader.GetDateTime("EndTime"),
+                    Tags = reader.IsDBNull(reader.GetOrdinal("Tags")) ? new List<string>() : reader.GetString("Tags").Split('|').ToList(),
+                    Priority = (PriorityLevel)reader.GetInt32("Priority"),
+                    IsCompleted = reader.GetBoolean("IsCompleted"),
+                    Description = reader.IsDBNull(reader.GetOrdinal("Description")) ? "" : reader.GetString("Description")
+                };
+                result.Add(schedule);
+            }
+
+            return result;
+        }
+
+        // 태그 이름으로 일정 조회
+        public List<Schedule> GetSchedulesByTag(string tagName)
+        {
+            return schedules.Where(s => s.Tags.Contains(tagName)).ToList();
         }
     }
 }

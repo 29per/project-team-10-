@@ -51,7 +51,7 @@ namespace PlanEase
             this.pnlLeft.Controls.Add(this.monthCalendarNext);
             this.pnlLeft.Controls.Add(this.lblTodayDate);
             this.pnlLeft.Location = new System.Drawing.Point(6, 6);
-            this.pnlLeft.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlLeft.Margin = new System.Windows.Forms.Padding(2);
             this.pnlLeft.Name = "pnlLeft";
             this.pnlLeft.Size = new System.Drawing.Size(265, 334);
             this.pnlLeft.TabIndex = 0;
@@ -96,7 +96,7 @@ namespace PlanEase
             this.pnlRight.Controls.Add(this.btnSave);
             this.pnlRight.Controls.Add(this.btnLoad);
             this.pnlRight.Location = new System.Drawing.Point(291, 6);
-            this.pnlRight.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlRight.Margin = new System.Windows.Forms.Padding(2);
             this.pnlRight.Name = "pnlRight";
             this.pnlRight.Size = new System.Drawing.Size(552, 392);
             this.pnlRight.TabIndex = 1;
@@ -140,7 +140,7 @@ namespace PlanEase
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4});
             this.tblTasks.Location = new System.Drawing.Point(27, 36);
-            this.tblTasks.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tblTasks.Margin = new System.Windows.Forms.Padding(2);
             this.tblTasks.Name = "tblTasks";
             this.tblTasks.RowHeadersWidth = 82;
             this.tblTasks.Size = new System.Drawing.Size(473, 201);
@@ -178,7 +178,7 @@ namespace PlanEase
             // txtAddTask
             // 
             this.txtAddTask.Location = new System.Drawing.Point(99, 253);
-            this.txtAddTask.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtAddTask.Margin = new System.Windows.Forms.Padding(2);
             this.txtAddTask.Name = "txtAddTask";
             this.txtAddTask.Size = new System.Drawing.Size(217, 21);
             this.txtAddTask.TabIndex = 1;
@@ -186,7 +186,7 @@ namespace PlanEase
             // btnAddTask
             // 
             this.btnAddTask.Location = new System.Drawing.Point(330, 256);
-            this.btnAddTask.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddTask.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddTask.Name = "btnAddTask";
             this.btnAddTask.Size = new System.Drawing.Size(54, 15);
             this.btnAddTask.TabIndex = 2;
@@ -199,7 +199,7 @@ namespace PlanEase
             "중간",
             "낮음"});
             this.cboPriority.Location = new System.Drawing.Point(99, 282);
-            this.cboPriority.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboPriority.Margin = new System.Windows.Forms.Padding(2);
             this.cboPriority.Name = "cboPriority";
             this.cboPriority.Size = new System.Drawing.Size(83, 20);
             this.cboPriority.TabIndex = 3;
@@ -207,7 +207,7 @@ namespace PlanEase
             // btnChangePriority
             // 
             this.btnChangePriority.Location = new System.Drawing.Point(330, 281);
-            this.btnChangePriority.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnChangePriority.Margin = new System.Windows.Forms.Padding(2);
             this.btnChangePriority.Name = "btnChangePriority";
             this.btnChangePriority.Size = new System.Drawing.Size(113, 16);
             this.btnChangePriority.TabIndex = 4;
@@ -216,7 +216,7 @@ namespace PlanEase
             // btnComplete
             // 
             this.btnComplete.Location = new System.Drawing.Point(460, 330);
-            this.btnComplete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnComplete.Margin = new System.Windows.Forms.Padding(2);
             this.btnComplete.Name = "btnComplete";
             this.btnComplete.Size = new System.Drawing.Size(68, 26);
             this.btnComplete.TabIndex = 5;
@@ -225,7 +225,7 @@ namespace PlanEase
             // btnDelete
             // 
             this.btnDelete.Location = new System.Drawing.Point(286, 330);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(68, 26);
             this.btnDelete.TabIndex = 6;
@@ -234,7 +234,7 @@ namespace PlanEase
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(375, 330);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(68, 26);
             this.btnSave.TabIndex = 7;
@@ -243,7 +243,7 @@ namespace PlanEase
             // btnLoad
             // 
             this.btnLoad.Location = new System.Drawing.Point(195, 330);
-            this.btnLoad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLoad.Margin = new System.Windows.Forms.Padding(2);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(68, 26);
             this.btnLoad.TabIndex = 8;
@@ -256,9 +256,11 @@ namespace PlanEase
             this.ClientSize = new System.Drawing.Size(849, 466);
             this.Controls.Add(this.pnlLeft);
             this.Controls.Add(this.pnlRight);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
             this.Text = "PlanEase";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.pnlLeft.ResumeLayout(false);
             this.pnlRight.ResumeLayout(false);
             this.pnlRight.PerformLayout();
