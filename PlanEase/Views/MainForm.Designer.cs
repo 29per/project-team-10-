@@ -19,284 +19,222 @@ namespace PlanEase
 
         private void InitializeComponent()
         {
-            this.pnlLeft = new System.Windows.Forms.Panel();
-            this.monthCalendarCurrent = new System.Windows.Forms.MonthCalendar();
-            this.monthCalendarNext = new System.Windows.Forms.MonthCalendar();
-            this.lblTodayDate = new System.Windows.Forms.Label();
-            this.pnlRight = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tblTasks = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtAddTask = new System.Windows.Forms.TextBox();
-            this.btnAddTask = new System.Windows.Forms.Button();
-            this.cboPriority = new System.Windows.Forms.ComboBox();
-            this.btnChangePriority = new System.Windows.Forms.Button();
-            this.btnComplete = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnLoad = new System.Windows.Forms.Button();
-            this.pnlLeft.SuspendLayout();
-            this.pnlRight.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tblTasks)).BeginInit();
+            this.panelLeft = new System.Windows.Forms.Panel();
+            this.lblTodoTitle = new System.Windows.Forms.Label();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.btnAddSchedule = new System.Windows.Forms.Button();
+            this.btnAddTodo = new System.Windows.Forms.Button();
+            this.btnSearchTag = new System.Windows.Forms.Button();
+            this.panelRight = new System.Windows.Forms.Panel();
+            this.panelDayView = new System.Windows.Forms.Panel();
+            this.panelWeekView = new System.Windows.Forms.Panel();
+            this.panelMonthView = new System.Windows.Forms.Panel();
+            this.calendarMonth = new System.Windows.Forms.MonthCalendar();
+            this.btnDayView = new System.Windows.Forms.Button();
+            this.btnWeekView = new System.Windows.Forms.Button();
+            this.btnMonthView = new System.Windows.Forms.Button();
+            this.btnSettings = new System.Windows.Forms.Button();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.panelLeft.SuspendLayout();
+            this.panelRight.SuspendLayout();
+            this.panelMonthView.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pnlLeft
+            // panelLeft
             // 
-            this.pnlLeft.Controls.Add(this.monthCalendarCurrent);
-            this.pnlLeft.Controls.Add(this.monthCalendarNext);
-            this.pnlLeft.Controls.Add(this.lblTodayDate);
-            this.pnlLeft.Location = new System.Drawing.Point(6, 6);
-            this.pnlLeft.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlLeft.Name = "pnlLeft";
-            this.pnlLeft.Size = new System.Drawing.Size(265, 334);
-            this.pnlLeft.TabIndex = 0;
+            this.panelLeft.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelLeft.Controls.Add(this.lblTodoTitle);
+            this.panelLeft.Controls.Add(this.progressBar);
+            this.panelLeft.Location = new System.Drawing.Point(13, 128);
+            this.panelLeft.Name = "panelLeft";
+            this.panelLeft.Size = new System.Drawing.Size(492, 668);
+            this.panelLeft.TabIndex = 0;
             // 
-            // monthCalendarCurrent
+            // lblTodoTitle
             // 
-            this.monthCalendarCurrent.Location = new System.Drawing.Point(5, 5);
-            this.monthCalendarCurrent.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.monthCalendarCurrent.Name = "monthCalendarCurrent";
-            this.monthCalendarCurrent.ShowToday = false;
-            this.monthCalendarCurrent.TabIndex = 0;
-            this.monthCalendarCurrent.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendarCurrent_DateChanged);
+            this.lblTodoTitle.AutoSize = true;
+            this.lblTodoTitle.Font = new System.Drawing.Font("맑은 고딕", 14F, System.Drawing.FontStyle.Bold);
+            this.lblTodoTitle.Location = new System.Drawing.Point(14, 6);
+            this.lblTodoTitle.Name = "lblTodoTitle";
+            this.lblTodoTitle.Size = new System.Drawing.Size(200, 51);
+            this.lblTodoTitle.TabIndex = 0;
+            this.lblTodoTitle.Text = "할 일 목록";
             // 
-            // monthCalendarNext
+            // progressBar
             // 
-            this.monthCalendarNext.Location = new System.Drawing.Point(5, 162);
-            this.monthCalendarNext.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.monthCalendarNext.Name = "monthCalendarNext";
-            this.monthCalendarNext.TabIndex = 1;
+            this.progressBar.Location = new System.Drawing.Point(5, 60);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(482, 44);
+            this.progressBar.TabIndex = 0;
             // 
-            // lblTodayDate
+            // btnAddSchedule
             // 
-            this.lblTodayDate.Location = new System.Drawing.Point(5, 175);
-            this.lblTodayDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblTodayDate.Name = "lblTodayDate";
-            this.lblTodayDate.Size = new System.Drawing.Size(151, 12);
-            this.lblTodayDate.TabIndex = 2;
-            this.lblTodayDate.Text = "오늘 날짜: 2025-05-11";
+            this.btnAddSchedule.Location = new System.Drawing.Point(12, 853);
+            this.btnAddSchedule.Name = "btnAddSchedule";
+            this.btnAddSchedule.Size = new System.Drawing.Size(130, 40);
+            this.btnAddSchedule.TabIndex = 3;
+            this.btnAddSchedule.Text = "일정 추가";
             // 
-            // pnlRight
+            // btnAddTodo
             // 
-            this.pnlRight.Controls.Add(this.label3);
-            this.pnlRight.Controls.Add(this.label2);
-            this.pnlRight.Controls.Add(this.label1);
-            this.pnlRight.Controls.Add(this.tblTasks);
-            this.pnlRight.Controls.Add(this.txtAddTask);
-            this.pnlRight.Controls.Add(this.btnAddTask);
-            this.pnlRight.Controls.Add(this.cboPriority);
-            this.pnlRight.Controls.Add(this.btnChangePriority);
-            this.pnlRight.Controls.Add(this.btnComplete);
-            this.pnlRight.Controls.Add(this.btnDelete);
-            this.pnlRight.Controls.Add(this.btnSave);
-            this.pnlRight.Controls.Add(this.btnLoad);
-            this.pnlRight.Location = new System.Drawing.Point(291, 6);
-            this.pnlRight.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlRight.Name = "pnlRight";
-            this.pnlRight.Size = new System.Drawing.Size(552, 392);
-            this.pnlRight.TabIndex = 1;
+            this.btnAddTodo.Location = new System.Drawing.Point(172, 853);
+            this.btnAddTodo.Name = "btnAddTodo";
+            this.btnAddTodo.Size = new System.Drawing.Size(130, 40);
+            this.btnAddTodo.TabIndex = 2;
+            this.btnAddTodo.Text = "할 일 추가";
             // 
-            // label3
+            // btnSearchTag
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 10);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 12);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "label3";
+            this.btnSearchTag.Location = new System.Drawing.Point(339, 853);
+            this.btnSearchTag.Name = "btnSearchTag";
+            this.btnSearchTag.Size = new System.Drawing.Size(130, 40);
+            this.btnSearchTag.TabIndex = 1;
+            this.btnSearchTag.Text = "태그 검색";
             // 
-            // label2
+            // panelRight
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 283);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 12);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "우선순위：";
+            this.panelRight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelRight.Controls.Add(this.panelDayView);
+            this.panelRight.Controls.Add(this.panelWeekView);
+            this.panelRight.Controls.Add(this.panelMonthView);
+            this.panelRight.Location = new System.Drawing.Point(527, 128);
+            this.panelRight.Name = "panelRight";
+            this.panelRight.Size = new System.Drawing.Size(1025, 784);
+            this.panelRight.TabIndex = 1;
             // 
-            // label1
+            // panelDayView
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 256);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "할　일：";
+            this.panelDayView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelDayView.Location = new System.Drawing.Point(0, 0);
+            this.panelDayView.Name = "panelDayView";
+            this.panelDayView.Size = new System.Drawing.Size(1023, 782);
+            this.panelDayView.TabIndex = 0;
+            this.panelDayView.Visible = false;
             // 
-            // tblTasks
+            // panelWeekView
             // 
-            this.tblTasks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tblTasks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
-            this.tblTasks.Location = new System.Drawing.Point(27, 36);
-            this.tblTasks.Margin = new System.Windows.Forms.Padding(2);
-            this.tblTasks.Name = "tblTasks";
-            this.tblTasks.RowHeadersWidth = 82;
-            this.tblTasks.Size = new System.Drawing.Size(473, 201);
-            this.tblTasks.TabIndex = 0;
-            this.tblTasks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblTasks_CellContentClick);
+            this.panelWeekView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelWeekView.Location = new System.Drawing.Point(0, 0);
+            this.panelWeekView.Name = "panelWeekView";
+            this.panelWeekView.Size = new System.Drawing.Size(1023, 782);
+            this.panelWeekView.TabIndex = 1;
+            this.panelWeekView.Visible = false;
             // 
-            // dataGridViewTextBoxColumn1
+            // panelMonthView
             // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "할 일";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 10;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 200;
+            this.panelMonthView.Controls.Add(this.calendarMonth);
+            this.panelMonthView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMonthView.Location = new System.Drawing.Point(0, 0);
+            this.panelMonthView.Name = "panelMonthView";
+            this.panelMonthView.Size = new System.Drawing.Size(1023, 782);
+            this.panelMonthView.TabIndex = 2;
             // 
-            // dataGridViewTextBoxColumn2
+            // calendarMonth
             // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "우선순위";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 10;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 200;
+            this.calendarMonth.CalendarDimensions = new System.Drawing.Size(2, 2);
+            this.calendarMonth.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.calendarMonth.Location = new System.Drawing.Point(0, 0);
+            this.calendarMonth.Name = "calendarMonth";
+            this.calendarMonth.TabIndex = 0;
             // 
-            // dataGridViewTextBoxColumn3
+            // btnDayView
             // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "상태";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 10;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 200;
+            this.btnDayView.Location = new System.Drawing.Point(1287, 59);
+            this.btnDayView.Name = "btnDayView";
+            this.btnDayView.Size = new System.Drawing.Size(60, 40);
+            this.btnDayView.TabIndex = 5;
+            this.btnDayView.Text = "일";
+            this.btnDayView.Click += new System.EventHandler(this.btnDayView_Click);
             // 
-            // dataGridViewTextBoxColumn4
+            // btnWeekView
             // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "시간";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 10;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 200;
+            this.btnWeekView.Location = new System.Drawing.Point(1357, 59);
+            this.btnWeekView.Name = "btnWeekView";
+            this.btnWeekView.Size = new System.Drawing.Size(60, 40);
+            this.btnWeekView.TabIndex = 6;
+            this.btnWeekView.Text = "주";
+            this.btnWeekView.Click += new System.EventHandler(this.btnWeekView_Click);
             // 
-            // txtAddTask
+            // btnMonthView
             // 
-            this.txtAddTask.Location = new System.Drawing.Point(99, 253);
-            this.txtAddTask.Margin = new System.Windows.Forms.Padding(2);
-            this.txtAddTask.Name = "txtAddTask";
-            this.txtAddTask.Size = new System.Drawing.Size(217, 21);
-            this.txtAddTask.TabIndex = 1;
+            this.btnMonthView.Location = new System.Drawing.Point(1427, 59);
+            this.btnMonthView.Name = "btnMonthView";
+            this.btnMonthView.Size = new System.Drawing.Size(60, 40);
+            this.btnMonthView.TabIndex = 7;
+            this.btnMonthView.Text = "월";
+            this.btnMonthView.Click += new System.EventHandler(this.btnMonthView_Click);
             // 
-            // btnAddTask
+            // btnSettings
             // 
-            this.btnAddTask.Location = new System.Drawing.Point(330, 256);
-            this.btnAddTask.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAddTask.Name = "btnAddTask";
-            this.btnAddTask.Size = new System.Drawing.Size(54, 15);
-            this.btnAddTask.TabIndex = 2;
-            this.btnAddTask.Text = "추가";
+            this.btnSettings.Location = new System.Drawing.Point(1497, 59);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(40, 40);
+            this.btnSettings.TabIndex = 8;
+            this.btnSettings.Text = "⚙";
             // 
-            // cboPriority
+            // lblTitle
             // 
-            this.cboPriority.Items.AddRange(new object[] {
-            "높음",
-            "중간",
-            "낮음"});
-            this.cboPriority.Location = new System.Drawing.Point(99, 282);
-            this.cboPriority.Margin = new System.Windows.Forms.Padding(2);
-            this.cboPriority.Name = "cboPriority";
-            this.cboPriority.Size = new System.Drawing.Size(83, 20);
-            this.cboPriority.TabIndex = 3;
-            // 
-            // btnChangePriority
-            // 
-            this.btnChangePriority.Location = new System.Drawing.Point(330, 281);
-            this.btnChangePriority.Margin = new System.Windows.Forms.Padding(2);
-            this.btnChangePriority.Name = "btnChangePriority";
-            this.btnChangePriority.Size = new System.Drawing.Size(113, 16);
-            this.btnChangePriority.TabIndex = 4;
-            this.btnChangePriority.Text = "우선순위 변경";
-            // 
-            // btnComplete
-            // 
-            this.btnComplete.Location = new System.Drawing.Point(460, 330);
-            this.btnComplete.Margin = new System.Windows.Forms.Padding(2);
-            this.btnComplete.Name = "btnComplete";
-            this.btnComplete.Size = new System.Drawing.Size(68, 26);
-            this.btnComplete.TabIndex = 5;
-            this.btnComplete.Text = "완료";
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(286, 330);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(68, 26);
-            this.btnDelete.TabIndex = 6;
-            this.btnDelete.Text = "삭제";
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(375, 330);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(68, 26);
-            this.btnSave.TabIndex = 7;
-            this.btnSave.Text = "저장";
-            // 
-            // btnLoad
-            // 
-            this.btnLoad.Location = new System.Drawing.Point(195, 330);
-            this.btnLoad.Margin = new System.Windows.Forms.Padding(2);
-            this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(68, 26);
-            this.btnLoad.TabIndex = 8;
-            this.btnLoad.Text = "불러오기";
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("굴림", 25F);
+            this.lblTitle.Location = new System.Drawing.Point(25, 30);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(367, 67);
+            this.lblTitle.TabIndex = 4;
+            this.lblTitle.Text = "PLANEASE";
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(849, 466);
-            this.Controls.Add(this.pnlLeft);
-            this.Controls.Add(this.pnlRight);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.ClientSize = new System.Drawing.Size(1577, 932);
+            this.Controls.Add(this.panelLeft);
+            this.Controls.Add(this.btnSearchTag);
+            this.Controls.Add(this.btnAddTodo);
+            this.Controls.Add(this.btnAddSchedule);
+            this.Controls.Add(this.panelRight);
+            this.Controls.Add(this.lblTitle);
+            this.Controls.Add(this.btnDayView);
+            this.Controls.Add(this.btnWeekView);
+            this.Controls.Add(this.btnMonthView);
+            this.Controls.Add(this.btnSettings);
             this.Name = "MainForm";
             this.Text = "PlanEase";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.pnlLeft.ResumeLayout(false);
-            this.pnlRight.ResumeLayout(false);
-            this.pnlRight.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tblTasks)).EndInit();
+            this.panelLeft.ResumeLayout(false);
+            this.panelLeft.PerformLayout();
+            this.panelRight.ResumeLayout(false);
+            this.panelMonthView.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        // 왼쪽 패널, 달력, 날짜 라벨
-        private System.Windows.Forms.Panel pnlLeft;
-        private System.Windows.Forms.MonthCalendar monthCalendarCurrent;
-        private System.Windows.Forms.MonthCalendar monthCalendarNext;
-        private System.Windows.Forms.Label lblTodayDate;
+        // 좌측: 할 일 영역
+        private System.Windows.Forms.Panel panelLeft;
+        private System.Windows.Forms.Label lblTodoTitle;
+        private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.Button btnAddSchedule;
+        private System.Windows.Forms.Button btnAddTodo;
+        private System.Windows.Forms.Button btnSearchTag;
 
-        // 오른쪽 패널, 할 일 테이블 및 추가 기능
-        private System.Windows.Forms.Panel pnlRight;
-        private System.Windows.Forms.DataGridView tblTasks;
-        private System.Windows.Forms.TextBox txtAddTask;
-        private System.Windows.Forms.Button btnAddTask;
-        private System.Windows.Forms.ComboBox cboPriority;
-        private System.Windows.Forms.Button btnChangePriority;
+        // 우측: 일정 영역 (3가지 보기)
+        private System.Windows.Forms.Panel panelRight;
+        private System.Windows.Forms.Panel panelDayView;
+        private System.Windows.Forms.Panel panelWeekView;
+        private System.Windows.Forms.Panel panelMonthView;
+        private System.Windows.Forms.MonthCalendar calendarMonth;
 
-        // 완료, 삭제, 저장, 불러오기 버튼들
-        private System.Windows.Forms.Button btnComplete;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnLoad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
+        // 상단: 제목, 버튼
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Button btnDayView;
+        private System.Windows.Forms.Button btnWeekView;
+        private System.Windows.Forms.Button btnMonthView;
+        private System.Windows.Forms.Button btnSettings;
     }
 }
+
+
 
