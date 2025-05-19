@@ -1,4 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
+using PlanEase.Helpers;
+using PlanEase.Models;
 using PlanEase.Services;
 using System;
 using System.Collections.Generic;
@@ -6,10 +8,14 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
+
 
 namespace PlanEase.Views
 {
@@ -20,10 +26,19 @@ namespace PlanEase.Views
             InitializeComponent();
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        
+
+        private void LoginForm_Load(object sender, EventArgs e)
         {
-            string username = txtUsername.Text.Trim();
-            string password = txtPassword.Text;
+
+        }
+
+      
+    
+        private async void btnLogin2_Click(object sender, EventArgs e)
+        {
+            string username = txtUsername2.Text.Trim();
+            string password = txtPassword2.Text;
 
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
@@ -49,15 +64,49 @@ namespace PlanEase.Views
             }
         }
 
-        private void btnRegister_Click(object sender, EventArgs e)
+        private void btnRegister2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             var registerForm = new RegisterForm();
             registerForm.ShowDialog();
         }
 
-        private void LoginForm_Load(object sender, EventArgs e)
+        
+        private async void button1_Click(object sender, EventArgs e)
         {
 
+            // 테스트용 사용자 입력
+            string testInput = "5월 28일 오후 2시부터 4시까지 졸업 작품 발표가 있어. #졸업 #프로젝트"; //  정상 입력 (모든 정보 제공)
+            //string testInput = "6월 3일 오전 10시에 병원 예약 있음."; //종료 시간 누락
+            //string testInput = "다음주 수요일 오후 6시에 프로젝트 회의 있어."; // 시간만 있음
+            //string testInput = "다음주 수요일 오후 6시에 프로젝트 회의 있어."; // 상대 날짜 적용
+            //string testInput = "5월 30일 from 2pm to 4pm까지 카페에서 friend 만나기로 했어."; // 혼합 언어 입력
+            //string testInput = "고양이가 귀여워"; // 엉뚱한 입력
+
+
+            try
+            {
+                var result = await GptService.GenerateScheduleFromText(testInput);
+
+                if (!result.IsComplete)
+                {
+                    MessageBox.Show($"[불완전한 응답]\n{result.FollowUpMessage}", "GPT 응답", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                Schedule s = result.Schedule!;
+                string info =
+                    $"제목: {s.Title}\n" +
+                    $"시작: {s.StartTime}\n" +
+                    $"종료: {s.EndTime}\n" +
+                    $"태그: {string.Join(", ", s.Tags)}\n" +
+                    $"설명: {(string.IsNullOrWhiteSpace(s.Description) ? "(없음)" : s.Description)}";
+
+                MessageBox.Show($"[일정 생성 성공]\n{info}", "GPT 일정", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"예외 발생: {ex.Message}", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
