@@ -7,14 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PlanEase.Services;
 
 namespace PlanEase.Views
 {
     public partial class ConflictResolutionForm : Form
     {
-        public ConflictResolutionForm()
-        {
-            InitializeComponent();
-        }
+       
     }
 }
