@@ -63,5 +63,38 @@ namespace PlanEase.Views
         {
             this.Close();
         }
+
+        private void siticoneCloseButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            this.Close();
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            const int RESIZE_HANDLE_SIZE = 10;
+
+            if (m.Msg == 0x0084) // WM_NCHITTEST
+            {
+                base.WndProc(ref m);
+                if ((int)m.Result == 0x01) // HTCLIENT
+                {
+                    Point screenPoint = new Point(m.LParam.ToInt32());
+                    Point clientPoint = this.PointToClient(screenPoint);
+
+                    if (clientPoint.X >= this.ClientSize.Width - RESIZE_HANDLE_SIZE &&
+                        clientPoint.Y >= this.ClientSize.Height - RESIZE_HANDLE_SIZE)
+                    {
+                        m.Result = (IntPtr)17; // HTBOTTOMRIGHT
+                        return;
+                    }
+                }
+                return;
+            }
+
+            base.WndProc(ref m);
+        }
+
+        
     }
 }

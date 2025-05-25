@@ -35,7 +35,7 @@ namespace PlanEase.Views
 
       
     
-        private async void btnLogin2_Click(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
             string username = txtUsername2.Text.Trim();
             string password = txtPassword2.Text;
@@ -64,10 +64,12 @@ namespace PlanEase.Views
             }
         }
 
-        private void btnRegister2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void btnRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            this.Hide();
             var registerForm = new RegisterForm();
-            registerForm.ShowDialog();
+            registerForm.FormClosed += (s, args) => this.Show();
+            registerForm.Show();
         }
 
         
@@ -108,5 +110,13 @@ namespace PlanEase.Views
                 MessageBox.Show($"예외 발생: {ex.Message}", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void siticoneCloseButton2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            this.Close();
+        }
+
+        
     }
 }
