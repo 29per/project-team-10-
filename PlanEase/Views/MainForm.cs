@@ -729,7 +729,7 @@ namespace PlanEase
         private void btnSetting_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color5);
-            OpenChildControl(new Setting());
+            OpenChildControl(new Views.panelDesktop.Setting());
         }
 
         private void siticoneCloseButton_Click(object sender, EventArgs e)
