@@ -128,9 +128,9 @@ namespace PlanEase
             this.btnTag = new FontAwesome.Sharp.IconButton();
             this.btnCalendar = new FontAwesome.Sharp.IconButton();
             this.panelLogo = new SiticoneNetFrameworkUI.SiticonePanel();
+            this.btnLogo = new FontAwesome.Sharp.IconButton();
             this.siticoneBorderlessForm1 = new SiticoneNetFrameworkUI.SiticoneBorderlessForm(this.components);
             this.siticoneCloseButton = new SiticoneNetFrameworkUI.SiticoneCloseButton();
-            this.btnLogo = new FontAwesome.Sharp.IconButton();
             this.panelDesktop = new SiticoneNetFrameworkUI.SiticoneAdvancedPanel();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
@@ -391,26 +391,6 @@ namespace PlanEase
             this.panelLogo.UsePatternTexture = false;
             this.panelLogo.UseRadialGradient = false;
             // 
-            // siticoneBorderlessForm1
-            // 
-            this.siticoneBorderlessForm1.DropShadow = false;
-            this.siticoneBorderlessForm1.NavBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.siticoneBorderlessForm1.NavBarHeight = 30;
-            this.siticoneBorderlessForm1.TargetForm = this;
-            // 
-            // siticoneCloseButton
-            // 
-            this.siticoneCloseButton.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneCloseButton.CountdownFont = new System.Drawing.Font("Segoe UI", 9F);
-            this.siticoneCloseButton.EnableSound = false;
-            this.siticoneCloseButton.Location = new System.Drawing.Point(1067, 0);
-            this.siticoneCloseButton.Name = "siticoneCloseButton";
-            this.siticoneCloseButton.Size = new System.Drawing.Size(33, 33);
-            this.siticoneCloseButton.TabIndex = 11;
-            this.siticoneCloseButton.Text = "siticoneCloseButton2";
-            this.siticoneCloseButton.TooltipText = "Close";
-            this.siticoneCloseButton.Click += new System.EventHandler(this.siticoneCloseButton_Click);
-            // 
             // btnLogo
             // 
             this.btnLogo.BackColor = System.Drawing.Color.Transparent;
@@ -437,6 +417,26 @@ namespace PlanEase
             this.btnLogo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLogo.UseVisualStyleBackColor = false;
             this.btnLogo.Click += new System.EventHandler(this.btnLogo_Click);
+            // 
+            // siticoneBorderlessForm1
+            // 
+            this.siticoneBorderlessForm1.DropShadow = false;
+            this.siticoneBorderlessForm1.NavBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.siticoneBorderlessForm1.NavBarHeight = 30;
+            this.siticoneBorderlessForm1.TargetForm = this;
+            // 
+            // siticoneCloseButton
+            // 
+            this.siticoneCloseButton.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneCloseButton.CountdownFont = new System.Drawing.Font("Segoe UI", 9F);
+            this.siticoneCloseButton.EnableSound = false;
+            this.siticoneCloseButton.Location = new System.Drawing.Point(1067, 0);
+            this.siticoneCloseButton.Name = "siticoneCloseButton";
+            this.siticoneCloseButton.Size = new System.Drawing.Size(33, 33);
+            this.siticoneCloseButton.TabIndex = 11;
+            this.siticoneCloseButton.Text = "siticoneCloseButton2";
+            this.siticoneCloseButton.TooltipText = "Close";
+            this.siticoneCloseButton.Click += new System.EventHandler(this.siticoneCloseButton_Click);
             // 
             // panelDesktop
             // 

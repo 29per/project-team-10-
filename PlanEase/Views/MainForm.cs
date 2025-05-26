@@ -11,12 +11,14 @@ using MySql.Data.MySqlClient;
 using PlanEase.Models;
 using FontAwesome.Sharp;
 using PlanEase.Views.panelDesktop;
+using PlanEase.Services;
 
 namespace PlanEase
 {
     public partial class MainForm : Form
     {
         private User loggedInUser;
+        private ScheduleManager scheduleManager;
 
         private IconButton currentBtn;
         private Panel leftBorderBtn;
@@ -28,6 +30,9 @@ namespace PlanEase
             InitializeComponent();
             //SetupCalendarTable();
             loggedInUser = user;
+            scheduleManager = new ScheduleManager();
+            scheduleManager.LoadSchedules(loggedInUser.Id);
+
 
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 60);
@@ -479,7 +484,7 @@ namespace PlanEase
             //InitializeCalendar(DateTime.Today);
 
             //GenerateCalendar(DateTime.Today);
-            OpenChildControl(new Planner());
+            OpenChildControl(new Planner(loggedInUser, scheduleManager));
 
         }
         //private void InitializeWeekCalendar(DateTime referenceDate)
@@ -700,7 +705,7 @@ namespace PlanEase
         private void btnCalendar_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
-            OpenChildControl(new Planner());
+            OpenChildControl(new Planner(loggedInUser,scheduleManager));
         }
 
         private void btnTag_Click(object sender, EventArgs e)

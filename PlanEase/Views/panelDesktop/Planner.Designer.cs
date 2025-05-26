@@ -181,6 +181,7 @@ namespace PlanEase.Views.panelDesktop
             this.btnAddSchedule.Size = new System.Drawing.Size(70, 20);
             this.btnAddSchedule.TabIndex = 3;
             this.btnAddSchedule.Text = "일정 추가";
+            this.btnAddSchedule.Click += new System.EventHandler(this.btnAddSchedule_Click);
             // 
             // btnAddTodo
             // 

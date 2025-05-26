@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PlanEase.Models;
+using PlanEase.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,11 +18,21 @@ namespace PlanEase.Views.panelDesktop
         private DateTime currentWeekStartDate;
         private Dictionary<DateTime, Panel> datePanels = new Dictionary<DateTime, Panel>();
         private Dictionary<DateTime, List<ToDoItem>> toDoItems = new Dictionary<DateTime, List<ToDoItem>>();
+        private User loggedInUser;
+        private ScheduleManager scheduleManager;
 
         public Planner()
         {
             InitializeComponent();
             SetupCalendarTable();
+        }
+
+        public Planner(User user, ScheduleManager manager)
+        {
+            InitializeComponent();
+            SetupCalendarTable();
+            this.loggedInUser = user;
+            this.scheduleManager = manager;
         }
 
         private void SetupCalendarTable()
@@ -567,7 +579,11 @@ namespace PlanEase.Views.panelDesktop
             }
         }
 
-
+        private void btnAddSchedule_Click(object sender, EventArgs e)
+        {
+            AddScheduleForm_new_ addScheduleForm = new AddScheduleForm_new_(loggedInUser.Id,scheduleManager);
+            addScheduleForm.ShowDialog();
+        }
     }
 }
 
