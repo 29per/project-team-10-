@@ -243,6 +243,9 @@
     <EmbeddedResource Include="Views\AddScheduleForm_new.resx">
       <DependentUpon>AddScheduleForm_new.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\AddToDoForm.resx">
+      <DependentUpon>AddToDoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\ConflictResolutionForm.resx">
       <DependentUpon>ConflictResolutionForm.cs</DependentUpon>
     </EmbeddedResource>

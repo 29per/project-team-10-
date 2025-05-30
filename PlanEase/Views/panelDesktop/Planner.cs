@@ -17,15 +17,63 @@ namespace PlanEase.Views.panelDesktop
         private DateTime currentMonth;
         private DateTime currentWeekStartDate;
         private Dictionary<DateTime, Panel> datePanels = new Dictionary<DateTime, Panel>();
-        private Dictionary<DateTime, List<ToDoItem>> toDoItems = new Dictionary<DateTime, List<ToDoItem>>();
         private User loggedInUser;
         private ScheduleManager scheduleManager;
+        private ToDoManager toDoManager;
+        private TagManager tagManager;
 
-        public Planner()
+
+        private void GenerateCalendar(DateTime targetMonth)
         {
-            InitializeComponent();
-            SetupCalendarTable();
+            calendarTable.Controls.Clear();
+
+            DateTime firstDay = new DateTime(targetMonth.Year, targetMonth.Month, 1);
+            int startDay = (int)firstDay.DayOfWeek;
+            int daysInMonth = DateTime.DaysInMonth(targetMonth.Year, targetMonth.Month);
+
+
+
+            int cellIndex = 0;
+
+            for (int i = 0; i < 42; i++) // 7 x 6 = 42 cells
+            {
+                Panel cellPanel = new Panel
+                {
+                    BorderStyle = BorderStyle.FixedSingle,
+                    Margin = new Padding(1),
+                    BackColor = Color.White,
+                    AllowDrop = true
+                };
+
+                if (i >= startDay && i < startDay + daysInMonth)
+                {
+                    int day = i - startDay + 1;
+
+                    Label lblDate = new Label
+                    {
+                        Text = day.ToString(),
+                        Dock = DockStyle.Top,
+                        TextAlign = ContentAlignment.TopRight,
+                        Padding = new Padding(5),
+                        Font = new Font("Segoe UI", 9, FontStyle.Bold),
+                        ForeColor = Color.Black
+                    };
+
+                    cellPanel.Tag = new DateTime(targetMonth.Year, targetMonth.Month, day);
+                    cellPanel.Controls.Add(lblDate);
+
+                    // 이벤트 핸들링 (예시)
+                    cellPanel.Click += DateCell_Click;
+                    cellPanel.DragEnter += CellPanel_DragEnter;
+                    cellPanel.DragDrop += CellPanel_DragDrop;
+                    cellPanel.MouseDown += CellPanel_MouseDown;
+                }
+
+                calendarTable.Controls.Add(cellPanel);
+                cellIndex++;
+            }
         }
+
 
         public Planner(User user, ScheduleManager manager)
         {
@@ -65,11 +113,6 @@ namespace PlanEase.Views.panelDesktop
             }
 
             calendarTable.ResumeLayout();
-        }
-
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit(); // 전체 프로그램 종료
         }
 
         private void btnDayView_Click(object sender, EventArgs e)
@@ -115,228 +158,13 @@ namespace PlanEase.Views.panelDesktop
             panelDayView.Visible = false;
             panelWeekView.Visible = false;
             panelMonthView.Visible = true;
-            InitializeCalendar(DateTime.Today);
+            GenerateCalendar(DateTime.Today);
 
-        }
-
-
-        // ToDoItem 클래스도 추가 필요 (할 일 항목 데이터 클래스)
-        public class ToDoItem
-        {
-            public string Title { get; set; }
-            public string Details { get; set; }
-            // 기타 필요한 속성들
-        }
-
-        private void InitializeCalendar(DateTime targetMonth)
-        {
-            currentMonth = new DateTime(targetMonth.Year, targetMonth.Month, 1);
-            calendarTableLayoutPanel.Controls.Clear();
-            datePanels.Clear();
-
-            // 1일의 요일 구하기 (일요일=0 ~ 토요일=6)
-            int startDayOfWeek = (int)currentMonth.DayOfWeek;
-            int daysInMonth = DateTime.DaysInMonth(currentMonth.Year, currentMonth.Month);
-
-            int totalCells = 42; // 7 * 6 (최대 주 수)
-            DateTime cellDate;
-
-            for (int i = 0; i < totalCells; i++)
-            {
-                Panel dayPanel = new Panel();
-                dayPanel.BorderStyle = BorderStyle.FixedSingle;
-                dayPanel.Margin = new Padding(1);
-                dayPanel.BackColor = Color.White;
-                dayPanel.AllowDrop = true;  // 드래그앤드랍 활성화
-
-                // 날짜 텍스트 라벨
-                Label dayLabel = new Label();
-                dayLabel.AutoSize = false;
-                dayLabel.TextAlign = ContentAlignment.TopRight;
-                dayLabel.Dock = DockStyle.Top;
-                dayLabel.Height = 20;
-
-                if (i >= startDayOfWeek && i < startDayOfWeek + daysInMonth)
-                {
-                    int dayNumber = i - startDayOfWeek + 1;
-                    cellDate = new DateTime(currentMonth.Year, currentMonth.Month, dayNumber);
-                    dayLabel.Text = dayNumber.ToString();
-
-                    dayPanel.Tag = cellDate;
-                    dayPanel.Controls.Add(dayLabel);
-
-                    // ToDo 목록 보여줄 Panel
-                    FlowLayoutPanel toDoListPanel = new FlowLayoutPanel();
-                    toDoListPanel.Dock = DockStyle.Fill;
-                    toDoListPanel.AutoScroll = true;
-                    toDoListPanel.WrapContents = false;
-                    toDoListPanel.FlowDirection = FlowDirection.TopDown;
-                    toDoListPanel.Tag = "ToDoListPanel";
-
-                    dayPanel.Controls.Add(toDoListPanel);
-
-                    // 이벤트 연결
-                    dayPanel.DragEnter += DayPanel_DragEnter;
-                    dayPanel.DragDrop += DayPanel_DragDrop;
-
-                    datePanels[cellDate] = dayPanel;
-                }
-                else
-                {
-                    dayLabel.Text = "";
-                    dayPanel.Controls.Add(dayLabel);
-                }
-
-                calendarTableLayoutPanel.Controls.Add(dayPanel);
-            }
-
-            RefreshToDoLists();
-        }
-
-        private void RefreshToDoLists()
-        {
-            foreach (var kvp in datePanels)
-            {
-                DateTime date = kvp.Key;
-                Panel dayPanel = kvp.Value;
-                FlowLayoutPanel toDoListPanel = null;
-
-                foreach (Control c in dayPanel.Controls)
-                {
-                    if (c is FlowLayoutPanel && c.Tag?.ToString() == "ToDoListPanel")
-                    {
-                        toDoListPanel = (FlowLayoutPanel)c;
-                        break;
-                    }
-                }
-                if (toDoListPanel == null)
-                    continue;
-
-                toDoListPanel.Controls.Clear();
-
-                if (toDoItems.ContainsKey(date))
-                {
-                    foreach (var todo in toDoItems[date])
-                    {
-                        Label todoLabel = new Label();
-                        todoLabel.Text = todo.Title;
-                        todoLabel.AutoSize = false;
-                        todoLabel.Width = toDoListPanel.Width - 20;
-                        todoLabel.Height = 20;
-                        todoLabel.BackColor = Color.LightBlue;
-                        todoLabel.Margin = new Padding(2);
-                        todoLabel.Cursor = Cursors.Hand;
-                        todoLabel.Tag = todo;
-
-                        // 클릭 이벤트 - 세부정보 보기
-                        todoLabel.Click += TodoLabel_Click;
-
-                        // 드래그 시작 이벤트
-                        todoLabel.MouseDown += TodoLabel_MouseDown;
-
-                        // 우클릭 메뉴 추가
-                        todoLabel.ContextMenuStrip = CreateToDoContextMenu(todo, date);
-
-                        toDoListPanel.Controls.Add(todoLabel);
-                    }
-                }
-            }
-        }
-
-        private void DayPanel_DragEnter(object sender, DragEventArgs e)
-        {
-            if (e.Data.GetDataPresent(typeof(ToDoItem)))
-            {
-                e.Effect = DragDropEffects.Move;
-            }
-            else
-            {
-                e.Effect = DragDropEffects.None;
-            }
-        }
-
-        private void DayPanel_DragDrop(object sender, DragEventArgs e)
-        {
-            if (!e.Data.GetDataPresent(typeof(ToDoItem))) return;
-
-            Panel targetPanel = sender as Panel;
-            if (targetPanel == null) return;
-
-            DateTime targetDate = (DateTime)targetPanel.Tag;
-            ToDoItem draggedToDo = (ToDoItem)e.Data.GetData(typeof(ToDoItem));
-
-            // 원래 날짜 찾기
-            DateTime originalDate = toDoItems.Keys.FirstOrDefault(date => toDoItems[date].Contains(draggedToDo));
-
-            if (originalDate != default && originalDate != targetDate)
-            {
-                toDoItems[originalDate].Remove(draggedToDo);
-
-                if (!toDoItems.ContainsKey(targetDate))
-                    toDoItems[targetDate] = new List<ToDoItem>();
-
-                toDoItems[targetDate].Add(draggedToDo);
-
-                RefreshToDoLists();
-            }
-        }
-
-        private void TodoLabel_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                Label todoLabel = sender as Label;
-                if (todoLabel?.Tag is ToDoItem todo)
-                {
-                    todoLabel.DoDragDrop(todo, DragDropEffects.Move);
-                }
-            }
-        }
-
-        private ContextMenuStrip CreateToDoContextMenu(ToDoItem todo, DateTime date)
-        {
-            ContextMenuStrip menu = new ContextMenuStrip();
-
-            ToolStripMenuItem editItem = new ToolStripMenuItem("수정");
-            editItem.Click += (s, e) => EditToDoItem(todo, date);
-
-            ToolStripMenuItem deleteItem = new ToolStripMenuItem("삭제");
-            deleteItem.Click += (s, e) => DeleteToDoItem(todo, date);
-
-            menu.Items.Add(editItem);
-            menu.Items.Add(deleteItem);
-
-            return menu;
-        }
-
-        private void EditToDoItem(ToDoItem todo, DateTime date)
-        {
-            // TODO: 세부정보 창 띄우기 (팝업 Form 등)
-            MessageBox.Show($"수정할 ToDo: {todo.Title} (날짜: {date.ToShortDateString()})");
-        }
-
-        private void DeleteToDoItem(ToDoItem todo, DateTime date)
-        {
-            if (toDoItems.ContainsKey(date))
-            {
-                toDoItems[date].Remove(todo);
-                RefreshToDoLists();
-            }
-        }
-
-        private void TodoLabel_Click(object sender, EventArgs e)
-        {
-            Label todoLabel = sender as Label;
-            if (todoLabel?.Tag is ToDoItem todo)
-            {
-                // TODO: 세부정보 창 띄우기 (팝업 Form 등)
-                MessageBox.Show($"ToDo 제목: {todo.Title}\n내용: {todo.Details}");
-            }
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            InitializeCalendar(DateTime.Today);
+            GenerateCalendar(DateTime.Today);
 
             // 먼저 열과 행 개수 설정
             calendarTableLayoutPanel.ColumnCount = 7;
@@ -364,9 +192,10 @@ namespace PlanEase.Views.panelDesktop
             panelWeekView.Visible = false;
             panelMonthView.Visible = true;
 
-            InitializeCalendar(DateTime.Today);
-
             GenerateCalendar(DateTime.Today);
+
+            UpdateMonthLabel();
+            //RenderCalendar();
 
         }
         private void InitializeWeekCalendar(DateTime referenceDate)
@@ -425,71 +254,15 @@ namespace PlanEase.Views.panelDesktop
                 };
                 dayPanel.Controls.Add(toDoListPanel);
 
-                // 이벤트 핸들러 연결
-                dayPanel.DragEnter += DayPanel_DragEnter;
-                dayPanel.DragDrop += DayPanel_DragDrop;
-
                 weekTable.Controls.Add(dayPanel, i, 0);
             }
 
             panelWeekView.Controls.Add(weekTable);
 
-            RefreshWeekToDoLists();
         }
 
-        private void RefreshWeekToDoLists()
-        {
-            if (panelWeekView.Controls.Count == 0) return;
-
-            TableLayoutPanel weekTable = panelWeekView.Controls[0] as TableLayoutPanel;
-            if (weekTable == null) return;
-
-            for (int i = 0; i < weekTable.ColumnCount; i++)
-            {
-                Panel dayPanel = weekTable.GetControlFromPosition(i, 0) as Panel;
-                if (dayPanel == null) continue;
-
-                FlowLayoutPanel toDoListPanel = null;
-
-                foreach (Control c in dayPanel.Controls)
-                {
-                    if (c is FlowLayoutPanel && c.Tag?.ToString() == "ToDoListPanel")
-                    {
-                        toDoListPanel = (FlowLayoutPanel)c;
-                        break;
-                    }
-                }
-
-                if (toDoListPanel == null) continue;
-
-                toDoListPanel.Controls.Clear();
-
-                DateTime date = (DateTime)dayPanel.Tag;
-                if (toDoItems.ContainsKey(date))
-                {
-                    foreach (var todo in toDoItems[date])
-                    {
-                        Label todoLabel = new Label
-                        {
-                            Text = todo.Title,
-                            AutoSize = false,
-                            Width = toDoListPanel.Width - 20,
-                            Height = 20,
-                            BackColor = Color.LightBlue,
-                            Margin = new Padding(2),
-                            Cursor = Cursors.Hand,
-                            Tag = todo
-                        };
-
-                        todoLabel.Click += TodoLabel_Click;
-                        todoLabel.MouseDown += TodoLabel_MouseDown;
-                        todoLabel.ContextMenuStrip = CreateToDoContextMenu(todo, date);
-
-                        toDoListPanel.Controls.Add(todoLabel);
-                    }
-                }
-            }
-        }
+       
+        
 
         private void InitializeDayView(DateTime date)
         {
@@ -524,65 +297,51 @@ namespace PlanEase.Views.panelDesktop
             };
             dayPanel.Controls.Add(toDoListPanel);
 
-            dayPanel.DragEnter += DayPanel_DragEnter;
-            dayPanel.DragDrop += DayPanel_DragDrop;
+           
 
             panelDayView.Controls.Add(dayPanel);
 
-            RefreshDayToDoList(date);
-        }
-
-        private void RefreshDayToDoList(DateTime date)
-        {
-            if (panelDayView.Controls.Count == 0) return;
-
-            Panel dayPanel = panelDayView.Controls[0] as Panel;
-            if (dayPanel == null) return;
-
-            FlowLayoutPanel toDoListPanel = null;
-
-            foreach (Control c in dayPanel.Controls)
-            {
-                if (c is FlowLayoutPanel && c.Tag?.ToString() == "ToDoListPanel")
-                {
-                    toDoListPanel = (FlowLayoutPanel)c;
-                    break;
-                }
-            }
-
-            if (toDoListPanel == null) return;
-
-            toDoListPanel.Controls.Clear();
-
-            if (toDoItems.ContainsKey(date))
-            {
-                foreach (var todo in toDoItems[date])
-                {
-                    Label todoLabel = new Label
-                    {
-                        Text = todo.Title,
-                        AutoSize = false,
-                        Width = toDoListPanel.Width - 20,
-                        Height = 20,
-                        BackColor = Color.LightBlue,
-                        Margin = new Padding(2),
-                        Cursor = Cursors.Hand,
-                        Tag = todo
-                    };
-
-                    todoLabel.Click += TodoLabel_Click;
-                    todoLabel.MouseDown += TodoLabel_MouseDown;
-                    todoLabel.ContextMenuStrip = CreateToDoContextMenu(todo, date);
-
-                    toDoListPanel.Controls.Add(todoLabel);
-                }
-            }
         }
 
         private void btnAddSchedule_Click(object sender, EventArgs e)
         {
             AddScheduleForm_new_ addScheduleForm = new AddScheduleForm_new_(loggedInUser.Id,scheduleManager);
             addScheduleForm.ShowDialog();
+        }
+
+
+
+        private DateTime currentDate = DateTime.Today;
+
+        //달력 넘김
+        private void UpdateMonthLabel()
+        {
+            lblCurrentMonth.Text = currentDate.ToString("yyyy년 M월");
+        }
+
+        private void btnPrevMonth_Click(object sender, EventArgs e)
+        {
+            currentDate = currentDate.AddMonths(-1);
+            UpdateMonthLabel();
+            GenerateCalendar(currentDate);
+
+        }
+
+        private void btnNextMonth_Click(object sender, EventArgs e)
+        {
+            currentDate = currentDate.AddMonths(1);
+            UpdateMonthLabel();
+            GenerateCalendar(currentDate);
+
+        }
+
+
+
+        private void btnAddTodo_Click(object sender, EventArgs e)
+        {
+            //List<Tag> availableTags = tagManager.GetAllTags(); // TagManager에서 태그 리스트 가져오기
+            AddToDoForm addToDoForm = new AddToDoForm(loggedInUser.Id, toDoManager); //availableTags);
+            addToDoForm.ShowDialog();
         }
     }
 }

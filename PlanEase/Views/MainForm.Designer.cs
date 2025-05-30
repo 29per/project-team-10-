@@ -199,8 +199,9 @@ namespace PlanEase
             this.panelMenu.InnerShadowDepth = 3;
             this.panelMenu.InnerShadowOpacity = 0.2F;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelMenu.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Padding = new System.Windows.Forms.Padding(10);
+            this.panelMenu.Padding = new System.Windows.Forms.Padding(19, 20, 19, 20);
             this.panelMenu.RadialGradientCenter = ((System.Drawing.PointF)(resources.GetObject("panelMenu.RadialGradientCenter")));
             this.panelMenu.RadialGradientRadius = 1F;
             this.panelMenu.ScaleRatio = 0.8F;
@@ -210,7 +211,7 @@ namespace PlanEase
             this.panelMenu.ShadowDepth = 5;
             this.panelMenu.ShadowOffset = new System.Drawing.Point(2, 2);
             this.panelMenu.ShadowOpacity = 0.3F;
-            this.panelMenu.Size = new System.Drawing.Size(200, 560);
+            this.panelMenu.Size = new System.Drawing.Size(371, 1120);
             this.panelMenu.SlideDirection = new System.Drawing.Point(0, -30);
             this.panelMenu.TabIndex = 9;
             this.panelMenu.TopLeftRadius = 0;
@@ -231,10 +232,11 @@ namespace PlanEase
             this.btnSetting.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSetting.IconSize = 32;
             this.btnSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSetting.Location = new System.Drawing.Point(10, 350);
+            this.btnSetting.Location = new System.Drawing.Point(19, 700);
+            this.btnSetting.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnSetting.Size = new System.Drawing.Size(180, 60);
+            this.btnSetting.Padding = new System.Windows.Forms.Padding(19, 0, 37, 0);
+            this.btnSetting.Size = new System.Drawing.Size(333, 120);
             this.btnSetting.TabIndex = 5;
             this.btnSetting.Text = "Settting";
             this.btnSetting.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -257,10 +259,11 @@ namespace PlanEase
             this.btnGuide.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnGuide.IconSize = 32;
             this.btnGuide.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuide.Location = new System.Drawing.Point(10, 290);
+            this.btnGuide.Location = new System.Drawing.Point(19, 580);
+            this.btnGuide.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnGuide.Name = "btnGuide";
-            this.btnGuide.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnGuide.Size = new System.Drawing.Size(180, 60);
+            this.btnGuide.Padding = new System.Windows.Forms.Padding(19, 0, 37, 0);
+            this.btnGuide.Size = new System.Drawing.Size(333, 120);
             this.btnGuide.TabIndex = 4;
             this.btnGuide.Text = "Guide";
             this.btnGuide.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -283,10 +286,11 @@ namespace PlanEase
             this.btnPlants.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPlants.IconSize = 32;
             this.btnPlants.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPlants.Location = new System.Drawing.Point(10, 230);
+            this.btnPlants.Location = new System.Drawing.Point(19, 460);
+            this.btnPlants.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnPlants.Name = "btnPlants";
-            this.btnPlants.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnPlants.Size = new System.Drawing.Size(180, 60);
+            this.btnPlants.Padding = new System.Windows.Forms.Padding(19, 0, 37, 0);
+            this.btnPlants.Size = new System.Drawing.Size(333, 120);
             this.btnPlants.TabIndex = 3;
             this.btnPlants.Text = "Plants";
             this.btnPlants.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -309,10 +313,11 @@ namespace PlanEase
             this.btnTag.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnTag.IconSize = 32;
             this.btnTag.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTag.Location = new System.Drawing.Point(10, 170);
+            this.btnTag.Location = new System.Drawing.Point(19, 340);
+            this.btnTag.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnTag.Name = "btnTag";
-            this.btnTag.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnTag.Size = new System.Drawing.Size(180, 60);
+            this.btnTag.Padding = new System.Windows.Forms.Padding(19, 0, 37, 0);
+            this.btnTag.Size = new System.Drawing.Size(333, 120);
             this.btnTag.TabIndex = 2;
             this.btnTag.Text = "Tags";
             this.btnTag.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -335,10 +340,11 @@ namespace PlanEase
             this.btnCalendar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCalendar.IconSize = 32;
             this.btnCalendar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCalendar.Location = new System.Drawing.Point(10, 110);
+            this.btnCalendar.Location = new System.Drawing.Point(19, 220);
+            this.btnCalendar.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnCalendar.Name = "btnCalendar";
-            this.btnCalendar.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnCalendar.Size = new System.Drawing.Size(180, 60);
+            this.btnCalendar.Padding = new System.Windows.Forms.Padding(19, 0, 37, 0);
+            this.btnCalendar.Size = new System.Drawing.Size(333, 120);
             this.btnCalendar.TabIndex = 1;
             this.btnCalendar.Text = "Planner";
             this.btnCalendar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -373,7 +379,8 @@ namespace PlanEase
         0F,
         0.5F,
         1F};
-            this.panelLogo.Location = new System.Drawing.Point(10, 10);
+            this.panelLogo.Location = new System.Drawing.Point(19, 20);
+            this.panelLogo.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.panelLogo.Name = "panelLogo";
             this.panelLogo.PatternStyle = System.Drawing.Drawing2D.HatchStyle.LargeGrid;
             this.panelLogo.RippleAlpha = 50;
@@ -382,7 +389,7 @@ namespace PlanEase
             this.panelLogo.RippleMaxSize = 600F;
             this.panelLogo.RippleSpeed = 15F;
             this.panelLogo.ShowBorder = false;
-            this.panelLogo.Size = new System.Drawing.Size(180, 100);
+            this.panelLogo.Size = new System.Drawing.Size(333, 200);
             this.panelLogo.TabIndex = 0;
             this.panelLogo.TabStop = true;
             this.panelLogo.TrackSystemTheme = false;
@@ -408,9 +415,10 @@ namespace PlanEase
             this.btnLogo.IconSize = 50;
             this.btnLogo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogo.Location = new System.Drawing.Point(0, 0);
+            this.btnLogo.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnLogo.Name = "btnLogo";
-            this.btnLogo.Padding = new System.Windows.Forms.Padding(0, 15, 10, 0);
-            this.btnLogo.Size = new System.Drawing.Size(180, 80);
+            this.btnLogo.Padding = new System.Windows.Forms.Padding(0, 30, 19, 0);
+            this.btnLogo.Size = new System.Drawing.Size(333, 160);
             this.btnLogo.TabIndex = 2;
             this.btnLogo.Text = "PlanEase";
             this.btnLogo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -430,9 +438,10 @@ namespace PlanEase
             this.siticoneCloseButton.BackColor = System.Drawing.Color.Transparent;
             this.siticoneCloseButton.CountdownFont = new System.Drawing.Font("Segoe UI", 9F);
             this.siticoneCloseButton.EnableSound = false;
-            this.siticoneCloseButton.Location = new System.Drawing.Point(1067, 0);
+            this.siticoneCloseButton.Location = new System.Drawing.Point(1982, 0);
+            this.siticoneCloseButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.siticoneCloseButton.Name = "siticoneCloseButton";
-            this.siticoneCloseButton.Size = new System.Drawing.Size(33, 33);
+            this.siticoneCloseButton.Size = new System.Drawing.Size(66, 66);
             this.siticoneCloseButton.TabIndex = 11;
             this.siticoneCloseButton.Text = "siticoneCloseButton2";
             this.siticoneCloseButton.TooltipText = "Close";
@@ -483,9 +492,10 @@ namespace PlanEase
             this.panelDesktop.InnerShadowColor = System.Drawing.Color.Black;
             this.panelDesktop.InnerShadowDepth = 3;
             this.panelDesktop.InnerShadowOpacity = 0.2F;
-            this.panelDesktop.Location = new System.Drawing.Point(200, 30);
+            this.panelDesktop.Location = new System.Drawing.Point(371, 60);
+            this.panelDesktop.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Padding = new System.Windows.Forms.Padding(10);
+            this.panelDesktop.Padding = new System.Windows.Forms.Padding(19, 20, 19, 20);
             this.panelDesktop.RadialGradientCenter = ((System.Drawing.PointF)(resources.GetObject("panelDesktop.RadialGradientCenter")));
             this.panelDesktop.RadialGradientRadius = 1F;
             this.panelDesktop.ScaleRatio = 0.8F;
@@ -495,7 +505,7 @@ namespace PlanEase
             this.panelDesktop.ShadowDepth = 5;
             this.panelDesktop.ShadowOffset = new System.Drawing.Point(2, 2);
             this.panelDesktop.ShadowOpacity = 0.3F;
-            this.panelDesktop.Size = new System.Drawing.Size(900, 530);
+            this.panelDesktop.Size = new System.Drawing.Size(1672, 1060);
             this.panelDesktop.SlideDirection = new System.Drawing.Point(0, -30);
             this.panelDesktop.TabIndex = 12;
             this.panelDesktop.TopLeftRadius = 5;
@@ -503,17 +513,17 @@ namespace PlanEase
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
-            this.ClientSize = new System.Drawing.Size(1100, 560);
+            this.ClientSize = new System.Drawing.Size(2043, 1120);
             this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.siticoneCloseButton);
             this.Controls.Add(this.panelMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainForm";
-            this.Text = "PlanEase";
+            this.Text = "6";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panelMenu.ResumeLayout(false);
