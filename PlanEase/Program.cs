@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace PlanEase
 {
     internal static class Program
@@ -15,6 +16,7 @@ namespace PlanEase
         [STAThread]
         static void Main()
         {
+            //Application.SetHighDpiMode(HighDpiMode.PerMonitorV2);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new MainForm());
