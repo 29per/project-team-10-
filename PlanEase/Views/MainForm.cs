@@ -35,7 +35,8 @@ namespace PlanEase
 
 
             leftBorderBtn = new Panel();
-            leftBorderBtn.Size = new Size(7, 60);
+            leftBorderBtn.Size = new Size(7, btnCalendar.Size.Height);
+            //leftBorderBtn.Size = new Size(7, 60);
             panelMenu.Controls.Add(leftBorderBtn);
             //Form
             this.Text = string.Empty;
@@ -453,37 +454,12 @@ namespace PlanEase
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //InitializeCalendar(DateTime.Today);
+            // DPI-Aware NavBarHeight 설정
+            float dpiScale = this.DeviceDpi / 96f; // 96 DPI가 기본 DPI
+            this.siticoneBorderlessForm1.NavBarHeight = (int)(30 * dpiScale); // 30px을 DPI에 맞게 조정
 
-            //// 먼저 열과 행 개수 설정
-            //calendarTableLayoutPanel.ColumnCount = 7;
-            //calendarTableLayoutPanel.RowCount = 5;
 
-            //// 기존 스타일 초기화 (중복 추가 방지)
-            //calendarTableLayoutPanel.ColumnStyles.Clear();
-            //calendarTableLayoutPanel.RowStyles.Clear();
 
-            //// 열 스타일 설정
-            //for (int i = 0; i < 7; i++)
-            //{
-            //    calendarTableLayoutPanel.ColumnStyles.Add(
-            //        new ColumnStyle(SizeType.Percent, 100f / 7f));
-            //}
-
-            //// 행 스타일 설정
-            //for (int i = 0; i < 6; i++)
-            //{
-            //    calendarTableLayoutPanel.RowStyles.Add(
-            //        new RowStyle(SizeType.Percent, 100f / 6f));
-            //}
-
-            ////panelDayView.Visible = false;
-            ////panelWeekView.Visible = false;
-            ////panelMonthView.Visible = true;
-
-            //InitializeCalendar(DateTime.Today);
-
-            //GenerateCalendar(DateTime.Today);
             OpenChildControl(new Planner(loggedInUser, scheduleManager));
 
         }

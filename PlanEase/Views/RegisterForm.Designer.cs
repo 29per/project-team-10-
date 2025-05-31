@@ -49,9 +49,10 @@
             this.siticoneCloseButton.BackColor = System.Drawing.Color.Transparent;
             this.siticoneCloseButton.CountdownFont = new System.Drawing.Font("Segoe UI", 9F);
             this.siticoneCloseButton.EnableSound = false;
-            this.siticoneCloseButton.Location = new System.Drawing.Point(767, 0);
+            this.siticoneCloseButton.Location = new System.Drawing.Point(1424, 0);
+            this.siticoneCloseButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.siticoneCloseButton.Name = "siticoneCloseButton";
-            this.siticoneCloseButton.Size = new System.Drawing.Size(33, 33);
+            this.siticoneCloseButton.Size = new System.Drawing.Size(66, 66);
             this.siticoneCloseButton.TabIndex = 11;
             this.siticoneCloseButton.Text = "siticoneCloseButton2";
             this.siticoneCloseButton.TooltipText = "Close";
@@ -93,9 +94,10 @@
             this.txtUsername.HoverBorderColor2 = System.Drawing.Color.Gray;
             this.txtUsername.IsEnabled = true;
             this.txtUsername.IsRequired = false;
-            this.txtUsername.Location = new System.Drawing.Point(200, 171);
+            this.txtUsername.Location = new System.Drawing.Point(371, 342);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.txtUsername.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.txtUsername.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(50)))), ((int)(((byte)(87)))));
             this.txtUsername.PlaceholderText = "아이디를 입력하세요.";
             this.txtUsername.ReadOnlyBorderColor1 = System.Drawing.Color.LightGray;
@@ -107,7 +109,7 @@
             this.txtUsername.ShadowAnimationDuration = 1;
             this.txtUsername.ShadowBlur = 3;
             this.txtUsername.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
-            this.txtUsername.Size = new System.Drawing.Size(400, 50);
+            this.txtUsername.Size = new System.Drawing.Size(743, 100);
             this.txtUsername.SolidBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.txtUsername.SolidBorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(255)))));
             this.txtUsername.SolidBorderHoverColor = System.Drawing.Color.Gray;
@@ -153,10 +155,11 @@
             this.txtPassword.HoverBorderColor2 = System.Drawing.Color.Gray;
             this.txtPassword.IsEnabled = true;
             this.txtPassword.IsRequired = false;
-            this.txtPassword.Location = new System.Drawing.Point(200, 256);
+            this.txtPassword.Location = new System.Drawing.Point(371, 512);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtPassword.MaxLength = 50;
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.txtPassword.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.txtPassword.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(50)))), ((int)(((byte)(87)))));
             this.txtPassword.PlaceholderText = "비밀번호를 입력하세요.";
             this.txtPassword.ReadOnlyBorderColor1 = System.Drawing.Color.LightGray;
@@ -168,7 +171,7 @@
             this.txtPassword.ShadowAnimationDuration = 1;
             this.txtPassword.ShadowBlur = 3;
             this.txtPassword.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
-            this.txtPassword.Size = new System.Drawing.Size(400, 50);
+            this.txtPassword.Size = new System.Drawing.Size(743, 100);
             this.txtPassword.SolidBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.txtPassword.SolidBorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(255)))));
             this.txtPassword.SolidBorderHoverColor = System.Drawing.Color.Gray;
@@ -231,8 +234,9 @@
             this.btnRegister.IsReadOnly = false;
             this.btnRegister.IsToggleButton = false;
             this.btnRegister.IsToggled = false;
-            this.btnRegister.Location = new System.Drawing.Point(200, 350);
+            this.btnRegister.Location = new System.Drawing.Point(371, 700);
             this.btnRegister.LongPressDurationMS = 1000;
+            this.btnRegister.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.NormalFontStyle = System.Drawing.FontStyle.Regular;
             this.btnRegister.ParticleColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
@@ -250,7 +254,7 @@
             this.btnRegister.ShadowOffset = new System.Drawing.Point(0, 2);
             this.btnRegister.ShakeDuration = 500;
             this.btnRegister.ShakeIntensity = 5;
-            this.btnRegister.Size = new System.Drawing.Size(175, 49);
+            this.btnRegister.Size = new System.Drawing.Size(325, 98);
             this.btnRegister.TabIndex = 14;
             this.btnRegister.Text = "회원가입";
             this.btnRegister.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -312,8 +316,9 @@
             this.btnCancel.IsReadOnly = false;
             this.btnCancel.IsToggleButton = false;
             this.btnCancel.IsToggled = false;
-            this.btnCancel.Location = new System.Drawing.Point(425, 350);
+            this.btnCancel.Location = new System.Drawing.Point(789, 700);
             this.btnCancel.LongPressDurationMS = 1000;
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.NormalFontStyle = System.Drawing.FontStyle.Regular;
             this.btnCancel.ParticleColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
@@ -331,7 +336,7 @@
             this.btnCancel.ShadowOffset = new System.Drawing.Point(0, 2);
             this.btnCancel.ShakeDuration = 500;
             this.btnCancel.ShakeIntensity = 5;
-            this.btnCancel.Size = new System.Drawing.Size(175, 49);
+            this.btnCancel.Size = new System.Drawing.Size(325, 98);
             this.btnCancel.TabIndex = 15;
             this.btnCancel.Text = "취소";
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -343,18 +348,20 @@
             // 
             // RegisterForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.Lavender;
-            this.ClientSize = new System.Drawing.Size(800, 500);
+            this.ClientSize = new System.Drawing.Size(1486, 1000);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.siticoneCloseButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "RegisterForm";
             this.Text = "RegisterForm";
+            this.Load += new System.EventHandler(this.RegisterForm_Load);
             this.ResumeLayout(false);
 
         }

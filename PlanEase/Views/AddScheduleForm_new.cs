@@ -57,6 +57,10 @@ namespace PlanEase.Views
                 });
 
             cmbPriority.SelectedIndex = 2; // 기본값: 보통 = Medium
+
+            // DPI-Aware NavBarHeight 설정
+            float dpiScale = this.DeviceDpi / 96f; // 96 DPI가 기본 DPI
+            this.siticoneBorderlessForm1.NavBarHeight = (int)(30 * dpiScale); // 30px을 DPI에 맞게 조정
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -103,6 +107,9 @@ namespace PlanEase.Views
             this.Close();
         }
 
-        
+        private void panelTextbox_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

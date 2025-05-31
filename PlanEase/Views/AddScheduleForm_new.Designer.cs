@@ -62,7 +62,7 @@
             this.btnClose.CountdownFont = new System.Drawing.Font("Segoe UI", 9F);
             this.btnClose.EnableSound = false;
             this.btnClose.Location = new System.Drawing.Point(1053, -2);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(6);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(66, 66);
             this.btnClose.TabIndex = 12;
@@ -110,7 +110,7 @@
         0.5F,
         1F};
             this.panelTextbox.Location = new System.Drawing.Point(0, 60);
-            this.panelTextbox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panelTextbox.Margin = new System.Windows.Forms.Padding(6);
             this.panelTextbox.Name = "panelTextbox";
             this.panelTextbox.PatternStyle = System.Drawing.Drawing2D.HatchStyle.LargeGrid;
             this.panelTextbox.RippleAlpha = 50;
@@ -127,6 +127,7 @@
             this.panelTextbox.UseMultiGradient = false;
             this.panelTextbox.UsePatternTexture = false;
             this.panelTextbox.UseRadialGradient = false;
+            this.panelTextbox.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTextbox_Paint);
             // 
             // btnCancel
             // 
@@ -182,7 +183,7 @@
             this.btnCancel.IsToggled = false;
             this.btnCancel.Location = new System.Drawing.Point(557, 592);
             this.btnCancel.LongPressDurationMS = 1000;
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(6);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.NormalFontStyle = System.Drawing.FontStyle.Regular;
             this.btnCancel.ParticleColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
@@ -264,7 +265,7 @@
             this.btnAdd.IsToggled = false;
             this.btnAdd.Location = new System.Drawing.Point(310, 592);
             this.btnAdd.LongPressDurationMS = 1000;
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(6);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.NormalFontStyle = System.Drawing.FontStyle.Regular;
             this.btnAdd.ParticleColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
@@ -295,7 +296,7 @@
             // txtDescription
             // 
             this.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDescription.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtDescription.Location = new System.Drawing.Point(310, 416);
             this.txtDescription.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
             this.txtDescription.MinimumSize = new System.Drawing.Size(186, 140);
@@ -317,10 +318,10 @@
             this.cmbPriority.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
             this.cmbPriority.ListTextColor = System.Drawing.Color.DimGray;
             this.cmbPriority.Location = new System.Drawing.Point(310, 332);
-            this.cmbPriority.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cmbPriority.Margin = new System.Windows.Forms.Padding(6);
             this.cmbPriority.MinimumSize = new System.Drawing.Size(371, 50);
             this.cmbPriority.Name = "cmbPriority";
-            this.cmbPriority.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbPriority.Padding = new System.Windows.Forms.Padding(2);
             this.cmbPriority.Size = new System.Drawing.Size(429, 50);
             this.cmbPriority.TabIndex = 20;
             this.cmbPriority.Texts = "";
@@ -359,7 +360,7 @@
             this.txtTag.HoverBorderColor2 = System.Drawing.Color.Gray;
             this.txtTag.IsEnabled = true;
             this.txtTag.Location = new System.Drawing.Point(312, 260);
-            this.txtTag.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtTag.Margin = new System.Windows.Forms.Padding(6);
             this.txtTag.Name = "txtTag";
             this.txtTag.PlaceholderColor = System.Drawing.Color.Gray;
             this.txtTag.PlaceholderText = "Enter text here...";
@@ -390,7 +391,7 @@
             this.dtpEndTime.Font = new System.Drawing.Font("굴림", 9.5F);
             this.dtpEndTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpEndTime.Location = new System.Drawing.Point(316, 192);
-            this.dtpEndTime.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dtpEndTime.Margin = new System.Windows.Forms.Padding(6);
             this.dtpEndTime.MinimumSize = new System.Drawing.Size(4, 25);
             this.dtpEndTime.Name = "dtpEndTime";
             this.dtpEndTime.Size = new System.Drawing.Size(424, 37);
@@ -406,7 +407,7 @@
             this.dtpStartTime.Font = new System.Drawing.Font("굴림", 9.5F);
             this.dtpStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpStartTime.Location = new System.Drawing.Point(312, 110);
-            this.dtpStartTime.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dtpStartTime.Margin = new System.Windows.Forms.Padding(6);
             this.dtpStartTime.MinimumSize = new System.Drawing.Size(4, 25);
             this.dtpStartTime.Name = "dtpStartTime";
             this.dtpStartTime.Size = new System.Drawing.Size(424, 37);
@@ -449,7 +450,7 @@
             this.txtTitle.HoverBorderColor2 = System.Drawing.Color.Gray;
             this.txtTitle.IsEnabled = true;
             this.txtTitle.Location = new System.Drawing.Point(314, 36);
-            this.txtTitle.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtTitle.Margin = new System.Windows.Forms.Padding(6);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.PlaceholderColor = System.Drawing.Color.Gray;
             this.txtTitle.PlaceholderText = "Enter text here...";
@@ -547,13 +548,13 @@
             // 
             // AddScheduleForm_new_
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1114, 800);
             this.Controls.Add(this.panelTextbox);
             this.Controls.Add(this.btnClose);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "AddScheduleForm_new_";
             this.Text = "AddScheduleForm_new_";
             this.Load += new System.EventHandler(this.AddScheduleForm_new__Load);

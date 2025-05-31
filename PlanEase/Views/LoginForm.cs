@@ -24,9 +24,13 @@ namespace PlanEase.Views
         public LoginForm()
         {
             InitializeComponent();
+
+            // DPI-Aware NavBarHeight 설정
+            float dpiScale = this.DeviceDpi / 96f; // 96 DPI가 기본 DPI
+            this.siticoneBorderlessForm1.NavBarHeight = (int)(30 * dpiScale); // 30px을 DPI에 맞게 조정
         }
 
-        
+
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
