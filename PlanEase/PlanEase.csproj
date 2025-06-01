@@ -209,11 +209,11 @@
     <Compile Include="Views\panelDesktop\Plants.Designer.cs">
       <DependentUpon>Plants.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\panelDesktop\Setting.cs">
+    <Compile Include="Views\panelDesktop\SettingControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\panelDesktop\Setting.Designer.cs">
-      <DependentUpon>Setting.cs</DependentUpon>
+    <Compile Include="Views\panelDesktop\SettingControl.Designer.cs">
+      <DependentUpon>SettingControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\panelDesktop\Tags.cs">
       <SubType>UserControl</SubType>
@@ -267,8 +267,8 @@
     <EmbeddedResource Include="Views\panelDesktop\Plants.resx">
       <DependentUpon>Plants.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\panelDesktop\Setting.resx">
-      <DependentUpon>Setting.cs</DependentUpon>
+    <EmbeddedResource Include="Views\panelDesktop\SettingControl.resx">
+      <DependentUpon>SettingControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\panelDesktop\Tags.resx">
       <DependentUpon>Tags.cs</DependentUpon>

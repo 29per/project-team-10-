@@ -17,7 +17,7 @@ namespace PlanEase.Models
 
     // 사용자 설정을 저장하는 클래스
     // 충돌 해결 전략, 테마, 폰트 설정 등을 포함
-    internal class Setting
+    public class Setting
     {
         public int UserId { get; set; }
         public bool UseAutoConflictResolution { get; set; } = false; // 충돌 시 자동으로 처리할지 여부

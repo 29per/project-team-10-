@@ -8,7 +8,7 @@ using PlanEase.Models;
 
 namespace PlanEase.Services
 {
-    internal class SettingManager
+    public class SettingManager
     {
         private Setting currentSetting;
         private readonly string connStr = "Server=gondola.proxy.rlwy.net;Port=22404;Database=railway;Uid=root;Pwd=vMbiAFpyuiYNKkWXyMCsxdbOFmkqbUHt;SslMode=Required;";

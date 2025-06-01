@@ -19,6 +19,7 @@ namespace PlanEase
     {
         private User loggedInUser;
         private ScheduleManager scheduleManager;
+        private SettingManager settingManager;
 
         private IconButton currentBtn;
         private Panel leftBorderBtn;
@@ -32,6 +33,8 @@ namespace PlanEase
             loggedInUser = user;
             scheduleManager = new ScheduleManager();
             scheduleManager.LoadSchedules(loggedInUser.Id);
+            settingManager = new SettingManager();
+            settingManager.LoadSetting(loggedInUser.Id);
 
 
             leftBorderBtn = new Panel();
@@ -705,7 +708,7 @@ namespace PlanEase
         private void btnSetting_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color5);
-            OpenChildControl(new Views.panelDesktop.Setting());
+            OpenChildControl(new Views.panelDesktop.SettingControl(settingManager));
         }
 
         private void siticoneCloseButton_Click(object sender, EventArgs e)
