@@ -75,12 +75,13 @@ namespace PlanEase.Views.panelDesktop
         }
 
 
-        public Planner(User user, ScheduleManager manager)
+        public Planner(User user, ScheduleManager manager,TagManager tagManager)
         {
             InitializeComponent();
             SetupCalendarTable();
             this.loggedInUser = user;
             this.scheduleManager = manager;
+            this.tagManager = tagManager;
         }
 
         private void SetupCalendarTable()
@@ -305,7 +306,7 @@ namespace PlanEase.Views.panelDesktop
 
         private void btnAddSchedule_Click(object sender, EventArgs e)
         {
-            AddScheduleForm_new_ addScheduleForm = new AddScheduleForm_new_(loggedInUser.Id,scheduleManager);
+            AddScheduleForm_new_ addScheduleForm = new AddScheduleForm_new_(loggedInUser.Id,scheduleManager,tagManager);
             addScheduleForm.ShowDialog();
         }
 

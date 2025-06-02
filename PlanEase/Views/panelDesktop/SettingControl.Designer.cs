@@ -357,7 +357,7 @@
             this.siticoneGroupBox1.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.siticoneGroupBox1.ShadowDepth = 3;
             this.siticoneGroupBox1.ShowShadow = true;
-            this.siticoneGroupBox1.Size = new System.Drawing.Size(705, 102);
+            this.siticoneGroupBox1.Size = new System.Drawing.Size(677, 102);
             this.siticoneGroupBox1.SolidFillColor = System.Drawing.Color.WhiteSmoke;
             this.siticoneGroupBox1.StatusIcon = null;
             this.siticoneGroupBox1.StatusText = "";
@@ -543,8 +543,7 @@
             // 
             // btnSetting
             // 
-            this.btnSetting.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSetting.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSetting.BackColor = System.Drawing.Color.Transparent;
             this.btnSetting.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnSetting.FlatAppearance.BorderSize = 0;

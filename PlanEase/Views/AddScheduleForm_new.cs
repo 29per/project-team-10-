@@ -15,6 +15,7 @@ namespace PlanEase.Views
     public partial class AddScheduleForm_new_ : Form
     {
         private  readonly ScheduleManager scheduleManager;
+        private readonly TagManager tagManager;
         private readonly int userId;
 
         public AddScheduleForm_new_()
@@ -22,10 +23,11 @@ namespace PlanEase.Views
             InitializeComponent();
         }
 
-        public AddScheduleForm_new_(int userId, ScheduleManager scheduleManager)
+        public AddScheduleForm_new_(int userId, ScheduleManager scheduleManager, TagManager tagManager)
         {
             InitializeComponent();
             this.scheduleManager = scheduleManager;
+            this.tagManager = tagManager;
             this.userId = userId;
         }
 
@@ -78,16 +80,27 @@ namespace PlanEase.Views
                 return;
             }
 
+            // 1. 태그 파싱
+            List<string> tagList = txtTag.Text
+                .Split(new[] { ',', ' ', '|' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(t => t.Trim())
+                .Where(t => !string.IsNullOrWhiteSpace(t))
+                .Distinct()
+                .ToList();
+
+            // 2. 태그 등록
+            foreach (var tag in tagList)
+            {
+                tagManager.RegisterIfNew(tag, userId);
+            }
+
             // 2. Schedule 객체 생성
             var schedule = new Schedule
             {
                 Title = txtTitle.Text.Trim(),
                 StartTime = dtpStartTime.Value,
                 EndTime = dtpEndTime.Value,
-                Tags = txtTag.Text
-                    .Split(new[] { ',', ' ', '|' }, StringSplitOptions.RemoveEmptyEntries)
-                    .Distinct()
-                    .ToList(),
+                Tags = tagList, 
                 Priority = (PriorityLevel)(cmbPriority.SelectedIndex + 1), // Enum: 1부터 시작
                 Description = txtDescription.Text.Trim(),
                 IsCompleted = false, // 새 일정은 미완료 상태로 추가

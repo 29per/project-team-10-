@@ -20,6 +20,7 @@ namespace PlanEase
         private User loggedInUser;
         private ScheduleManager scheduleManager;
         private SettingManager settingManager;
+        private TagManager tagManager;
 
         private IconButton currentBtn;
         private Panel leftBorderBtn;
@@ -35,6 +36,8 @@ namespace PlanEase
             scheduleManager.LoadSchedules(loggedInUser.Id);
             settingManager = new SettingManager();
             settingManager.LoadSetting(loggedInUser.Id);
+            tagManager = new TagManager();
+            tagManager.LoadTagsFromDb(loggedInUser.Id);
 
 
             leftBorderBtn = new Panel();
@@ -463,7 +466,7 @@ namespace PlanEase
 
 
 
-            OpenChildControl(new Planner(loggedInUser, scheduleManager));
+            OpenChildControl(new Planner(loggedInUser, scheduleManager,tagManager));
 
         }
         //private void InitializeWeekCalendar(DateTime referenceDate)
@@ -684,7 +687,7 @@ namespace PlanEase
         private void btnCalendar_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
-            OpenChildControl(new Planner(loggedInUser,scheduleManager));
+            OpenChildControl(new Planner(loggedInUser,scheduleManager,tagManager));
         }
 
         private void btnTag_Click(object sender, EventArgs e)
