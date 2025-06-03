@@ -46,7 +46,7 @@ namespace PlanEase
             this.panelLeft.Controls.Add(this.lblTodoTitle);
             this.panelLeft.Controls.Add(this.progressBar);
             this.panelLeft.Location = new System.Drawing.Point(7, 64);
-            this.panelLeft.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelLeft.Margin = new System.Windows.Forms.Padding(2);
             this.panelLeft.Name = "panelLeft";
             this.panelLeft.Size = new System.Drawing.Size(266, 335);
             this.panelLeft.TabIndex = 0;
@@ -65,7 +65,7 @@ namespace PlanEase
             // progressBar
             // 
             this.progressBar.Location = new System.Drawing.Point(3, 30);
-            this.progressBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.progressBar.Margin = new System.Windows.Forms.Padding(2);
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(260, 22);
             this.progressBar.TabIndex = 0;
@@ -73,7 +73,7 @@ namespace PlanEase
             // btnAddSchedule
             // 
             this.btnAddSchedule.Location = new System.Drawing.Point(6, 426);
-            this.btnAddSchedule.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddSchedule.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddSchedule.Name = "btnAddSchedule";
             this.btnAddSchedule.Size = new System.Drawing.Size(70, 20);
             this.btnAddSchedule.TabIndex = 3;
@@ -82,7 +82,7 @@ namespace PlanEase
             // btnAddTodo
             // 
             this.btnAddTodo.Location = new System.Drawing.Point(93, 426);
-            this.btnAddTodo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddTodo.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddTodo.Name = "btnAddTodo";
             this.btnAddTodo.Size = new System.Drawing.Size(70, 20);
             this.btnAddTodo.TabIndex = 2;
@@ -91,7 +91,7 @@ namespace PlanEase
             // btnSearchTag
             // 
             this.btnSearchTag.Location = new System.Drawing.Point(183, 426);
-            this.btnSearchTag.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSearchTag.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearchTag.Name = "btnSearchTag";
             this.btnSearchTag.Size = new System.Drawing.Size(70, 20);
             this.btnSearchTag.TabIndex = 1;
@@ -104,7 +104,7 @@ namespace PlanEase
             this.panelRight.Controls.Add(this.panelWeekView);
             this.panelRight.Controls.Add(this.panelMonthView);
             this.panelRight.Location = new System.Drawing.Point(284, 64);
-            this.panelRight.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelRight.Margin = new System.Windows.Forms.Padding(2);
             this.panelRight.Name = "panelRight";
             this.panelRight.Size = new System.Drawing.Size(553, 393);
             this.panelRight.TabIndex = 1;
@@ -113,7 +113,7 @@ namespace PlanEase
             // 
             this.panelDayView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDayView.Location = new System.Drawing.Point(0, 0);
-            this.panelDayView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelDayView.Margin = new System.Windows.Forms.Padding(2);
             this.panelDayView.Name = "panelDayView";
             this.panelDayView.Size = new System.Drawing.Size(551, 391);
             this.panelDayView.TabIndex = 0;
@@ -123,7 +123,7 @@ namespace PlanEase
             // 
             this.panelWeekView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelWeekView.Location = new System.Drawing.Point(0, 0);
-            this.panelWeekView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelWeekView.Margin = new System.Windows.Forms.Padding(2);
             this.panelWeekView.Name = "panelWeekView";
             this.panelWeekView.Size = new System.Drawing.Size(551, 391);
             this.panelWeekView.TabIndex = 1;
@@ -134,7 +134,7 @@ namespace PlanEase
             this.panelMonthView.Controls.Add(this.calendarMonth);
             this.panelMonthView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMonthView.Location = new System.Drawing.Point(0, 0);
-            this.panelMonthView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelMonthView.Margin = new System.Windows.Forms.Padding(2);
             this.panelMonthView.Name = "panelMonthView";
             this.panelMonthView.Size = new System.Drawing.Size(551, 391);
             this.panelMonthView.TabIndex = 2;
@@ -151,7 +151,7 @@ namespace PlanEase
             // btnDayView
             // 
             this.btnDayView.Location = new System.Drawing.Point(693, 30);
-            this.btnDayView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDayView.Margin = new System.Windows.Forms.Padding(2);
             this.btnDayView.Name = "btnDayView";
             this.btnDayView.Size = new System.Drawing.Size(32, 20);
             this.btnDayView.TabIndex = 5;
@@ -161,7 +161,7 @@ namespace PlanEase
             // btnWeekView
             // 
             this.btnWeekView.Location = new System.Drawing.Point(731, 30);
-            this.btnWeekView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnWeekView.Margin = new System.Windows.Forms.Padding(2);
             this.btnWeekView.Name = "btnWeekView";
             this.btnWeekView.Size = new System.Drawing.Size(32, 20);
             this.btnWeekView.TabIndex = 6;
@@ -171,7 +171,7 @@ namespace PlanEase
             // btnMonthView
             // 
             this.btnMonthView.Location = new System.Drawing.Point(768, 30);
-            this.btnMonthView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMonthView.Margin = new System.Windows.Forms.Padding(2);
             this.btnMonthView.Name = "btnMonthView";
             this.btnMonthView.Size = new System.Drawing.Size(32, 20);
             this.btnMonthView.TabIndex = 7;
@@ -181,7 +181,7 @@ namespace PlanEase
             // btnSettings
             // 
             this.btnSettings.Location = new System.Drawing.Point(806, 30);
-            this.btnSettings.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSettings.Margin = new System.Windows.Forms.Padding(2);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(22, 20);
             this.btnSettings.TabIndex = 8;
@@ -213,7 +213,7 @@ namespace PlanEase
             this.Controls.Add(this.btnWeekView);
             this.Controls.Add(this.btnMonthView);
             this.Controls.Add(this.btnSettings);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
             this.Text = "PlanEase";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);

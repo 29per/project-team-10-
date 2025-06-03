@@ -196,6 +196,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\AddToDoForm.resx">
+      <DependentUpon>AddToDoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\ConflictResolutionForm.resx">
       <DependentUpon>ConflictResolutionForm.cs</DependentUpon>
     </EmbeddedResource>
