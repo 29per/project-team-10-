@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PlanEase.Models;
 using PlanEase.Services;
+using PlanEase.Views.panelDesktop;
 
 namespace PlanEase.Views
 {
@@ -59,18 +60,27 @@ namespace PlanEase.Views
             }
 
             //var selectedTags = clbTags.CheckedIndices
-              //  .Cast<int>()
-                //.Select(i => availableTags[i])
-                //.ToList();
+            //  .Cast<int>()
+            //.Select(i => availableTags[i])
+            //.ToList();
+
+            int priority = cmbPriority.SelectedIndex + 1;
 
             var todo = new ToDo
             {
                 Content = txtContent.Text.Trim(),
                 DueDate = chkDueDate.Checked ? dtpDueDate.Value : (DateTime?)null,
-                //Priority = (PriorityLevel)(cmbPriority.SelectedIndex + 1), // Enum이 1부터 시작한다고 가정
+                Priority = priority,
                 IsDone = false,
                 UserId = userId,
                 //Tags = selectedTags
+            };
+
+            ToDo newToDo = new ToDo
+            {
+                Content = txtContent.Text,
+                DueDate = dtpDueDate.Value,
+                Priority = cmbPriority.SelectedIndex + 1 // 예: ComboBox 0 = 높음 → 1
             };
 
             toDoManager.AddToDo(todo);
@@ -83,5 +93,10 @@ namespace PlanEase.Views
         {
             this.Close();
         }
+
+       
+
+
+
     }
 }

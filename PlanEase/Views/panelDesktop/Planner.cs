@@ -14,13 +14,16 @@ namespace PlanEase.Views.panelDesktop
 {
     public partial class Planner : UserControl
     {
+
         private DateTime currentMonth;
         private DateTime currentWeekStartDate;
         private Dictionary<DateTime, Panel> datePanels = new Dictionary<DateTime, Panel>();
         private User loggedInUser;
         private ScheduleManager scheduleManager;
-        private ToDoManager toDoManager;
+        private ToDoManager toDoManager = new ToDoManager();
         private TagManager tagManager;
+        private List<ToDo> toDoList = new List<ToDo>();
+
 
 
         private void GenerateCalendar(DateTime targetMonth)
@@ -340,10 +343,79 @@ namespace PlanEase.Views.panelDesktop
 
         private void btnAddTodo_Click(object sender, EventArgs e)
         {
+
             //List<Tag> availableTags = tagManager.GetAllTags(); // TagManager에서 태그 리스트 가져오기
             AddToDoForm addToDoForm = new AddToDoForm(loggedInUser.Id, toDoManager); //availableTags);
+            addToDoForm.FormClosed += (s, args) => LoadToDoList(); // 폼 닫히면 자동 갱신
             addToDoForm.ShowDialog();
         }
+
+
+
+        private void AddToDoForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            RefreshToDoListView();
+        }
+
+        private void RefreshToDoListView()
+        {
+            var todos = toDoManager.GetAllToDos();
+
+            ToDoListView.Items.Clear();
+            foreach (var todo in todos)
+            {
+                var item = new ListViewItem(todo.Content);
+                item.SubItems.Add(todo.DueDate?.ToString("yyyy-MM-dd") ?? "없음");
+                item.SubItems.Add(todo.Priority.ToString());
+                item.SubItems.Add(todo.IsDone ? "완료" : "미완료");
+                ToDoListView.Items.Add(item);
+            }
+        }
+
+
+
+        private void LoadToDoList()
+        {
+
+
+            // 정렬된 목록 가져오기
+            List<ToDo> sortedList = toDoManager.GetToDoList();
+
+            // 기존 UI 목록 비우기
+            ToDoListView.Items.Clear();
+
+            
+
+            // 정렬된 항목 다시 추가
+            foreach (ToDo todo in sortedList)
+            {
+                ListViewItem item = new ListViewItem(todo.Content);
+                if (todo.DueDate.HasValue)
+                    item.SubItems.Add(todo.DueDate.Value.ToString("yyyy-MM-dd"));
+                else
+                    item.SubItems.Add("미정");
+                item.SubItems.Add(GetPriorityText(todo.Priority)); // 예: "높음", "중간", "낮음"
+
+                ToDoListView.Items.Add(item);
+            }
+        }
+
+        // 우선순위 숫자를 텍스트로 변환
+        private string GetPriorityText(int priority)
+        {
+            return priority switch
+            {
+                1 => "매우 높음",
+                2 => "높음",
+                3 => "보통",
+                4 => "낮음",
+                5 => "매우 낮음",
+                _ => "알 수 없음"
+            };
+        }
+
+
+
     }
 }
 

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using MySql.Data.MySqlClient;
+using System.Collections;
 
 namespace PlanEase.Services
 {
@@ -132,6 +133,20 @@ namespace PlanEase.Services
         //    List<string> lines = todos.Select(t => t.ToCsv()).ToList();
         //    File.WriteAllLines(FilePath, lines);
         //}
+
+        public List<ToDo> GetToDoList()
+        {
+            
+            // 우선순위(1=높음) → 마감일 빠른 순으로 정렬
+            return todos
+                .OrderBy(t => t.Priority)
+                .ThenBy(t => t.DueDate)
+                .ToList();
+                
+                
+        }
+
+
 
 
     }
