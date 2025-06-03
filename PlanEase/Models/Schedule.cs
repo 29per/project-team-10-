@@ -29,6 +29,7 @@ namespace PlanEase.Models
         public PriorityLevel Priority { get; set; } = PriorityLevel.Medium; // 우선순위(5단계 Enum)
         public bool IsCompleted { get; set; } = false; // 완료 여부
         public string Description { get; set; } = "";// 일정에 대한 상세 설명
+        public Tag Tag { get; set; } // 단일 태그만 사용 시
 
         public Schedule() { }
         public Schedule(int userId, string title, DateTime startTime, DateTime endTime)

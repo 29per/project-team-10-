@@ -3,21 +3,13 @@
     partial class ConflictResolutionForm
     {
         private System.ComponentModel.IContainer components = null;
-        private SiticoneNetFrameworkUI.MySiticoneLicenseSettings mySiticoneLicenseSettings1;
-        private SiticoneNetFrameworkUI.SiticoneBorderlessForm siticoneBorderlessForm1;
-        private SiticoneNetFrameworkUI.SiticoneCloseButton siticoneCloseButton1;
-        private System.Windows.Forms.Label lblTitle;
-        private SiticoneNetFrameworkUI.SiticoneGroupBox grpStrategy;
-        private SiticoneNetFrameworkUI.SiticoneRadioButton radioChangeTime;
-        private SiticoneNetFrameworkUI.SiticoneRadioButton radioMerge;
-        private SiticoneNetFrameworkUI.SiticoneRadioButton radioDelete;
-        private SiticoneNetFrameworkUI.SiticoneButton btnOk;
-        private SiticoneNetFrameworkUI.SiticoneButton btnCancel;
 
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
+            {
                 components.Dispose();
+            }
             base.Dispose(disposing);
         }
 
@@ -26,103 +18,106 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.mySiticoneLicenseSettings1 = new SiticoneNetFrameworkUI.MySiticoneLicenseSettings();
             this.siticoneBorderlessForm1 = new SiticoneNetFrameworkUI.SiticoneBorderlessForm(this.components);
-            this.siticoneCloseButton1 = new SiticoneNetFrameworkUI.SiticoneCloseButton();
+            this.panelMain = new SiticoneNetFrameworkUI.SiticonePanel();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.grpStrategy = new SiticoneNetFrameworkUI.SiticoneGroupBox();
+            this.grpStrategy = new System.Windows.Forms.GroupBox();
             this.radioChangeTime = new SiticoneNetFrameworkUI.SiticoneRadioButton();
             this.radioMerge = new SiticoneNetFrameworkUI.SiticoneRadioButton();
             this.radioDelete = new SiticoneNetFrameworkUI.SiticoneRadioButton();
             this.btnOk = new SiticoneNetFrameworkUI.SiticoneButton();
             this.btnCancel = new SiticoneNetFrameworkUI.SiticoneButton();
+            this.panelMain.SuspendLayout();
             this.grpStrategy.SuspendLayout();
             this.SuspendLayout();
             // 
-            // mySiticoneLicenseSettings1
-            // 
-            this.mySiticoneLicenseSettings1.OpenLicenseSettings = null;
-            // 
             // siticoneBorderlessForm1
             // 
-            this.siticoneBorderlessForm1.NavBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(80)))));
+            this.siticoneBorderlessForm1.NavBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.siticoneBorderlessForm1.NavBarHeight = 30;
             this.siticoneBorderlessForm1.TargetForm = this;
             // 
-            // siticoneCloseButton1
+            // panelMain
             // 
-            this.siticoneCloseButton1.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneCloseButton1.CountdownFont = new System.Drawing.Font("Segoe UI", 9F);
-            this.siticoneCloseButton1.EnableSound = false;
-            this.siticoneCloseButton1.Location = new System.Drawing.Point(375, 5);
-            this.siticoneCloseButton1.Name = "siticoneCloseButton1";
-            this.siticoneCloseButton1.Size = new System.Drawing.Size(32, 32);
-            this.siticoneCloseButton1.TabIndex = 0;
-            this.siticoneCloseButton1.TooltipText = "Close button";
+            this.panelMain.AcrylicTintColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.panelMain.BackColor = System.Drawing.Color.Transparent;
+            this.panelMain.BorderAlignment = System.Drawing.Drawing2D.PenAlignment.Center;
+            this.panelMain.BorderDashPattern = null;
+            this.panelMain.BorderGradientEndColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
+            this.panelMain.BorderGradientStartColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(169)))), ((int)(((byte)(244)))));
+            this.panelMain.BorderThickness = 2F;
+            this.panelMain.Controls.Add(this.lblTitle);
+            this.panelMain.Controls.Add(this.grpStrategy);
+            this.panelMain.Controls.Add(this.btnOk);
+            this.panelMain.Controls.Add(this.btnCancel);
+            this.panelMain.CornerRadiusBottomLeft = 0F;
+            this.panelMain.CornerRadiusBottomRight = 0F;
+            this.panelMain.CornerRadiusTopLeft = 0F;
+            this.panelMain.CornerRadiusTopRight = 0F;
+            this.panelMain.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panelMain.EnableAcrylicEffect = false;
+            this.panelMain.EnableMicaEffect = false;
+            this.panelMain.EnableRippleEffect = false;
+            this.panelMain.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.panelMain.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.panelMain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.panelMain.GradientColors = new System.Drawing.Color[] {
+        System.Drawing.Color.White,
+        System.Drawing.Color.LightGray,
+        System.Drawing.Color.Gray};
+            this.panelMain.GradientPositions = new float[] {
+        0F,
+        0.5F,
+        1F};
+            this.panelMain.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.panelMain.Location = new System.Drawing.Point(0, 22);
+            this.panelMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.PatternStyle = System.Drawing.Drawing2D.HatchStyle.LargeGrid;
+            this.panelMain.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.panelMain.RippleAlpha = 50;
+            this.panelMain.RippleAlphaDecrement = 3;
+            this.panelMain.RippleColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.panelMain.RippleMaxSize = 600F;
+            this.panelMain.RippleSpeed = 15F;
+            this.panelMain.ShowBorder = true;
+            this.panelMain.Size = new System.Drawing.Size(586, 330);
+            this.panelMain.TabIndex = 0;
+            this.panelMain.TabStop = true;
+            this.panelMain.TrackSystemTheme = false;
+            this.panelMain.UseBorderGradient = true;
+            this.panelMain.UseMultiGradient = false;
+            this.panelMain.UsePatternTexture = false;
+            this.panelMain.UseRadialGradient = false;
+            this.panelMain.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
             // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.lblTitle.Location = new System.Drawing.Point(12, 17);
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblTitle.Location = new System.Drawing.Point(44, 22);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(235, 20);
-            this.lblTitle.TabIndex = 1;
+            this.lblTitle.Size = new System.Drawing.Size(298, 25);
+            this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "일정 충돌 해결 방법을 선택하세요";
             // 
             // grpStrategy
             // 
             this.grpStrategy.BackColor = System.Drawing.Color.Transparent;
-            this.grpStrategy.BadgeColor = System.Drawing.Color.Red;
-            this.grpStrategy.BadgeFont = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.grpStrategy.BadgeLeftPadding = 12;
-            this.grpStrategy.BadgeValue = 0;
-            this.grpStrategy.BadgeVisible = false;
-            this.grpStrategy.BlinkInterval = 500;
-            this.grpStrategy.BlinkMinOpacity = 0.3F;
-            this.grpStrategy.BlinkOpacityStep = 0.05F;
-            this.grpStrategy.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.grpStrategy.BorderWidth = 2F;
-            this.grpStrategy.CanHover = true;
-            this.grpStrategy.ChevronColor = System.Drawing.Color.Black;
-            this.grpStrategy.ChevronLeftSpacing = 4F;
-            this.grpStrategy.ChevronSize = 10F;
-            this.grpStrategy.ChevronThickness = 2F;
-            this.grpStrategy.ContentPadding = 5;
-            this.grpStrategy.Controls.Add(this.radioDelete);
-            this.grpStrategy.Controls.Add(this.radioMerge);
             this.grpStrategy.Controls.Add(this.radioChangeTime);
-            this.grpStrategy.CornerRadius = 0;
-            this.grpStrategy.EnableBlinking = false;
-            this.grpStrategy.EnableHoverAnimation = true;
-            this.grpStrategy.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.grpStrategy.GradientEndColor = System.Drawing.Color.LightGray;
-            this.grpStrategy.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.grpStrategy.GradientStartColor = System.Drawing.Color.White;
-            this.grpStrategy.GroupTitle = "GroupBox";
-            this.grpStrategy.HoveredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(120)))), ((int)(((byte)(200)))));
-            this.grpStrategy.HoveredTitleColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(90)))), ((int)(((byte)(160)))));
-            this.grpStrategy.IsCollapsed = false;
-            this.grpStrategy.IsCollapsible = true;
-            this.grpStrategy.Location = new System.Drawing.Point(37, 120);
-            this.grpStrategy.MaxBlinkCount = 3;
+            this.grpStrategy.Controls.Add(this.radioMerge);
+            this.grpStrategy.Controls.Add(this.radioDelete);
+            this.grpStrategy.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.grpStrategy.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.grpStrategy.Location = new System.Drawing.Point(44, 75);
+            this.grpStrategy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpStrategy.Name = "grpStrategy";
-            this.grpStrategy.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(90)))), ((int)(((byte)(160)))));
-            this.grpStrategy.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.grpStrategy.ShadowDepth = 3;
-            this.grpStrategy.ShowShadow = true;
-            this.grpStrategy.Size = new System.Drawing.Size(370, 114);
-            this.grpStrategy.SolidFillColor = System.Drawing.Color.WhiteSmoke;
-            this.grpStrategy.StatusIcon = null;
-            this.grpStrategy.StatusText = "";
-            this.grpStrategy.TabIndex = 2;
+            this.grpStrategy.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.grpStrategy.Size = new System.Drawing.Size(503, 95);
+            this.grpStrategy.TabIndex = 1;
             this.grpStrategy.TabStop = false;
             this.grpStrategy.Text = "해결 전략";
-            this.grpStrategy.TitleBackColor = System.Drawing.Color.Transparent;
-            this.grpStrategy.TitleColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.grpStrategy.TitlePadding = new System.Windows.Forms.Padding(0, 8, 0, 12);
-            this.grpStrategy.TitlePos = SiticoneNetFrameworkUI.TitlePosition.TopLeft;
-            this.grpStrategy.UseGradient = false;
-            this.grpStrategy.Click += new System.EventHandler(this.grpStrategy_Click);
             // 
             // radioChangeTime
             // 
@@ -147,11 +142,12 @@
             this.radioChangeTime.ContainerTopLeftRadius = 8;
             this.radioChangeTime.ContainerTopRightRadius = 8;
             this.radioChangeTime.EnableRipple = false;
-            this.radioChangeTime.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.radioChangeTime.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.radioChangeTime.HoverCursor = System.Windows.Forms.Cursors.Hand;
             this.radioChangeTime.IsContained = false;
             this.radioChangeTime.IsReadOnly = false;
-            this.radioChangeTime.Location = new System.Drawing.Point(16, 60);
+            this.radioChangeTime.Location = new System.Drawing.Point(22, 41);
+            this.radioChangeTime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.radioChangeTime.MinimumSize = new System.Drawing.Size(178, 24);
             this.radioChangeTime.Name = "radioChangeTime";
             this.radioChangeTime.RippleColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
@@ -188,11 +184,12 @@
             this.radioMerge.ContainerTopLeftRadius = 8;
             this.radioMerge.ContainerTopRightRadius = 8;
             this.radioMerge.EnableRipple = false;
-            this.radioMerge.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.radioMerge.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.radioMerge.HoverCursor = System.Windows.Forms.Cursors.Hand;
             this.radioMerge.IsContained = false;
             this.radioMerge.IsReadOnly = false;
-            this.radioMerge.Location = new System.Drawing.Point(131, 60);
+            this.radioMerge.Location = new System.Drawing.Point(206, 41);
+            this.radioMerge.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.radioMerge.MinimumSize = new System.Drawing.Size(178, 24);
             this.radioMerge.Name = "radioMerge";
             this.radioMerge.RippleColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
@@ -229,11 +226,12 @@
             this.radioDelete.ContainerTopLeftRadius = 8;
             this.radioDelete.ContainerTopRightRadius = 8;
             this.radioDelete.EnableRipple = false;
-            this.radioDelete.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.radioDelete.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.radioDelete.HoverCursor = System.Windows.Forms.Cursors.Hand;
             this.radioDelete.IsContained = false;
             this.radioDelete.IsReadOnly = false;
-            this.radioDelete.Location = new System.Drawing.Point(217, 60);
+            this.radioDelete.Location = new System.Drawing.Point(389, 41);
+            this.radioDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.radioDelete.MinimumSize = new System.Drawing.Size(178, 24);
             this.radioDelete.Name = "radioDelete";
             this.radioDelete.RippleColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
@@ -279,7 +277,7 @@
             this.btnOk.EnableRippleEffect = true;
             this.btnOk.EnableShadow = false;
             this.btnOk.EnableTextWrapping = false;
-            this.btnOk.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F);
+            this.btnOk.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
             this.btnOk.GlowColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnOk.GlowIntensity = 100;
             this.btnOk.GlowRadius = 20F;
@@ -298,8 +296,9 @@
             this.btnOk.IsReadOnly = false;
             this.btnOk.IsToggleButton = false;
             this.btnOk.IsToggled = false;
-            this.btnOk.Location = new System.Drawing.Point(211, 355);
+            this.btnOk.Location = new System.Drawing.Point(349, 270);
             this.btnOk.LongPressDurationMS = 1000;
+            this.btnOk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOk.Name = "btnOk";
             this.btnOk.NormalFontStyle = System.Drawing.FontStyle.Regular;
             this.btnOk.ParticleColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
@@ -317,15 +316,14 @@
             this.btnOk.ShadowOffset = new System.Drawing.Point(2, 2);
             this.btnOk.ShakeDuration = 500;
             this.btnOk.ShakeIntensity = 5;
-            this.btnOk.Size = new System.Drawing.Size(75, 27);
+            this.btnOk.Size = new System.Drawing.Size(96, 38);
             this.btnOk.TabIndex = 3;
             this.btnOk.Text = "확인";
             this.btnOk.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnOk.TextColor = System.Drawing.Color.Black;
+            this.btnOk.TextColor = System.Drawing.Color.White;
             this.btnOk.TooltipText = null;
             this.btnOk.UseAdvancedRendering = true;
             this.btnOk.UseParticles = false;
-            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // btnCancel
             // 
@@ -340,7 +338,7 @@
             this.btnCancel.BadgeValueForeColor = System.Drawing.Color.White;
             this.btnCancel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnCancel.BorderWidth = 2;
-            this.btnCancel.ButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(227)))), ((int)(((byte)(64)))));
+            this.btnCancel.ButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(214)))), ((int)(((byte)(241)))));
             this.btnCancel.ButtonImage = null;
             this.btnCancel.ButtonTextLeftPadding = 0;
             this.btnCancel.CanBeep = true;
@@ -358,7 +356,7 @@
             this.btnCancel.EnableRippleEffect = true;
             this.btnCancel.EnableShadow = false;
             this.btnCancel.EnableTextWrapping = false;
-            this.btnCancel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F);
+            this.btnCancel.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
             this.btnCancel.GlowColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnCancel.GlowIntensity = 100;
             this.btnCancel.GlowRadius = 20F;
@@ -366,7 +364,7 @@
             this.btnCancel.GradientColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(227)))), ((int)(((byte)(64)))));
             this.btnCancel.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.btnCancel.HintText = null;
-            this.btnCancel.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnCancel.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
             this.btnCancel.HoverFontStyle = System.Drawing.FontStyle.Regular;
             this.btnCancel.HoverTextColor = System.Drawing.Color.White;
             this.btnCancel.HoverTransitionDuration = 250;
@@ -377,8 +375,9 @@
             this.btnCancel.IsReadOnly = false;
             this.btnCancel.IsToggleButton = false;
             this.btnCancel.IsToggled = false;
-            this.btnCancel.Location = new System.Drawing.Point(311, 355);
+            this.btnCancel.Location = new System.Drawing.Point(467, 270);
             this.btnCancel.LongPressDurationMS = 1000;
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.NormalFontStyle = System.Drawing.FontStyle.Regular;
             this.btnCancel.ParticleColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
@@ -396,11 +395,11 @@
             this.btnCancel.ShadowOffset = new System.Drawing.Point(2, 2);
             this.btnCancel.ShakeDuration = 500;
             this.btnCancel.ShakeIntensity = 5;
-            this.btnCancel.Size = new System.Drawing.Size(75, 27);
+            this.btnCancel.Size = new System.Drawing.Size(96, 38);
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "취소";
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnCancel.TextColor = System.Drawing.Color.Black;
+            this.btnCancel.TextColor = System.Drawing.Color.White;
             this.btnCancel.TooltipText = null;
             this.btnCancel.UseAdvancedRendering = true;
             this.btnCancel.UseParticles = false;
@@ -409,24 +408,32 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(437, 437);
-            this.Controls.Add(this.siticoneCloseButton1);
-            this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.grpStrategy);
-            this.Controls.Add(this.btnOk);
-            this.Controls.Add(this.btnCancel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.ClientSize = new System.Drawing.Size(584, 351);
+            this.Controls.Add(this.panelMain);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ConflictResolutionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "일정 충돌 해결";
             this.Load += new System.EventHandler(this.ConflictResolutionForm_Load);
+            this.panelMain.ResumeLayout(false);
+            this.panelMain.PerformLayout();
             this.grpStrategy.ResumeLayout(false);
             this.grpStrategy.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
+
+        private SiticoneNetFrameworkUI.SiticoneBorderlessForm siticoneBorderlessForm1;
+        private SiticoneNetFrameworkUI.SiticonePanel panelMain;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.GroupBox grpStrategy;
+        private SiticoneNetFrameworkUI.SiticoneRadioButton radioChangeTime;
+        private SiticoneNetFrameworkUI.SiticoneRadioButton radioMerge;
+        private SiticoneNetFrameworkUI.SiticoneRadioButton radioDelete;
+        private SiticoneNetFrameworkUI.SiticoneButton btnOk;
+        private SiticoneNetFrameworkUI.SiticoneButton btnCancel;
     }
 }

@@ -63,5 +63,43 @@ namespace PlanEase.Views
         {
             this.Close();
         }
+
+        private void siticoneCloseButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            this.Close();
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            const int RESIZE_HANDLE_SIZE = 10;
+
+            if (m.Msg == 0x0084) // WM_NCHITTEST
+            {
+                base.WndProc(ref m);
+                if ((int)m.Result == 0x01) // HTCLIENT
+                {
+                    Point screenPoint = new Point(m.LParam.ToInt32());
+                    Point clientPoint = this.PointToClient(screenPoint);
+
+                    if (clientPoint.X >= this.ClientSize.Width - RESIZE_HANDLE_SIZE &&
+                        clientPoint.Y >= this.ClientSize.Height - RESIZE_HANDLE_SIZE)
+                    {
+                        m.Result = (IntPtr)17; // HTBOTTOMRIGHT
+                        return;
+                    }
+                }
+                return;
+            }
+
+            base.WndProc(ref m);
+        }
+
+        private void RegisterForm_Load(object sender, EventArgs e)
+        {
+            // DPI-Aware NavBarHeight 설정
+            float dpiScale = this.DeviceDpi / 96f; // 96 DPI가 기본 DPI
+            this.siticoneBorderlessForm1.NavBarHeight = (int)(30 * dpiScale); // 30px을 DPI에 맞게 조정
+        }
     }
 }
