@@ -48,11 +48,11 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Font = new System.Drawing.Font("나눔바른펜", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.ForeColor = System.Drawing.Color.Navy;
-            this.label1.Location = new System.Drawing.Point(50, 124);
+            this.label1.Location = new System.Drawing.Point(50, 117);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(200, 24);
+            this.label1.Size = new System.Drawing.Size(196, 24);
             this.label1.TabIndex = 1;
             this.label1.Text = "알정 중복 시 자동 해결 여부";
             // 
@@ -61,8 +61,8 @@
             this.chkAutoResolve.AccessibleName = "지동 처리";
             this.chkAutoResolve.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.chkAutoResolve.AllowIndeterminate = false;
-            this.chkAutoResolve.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.chkAutoResolve.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chkAutoResolve.BackColor = System.Drawing.Color.Transparent;
             this.chkAutoResolve.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
@@ -95,7 +95,7 @@
             this.chkAutoResolve.EnableRippleEffect = true;
             this.chkAutoResolve.FocusBorderWidth = 2;
             this.chkAutoResolve.FocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
-            this.chkAutoResolve.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.chkAutoResolve.Font = new System.Drawing.Font("나눔바른펜", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.chkAutoResolve.ForeColor = System.Drawing.Color.DarkBlue;
             this.chkAutoResolve.HoverBackColor = System.Drawing.Color.Gainsboro;
             this.chkAutoResolve.IndeterminateBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
@@ -107,7 +107,7 @@
             this.chkAutoResolve.Name = "chkAutoResolve";
             this.chkAutoResolve.PressedBackColor = System.Drawing.Color.DarkGray;
             this.chkAutoResolve.ShowFocusCue = false;
-            this.chkAutoResolve.Size = new System.Drawing.Size(178, 59);
+            this.chkAutoResolve.Size = new System.Drawing.Size(178, 44);
             this.chkAutoResolve.Style = SiticoneNetFrameworkUI.CheckBoxStyle.Material;
             this.chkAutoResolve.SwitchCheckedTrackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(56)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.chkAutoResolve.SwitchTrackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
@@ -122,11 +122,11 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.Font = new System.Drawing.Font("나눔바른펜", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label2.ForeColor = System.Drawing.Color.Navy;
-            this.label2.Location = new System.Drawing.Point(50, 181);
+            this.label2.Location = new System.Drawing.Point(50, 174);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(145, 24);
+            this.label2.Size = new System.Drawing.Size(141, 24);
             this.label2.TabIndex = 3;
             this.label2.Text = "일정 중복 해결 방법";
             // 
@@ -142,11 +142,11 @@
             this.cmbTheme.IconColor = System.Drawing.Color.MediumSlateBlue;
             this.cmbTheme.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
             this.cmbTheme.ListTextColor = System.Drawing.Color.DimGray;
-            this.cmbTheme.Location = new System.Drawing.Point(54, 363);
+            this.cmbTheme.Location = new System.Drawing.Point(54, 356);
             this.cmbTheme.MinimumSize = new System.Drawing.Size(200, 30);
             this.cmbTheme.Name = "cmbTheme";
             this.cmbTheme.Padding = new System.Windows.Forms.Padding(2);
-            this.cmbTheme.Size = new System.Drawing.Size(288, 33);
+            this.cmbTheme.Size = new System.Drawing.Size(289, 33);
             this.cmbTheme.TabIndex = 4;
             this.cmbTheme.Texts = "";
             // 
@@ -350,14 +350,14 @@
             this.siticoneGroupBox1.HoveredTitleColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(90)))), ((int)(((byte)(160)))));
             this.siticoneGroupBox1.IsCollapsed = false;
             this.siticoneGroupBox1.IsCollapsible = true;
-            this.siticoneGroupBox1.Location = new System.Drawing.Point(54, 203);
+            this.siticoneGroupBox1.Location = new System.Drawing.Point(54, 196);
             this.siticoneGroupBox1.MaxBlinkCount = 3;
             this.siticoneGroupBox1.Name = "siticoneGroupBox1";
             this.siticoneGroupBox1.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(90)))), ((int)(((byte)(160)))));
             this.siticoneGroupBox1.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.siticoneGroupBox1.ShadowDepth = 3;
             this.siticoneGroupBox1.ShowShadow = true;
-            this.siticoneGroupBox1.Size = new System.Drawing.Size(676, 102);
+            this.siticoneGroupBox1.Size = new System.Drawing.Size(677, 102);
             this.siticoneGroupBox1.SolidFillColor = System.Drawing.Color.WhiteSmoke;
             this.siticoneGroupBox1.StatusIcon = null;
             this.siticoneGroupBox1.StatusText = "";
@@ -373,11 +373,11 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label3.Font = new System.Drawing.Font("나눔바른펜", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label3.ForeColor = System.Drawing.Color.Navy;
-            this.label3.Location = new System.Drawing.Point(50, 326);
+            this.label3.Location = new System.Drawing.Point(50, 319);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 24);
+            this.label3.Size = new System.Drawing.Size(74, 24);
             this.label3.TabIndex = 10;
             this.label3.Text = "테마 선택";
             // 
@@ -433,7 +433,7 @@
             this.btnSave.IsReadOnly = false;
             this.btnSave.IsToggleButton = false;
             this.btnSave.IsToggled = false;
-            this.btnSave.Location = new System.Drawing.Point(233, 452);
+            this.btnSave.Location = new System.Drawing.Point(233, 437);
             this.btnSave.LongPressDurationMS = 1000;
             this.btnSave.Name = "btnSave";
             this.btnSave.NormalFontStyle = System.Drawing.FontStyle.Regular;
@@ -513,7 +513,7 @@
             this.btnReset.IsReadOnly = false;
             this.btnReset.IsToggleButton = false;
             this.btnReset.IsToggled = false;
-            this.btnReset.Location = new System.Drawing.Point(474, 452);
+            this.btnReset.Location = new System.Drawing.Point(475, 437);
             this.btnReset.LongPressDurationMS = 1000;
             this.btnReset.Name = "btnReset";
             this.btnReset.NormalFontStyle = System.Drawing.FontStyle.Regular;
@@ -557,7 +557,7 @@
             this.btnSetting.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSetting.IconSize = 32;
             this.btnSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSetting.Location = new System.Drawing.Point(338, 10);
+            this.btnSetting.Location = new System.Drawing.Point(339, 3);
             this.btnSetting.Name = "btnSetting";
             this.btnSetting.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnSetting.Size = new System.Drawing.Size(180, 72);
@@ -566,7 +566,6 @@
             this.btnSetting.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSetting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSetting.UseVisualStyleBackColor = false;
-            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
             // 
             // SettingControl
             // 
@@ -583,8 +582,7 @@
             this.Controls.Add(this.chkAutoResolve);
             this.Controls.Add(this.label1);
             this.Name = "SettingControl";
-            this.Size = new System.Drawing.Size(843, 545);
-            this.Load += new System.EventHandler(this.SettingControl_Load);
+            this.Size = new System.Drawing.Size(844, 530);
             this.siticoneGroupBox1.ResumeLayout(false);
             this.siticoneGroupBox1.PerformLayout();
             this.ResumeLayout(false);
