@@ -169,6 +169,12 @@
     <Compile Include="Views\ConflictResolutionForm.Designer.cs">
       <DependentUpon>ConflictResolutionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Controls\ScheduleCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Controls\ScheduleCard.Designer.cs">
+      <DependentUpon>ScheduleCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\EditToDoForm.cs">
       <SubType>Form</SubType>
     </Compile>
