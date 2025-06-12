@@ -29,17 +29,7 @@ namespace PlanEase.Views
 
         private void AddToDoForm_Load(object sender, EventArgs e)
         {
-            // 우선순위 콤보박스 초기화
-            cmbPriority.Items.AddRange(new string[]
-            {
-                "매우 낮음",
-                "낮음",
-                "보통",
-                "높음",
-                "매우 높음"
-            });
-            cmbPriority.SelectedIndex = 2; // 기본값: 보통
-
+            
             // 마감일 초기화
             dtpDueDate.Value = DateTime.Today;
 
@@ -64,13 +54,12 @@ namespace PlanEase.Views
             //.Select(i => availableTags[i])
             //.ToList();
 
-            int priority = cmbPriority.SelectedIndex + 1;
+            
 
             var todo = new ToDo
             {
                 Content = txtContent.Text.Trim(),
                 DueDate = chkDueDate.Checked ? dtpDueDate.Value : (DateTime?)null,
-                Priority = priority,
                 IsDone = false,
                 UserId = userId,
                 //Tags = selectedTags
@@ -80,7 +69,7 @@ namespace PlanEase.Views
             {
                 Content = txtContent.Text,
                 DueDate = dtpDueDate.Value,
-                Priority = cmbPriority.SelectedIndex + 1 // 예: ComboBox 0 = 높음 → 1
+                
             };
 
             toDoManager.AddToDo(todo);

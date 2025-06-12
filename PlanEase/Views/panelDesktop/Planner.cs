@@ -384,7 +384,7 @@ namespace PlanEase.Views.panelDesktop
             // 기존 UI 목록 비우기
             ToDoListView.Items.Clear();
 
-            
+
 
             // 정렬된 항목 다시 추가
             foreach (ToDo todo in sortedList)
@@ -396,9 +396,16 @@ namespace PlanEase.Views.panelDesktop
                     item.SubItems.Add("미정");
                 item.SubItems.Add(GetPriorityText(todo.Priority)); // 예: "높음", "중간", "낮음"
 
+                item.Tag = todo;
+                item.Checked = todo.IsDone;  // 이미 완료된 항목은 체크되어있게(필요시)
+
                 ToDoListView.Items.Add(item);
+
             }
         }
+
+
+
 
         // 우선순위 숫자를 텍스트로 변환
         private string GetPriorityText(int priority)
@@ -412,6 +419,47 @@ namespace PlanEase.Views.panelDesktop
                 5 => "매우 낮음",
                 _ => "알 수 없음"
             };
+        }
+
+        private void ToDoListView_ItemActivate(object sender, EventArgs e)
+        {
+            if (ToDoListView.SelectedItems.Count > 0)
+            {
+                var selectedItem = ToDoListView.SelectedItems[0];
+                var todo = selectedItem.Tag as ToDo;
+
+                if (todo != null)
+                {
+                    using (var editForm = new EditToDoForm(todo, toDoManager))
+                    {
+                        var result = editForm.ShowDialog();
+
+                        if (result == DialogResult.OK || result == DialogResult.Abort)
+                        {
+                            LoadToDoList(); // 목록 새로고침
+                        }
+                    }
+                }
+            }
+        }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            // 체크된 항목 가져오기
+            var checkedItems = ToDoListView.CheckedItems;
+
+            foreach (ListViewItem item in checkedItems)
+            {
+                var todo = item.Tag as ToDo;
+                if (todo != null && !todo.IsDone)
+                {
+                    // 완료 처리 (메모리, DB 동기화)
+                    toDoManager.ToggleDone(todo.Id); // IsDone true로 변경 및 DB 업데이트
+                }
+            }
+
+            // 완료된 항목은 UI에서 제거하기 위해 다시 로드
+            LoadToDoList();
         }
 
 
