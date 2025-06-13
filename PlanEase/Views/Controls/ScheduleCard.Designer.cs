@@ -39,9 +39,6 @@
             // 
             // siticoneCard1
             // 
-            this.siticoneCard1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.siticoneCard1.AnimationScaleStep = 0.02F;
             this.siticoneCard1.BackColor = System.Drawing.Color.Lavender;
             this.siticoneCard1.BackgroundAngle = 45F;
@@ -98,7 +95,7 @@
             this.siticoneCard1.ShimmerSpeed = 5F;
             this.siticoneCard1.ShimmerWidth = 50F;
             this.siticoneCard1.ShowBorder = false;
-            this.siticoneCard1.Size = new System.Drawing.Size(180, 150);
+            this.siticoneCard1.Size = new System.Drawing.Size(227, 190);
             this.siticoneCard1.TabIndex = 0;
             this.siticoneCard1.TopLeftRadius = 25;
             this.siticoneCard1.TopRightRadius = 25;
@@ -112,9 +109,9 @@
             this.btnDel.BorderSize = 0;
             this.btnDel.FlatAppearance.BorderSize = 0;
             this.btnDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDel.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDel.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDel.ForeColor = System.Drawing.Color.Salmon;
-            this.btnDel.Location = new System.Drawing.Point(140, 14);
+            this.btnDel.Location = new System.Drawing.Point(181, 16);
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(25, 31);
             this.btnDel.TabIndex = 7;
@@ -125,16 +122,16 @@
             // 
             // lblTags
             // 
-            this.lblTags.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.lblTags.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTags.AutoSize = true;
             this.lblTags.BackColor = System.Drawing.Color.Transparent;
             this.lblTags.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblTags.Font = new System.Drawing.Font("나눔바른펜", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblTags.Font = new System.Drawing.Font("나눔바른펜", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblTags.ForeColor = System.Drawing.Color.MediumSlateBlue;
-            this.lblTags.Location = new System.Drawing.Point(50, 109);
+            this.lblTags.Location = new System.Drawing.Point(50, 120);
             this.lblTags.Name = "lblTags";
-            this.lblTags.Size = new System.Drawing.Size(44, 21);
+            this.lblTags.Size = new System.Drawing.Size(51, 24);
             this.lblTags.TabIndex = 4;
             this.lblTags.Text = "label1";
             this.lblTags.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -143,41 +140,41 @@
             // 
             this.lblPriority.AutoSize = true;
             this.lblPriority.BackColor = System.Drawing.Color.Transparent;
-            this.lblPriority.Font = new System.Drawing.Font("나눔바른펜", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblPriority.Font = new System.Drawing.Font("나눔바른펜", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblPriority.ForeColor = System.Drawing.Color.MediumSlateBlue;
-            this.lblPriority.Location = new System.Drawing.Point(50, 88);
+            this.lblPriority.Location = new System.Drawing.Point(50, 95);
             this.lblPriority.Name = "lblPriority";
-            this.lblPriority.Size = new System.Drawing.Size(44, 21);
+            this.lblPriority.Size = new System.Drawing.Size(51, 24);
             this.lblPriority.TabIndex = 3;
             this.lblPriority.Text = "label1";
             this.lblPriority.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTime
             // 
-            this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTime.AutoSize = true;
             this.lblTime.BackColor = System.Drawing.Color.Transparent;
-            this.lblTime.Font = new System.Drawing.Font("나눔바른펜", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblTime.Font = new System.Drawing.Font("나눔바른펜", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblTime.ForeColor = System.Drawing.Color.MediumSlateBlue;
-            this.lblTime.Location = new System.Drawing.Point(50, 67);
+            this.lblTime.Location = new System.Drawing.Point(50, 70);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(44, 21);
+            this.lblTime.Size = new System.Drawing.Size(51, 24);
             this.lblTime.TabIndex = 2;
             this.lblTime.Text = "label1";
             this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTitle
             // 
-            this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTitle.AutoSize = true;
             this.lblTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lblTitle.Font = new System.Drawing.Font("나눔바른펜", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblTitle.Font = new System.Drawing.Font("나눔바른펜", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblTitle.ForeColor = System.Drawing.Color.BlueViolet;
             this.lblTitle.Location = new System.Drawing.Point(50, 32);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(57, 24);
+            this.lblTitle.Size = new System.Drawing.Size(71, 30);
             this.lblTitle.TabIndex = 1;
             this.lblTitle.Text = "label1";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -189,7 +186,8 @@
             this.BackColor = System.Drawing.Color.Lavender;
             this.Controls.Add(this.siticoneCard1);
             this.Name = "ScheduleCard";
-            this.Size = new System.Drawing.Size(190, 160);
+            this.Size = new System.Drawing.Size(237, 200);
+            this.Load += new System.EventHandler(this.ScheduleCard_Load);
             this.siticoneCard1.ResumeLayout(false);
             this.siticoneCard1.PerformLayout();
             this.ResumeLayout(false);

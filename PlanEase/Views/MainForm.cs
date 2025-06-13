@@ -41,7 +41,7 @@ namespace PlanEase
 
 
             leftBorderBtn = new Panel();
-            leftBorderBtn.Size = new Size(7, btnCalendar.Size.Height);
+            leftBorderBtn.Size = new Size(10, btnCalendar.Size.Height);
             //leftBorderBtn.Size = new Size(7, 60);
             panelMenu.Controls.Add(leftBorderBtn);
             //Form
@@ -103,24 +103,6 @@ namespace PlanEase
             //SetupCalendarTable();
         }
 
-        private void OpenChildForm(Form childForm)
-        {
-            //open only form
-            if (currentChildForm != null)
-            {
-                currentChildForm.Close();
-            }
-            currentChildForm = childForm;
-            //End
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            panelDesktop.Controls.Add(childForm);
-            panelDesktop.Tag = childForm;
-            childForm.BringToFront();
-            childForm.Show();
-            //lblTitleChildForm.Text = childForm.Text;
-        }
 
         private void OpenChildControl(UserControl newControl)
         {

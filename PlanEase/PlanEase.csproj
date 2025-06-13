@@ -169,6 +169,12 @@
     <Compile Include="Views\ConflictResolutionForm.Designer.cs">
       <DependentUpon>ConflictResolutionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Controls\Calendar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Controls\Calendar.Designer.cs">
+      <DependentUpon>Calendar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Controls\ScheduleCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -266,6 +272,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ConflictResolutionForm.resx">
       <DependentUpon>ConflictResolutionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Controls\Calendar.resx">
+      <DependentUpon>Calendar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Controls\ScheduleCard.resx">
+      <DependentUpon>ScheduleCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\EditToDoForm.resx">
       <DependentUpon>EditToDoForm.cs</DependentUpon>

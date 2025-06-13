@@ -31,7 +31,7 @@ namespace PlanEase.Views.panelDesktop
             this.userId = userId;
 
             LoadTagButtons();
-            btnToggleTags.Click += BtnToggleTags_Click;
+            //btnToggleTags.Click += BtnToggleTags_Click;
             UpdateScheduleCards();
 
         }
@@ -50,8 +50,8 @@ namespace PlanEase.Views.panelDesktop
                     FlatStyle = FlatStyle.Flat,
                     BackColor = Color.Transparent,
                     ForeColor = Color.Black,
-                    Font = new Font("Segoe UI", 12, FontStyle.Regular),
-                    Margin = new Padding(4),
+                    Font = new Font("Segoe UI", 15, FontStyle.Regular),
+                    Margin = new Padding(5),
                     Cursor = Cursors.Hand
                 };
 
@@ -93,7 +93,7 @@ namespace PlanEase.Views.panelDesktop
         {
             isTagPanelExpanded = !isTagPanelExpanded;
             flowTagPanel.Visible = isTagPanelExpanded;
-            btnToggleTags.Text = isTagPanelExpanded ? "⯅" : "⯆";
+            //btnToggleTags.Text = isTagPanelExpanded ? "⯅" : "⯆";
         }
 
         // 태그 필터링 및 카드 추가

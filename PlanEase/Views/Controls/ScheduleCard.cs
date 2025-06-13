@@ -61,6 +61,9 @@ namespace PlanEase.Views.Controls
             }
         }
 
+        private void ScheduleCard_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }
