@@ -169,17 +169,29 @@
     <Compile Include="Views\ConflictResolutionForm.Designer.cs">
       <DependentUpon>ConflictResolutionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Controls\Calendar.cs">
+    <Compile Include="Views\Controls\CalendarControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\Controls\Calendar.Designer.cs">
-      <DependentUpon>Calendar.cs</DependentUpon>
+    <Compile Include="Views\Controls\CalendarControl.Designer.cs">
+      <DependentUpon>CalendarControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\DateCellControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Controls\DateCellControl.Designer.cs">
+      <DependentUpon>DateCellControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Controls\ScheduleCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\Controls\ScheduleCard.Designer.cs">
       <DependentUpon>ScheduleCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\ScheduleItemControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Controls\ScheduleItemControl.Designer.cs">
+      <DependentUpon>ScheduleItemControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\EditToDoForm.cs">
       <SubType>Form</SubType>
@@ -273,11 +285,17 @@
     <EmbeddedResource Include="Views\ConflictResolutionForm.resx">
       <DependentUpon>ConflictResolutionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Controls\Calendar.resx">
-      <DependentUpon>Calendar.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Controls\CalendarControl.resx">
+      <DependentUpon>CalendarControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Controls\DateCellControl.resx">
+      <DependentUpon>DateCellControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Controls\ScheduleCard.resx">
       <DependentUpon>ScheduleCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Controls\ScheduleItemControl.resx">
+      <DependentUpon>ScheduleItemControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\EditToDoForm.resx">
       <DependentUpon>EditToDoForm.cs</DependentUpon>

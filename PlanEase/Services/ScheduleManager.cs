@@ -44,21 +44,6 @@ namespace PlanEase.Services
         {
             return new List<Schedule>(schedules); // 외부 변경 방지
         }
-
-        // 파일에서 일정 데이터를 불러와 리스트에 저장
-        //public void LoadSchedules()
-        //{
-        //    List<string> lines = File.Exists(FilePath) ? File.ReadAllLines(FilePath).ToList(): new List<string>();
-        //    schedules = lines.Select(line=>Schedule.FromCsv(line)).ToList();
-        //}
-
-        // 현재 일정 리스트를 파일로 저장
-        //public void SaveSchedules()
-        //{
-        //    List<string> lines = schedules.Select(s => s.ToCsv()).ToList();
-        //    File.WriteAllLines(FilePath, lines);
-        //}
-
         public void AddScheduleToDb(Schedule schedule)
         {
             using var conn = new MySqlConnection(connStr);
@@ -131,5 +116,11 @@ namespace PlanEase.Services
         {
             return schedules.Where(s => s.Tags.Contains(tagName)).ToList();
         }
+
+        public List<Schedule> GetSchedulesForDate(DateTime date)
+        {
+            return schedules.Where(s => s.StartTime.Date == date.Date).ToList();
+        }
+
     }
 }

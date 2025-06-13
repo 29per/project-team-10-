@@ -1,6 +1,6 @@
 ﻿namespace PlanEase.Views.Controls
 {
-    partial class Calendar
+    partial class ScheduleItemControl
     {
         /// <summary> 
         /// 필수 디자이너 변수입니다.
@@ -28,18 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.lblTitle = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // Calendar
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTitle.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblTitle.ForeColor = System.Drawing.Color.Navy;
+            this.lblTitle.Location = new System.Drawing.Point(0, 0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblTitle.Size = new System.Drawing.Size(54, 13);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "label1";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // ScheduleItemControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "Calendar";
-            this.Size = new System.Drawing.Size(700, 600);
+            this.Controls.Add(this.lblTitle);
+            this.Name = "ScheduleItemControl";
+            this.Size = new System.Drawing.Size(90, 20);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Label lblTitle;
     }
 }

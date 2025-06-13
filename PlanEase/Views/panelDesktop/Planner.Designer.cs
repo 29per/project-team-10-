@@ -78,18 +78,18 @@ namespace PlanEase.Views.panelDesktop
             this.lblTitle = new System.Windows.Forms.Label();
             this.calendarTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.btnPrevMonth = new System.Windows.Forms.Button();
-            this.btnNextMonth = new System.Windows.Forms.Button();
+            this.btnNextMonth2 = new System.Windows.Forms.Button();
             this.lblCurrentMonth = new System.Windows.Forms.Label();
+            this.btnNextMonth = new System.Windows.Forms.Button();
+            this.lblMonthDisplay = new FontAwesome.Sharp.IconButton();
             this.panelLeft.SuspendLayout();
-            this.panelRight.SuspendLayout();
-            this.panelMonthView.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelLeft
             // 
             this.panelLeft.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelLeft.Controls.Add(this.ToDoListView);
-            this.panelLeft.Location = new System.Drawing.Point(7, 100);
+            this.panelLeft.Location = new System.Drawing.Point(6, 120);
             this.panelLeft.Margin = new System.Windows.Forms.Padding(2);
             this.panelLeft.Name = "panelLeft";
             this.panelLeft.Size = new System.Drawing.Size(266, 300);
@@ -104,7 +104,7 @@ namespace PlanEase.Views.panelDesktop
             this.ToDoListView.FullRowSelect = true;
             this.ToDoListView.GridLines = true;
             this.ToDoListView.HideSelection = false;
-            this.ToDoListView.Location = new System.Drawing.Point(2, 2);
+            this.ToDoListView.Location = new System.Drawing.Point(13, 3);
             this.ToDoListView.Margin = new System.Windows.Forms.Padding(2);
             this.ToDoListView.Name = "ToDoListView";
             this.ToDoListView.Size = new System.Drawing.Size(262, 296);
@@ -169,45 +169,39 @@ namespace PlanEase.Views.panelDesktop
             // 
             // panelRight
             // 
-            this.panelRight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelRight.Controls.Add(this.panelDayView);
-            this.panelRight.Controls.Add(this.panelWeekView);
-            this.panelRight.Controls.Add(this.panelMonthView);
-            this.panelRight.Location = new System.Drawing.Point(284, 64);
+            this.panelRight.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelRight.AutoScroll = true;
+            this.panelRight.Location = new System.Drawing.Point(300, 120);
             this.panelRight.Margin = new System.Windows.Forms.Padding(2);
             this.panelRight.Name = "panelRight";
-            this.panelRight.Size = new System.Drawing.Size(553, 393);
+            this.panelRight.Size = new System.Drawing.Size(790, 580);
             this.panelRight.TabIndex = 1;
             // 
             // panelDayView
             // 
-            this.panelDayView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDayView.Location = new System.Drawing.Point(0, 0);
+            this.panelDayView.Location = new System.Drawing.Point(38, 459);
             this.panelDayView.Margin = new System.Windows.Forms.Padding(2);
             this.panelDayView.Name = "panelDayView";
-            this.panelDayView.Size = new System.Drawing.Size(551, 391);
+            this.panelDayView.Size = new System.Drawing.Size(20, 20);
             this.panelDayView.TabIndex = 0;
             this.panelDayView.Visible = false;
             // 
             // panelWeekView
             // 
-            this.panelWeekView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelWeekView.Location = new System.Drawing.Point(0, 0);
+            this.panelWeekView.Location = new System.Drawing.Point(77, 459);
             this.panelWeekView.Margin = new System.Windows.Forms.Padding(2);
             this.panelWeekView.Name = "panelWeekView";
-            this.panelWeekView.Size = new System.Drawing.Size(551, 391);
+            this.panelWeekView.Size = new System.Drawing.Size(20, 20);
             this.panelWeekView.TabIndex = 1;
             this.panelWeekView.Visible = false;
             // 
             // panelMonthView
             // 
-            this.panelMonthView.Controls.Add(this.calendarTable);
-            this.panelMonthView.Controls.Add(this.calendarMonth);
-            this.panelMonthView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMonthView.Location = new System.Drawing.Point(0, 0);
+            this.panelMonthView.Location = new System.Drawing.Point(2, 459);
             this.panelMonthView.Margin = new System.Windows.Forms.Padding(2);
             this.panelMonthView.Name = "panelMonthView";
-            this.panelMonthView.Size = new System.Drawing.Size(551, 391);
+            this.panelMonthView.Size = new System.Drawing.Size(20, 20);
             this.panelMonthView.TabIndex = 2;
             // 
             // calendarTable
@@ -220,8 +214,7 @@ namespace PlanEase.Views.panelDesktop
             this.calendarTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 11F));
             this.calendarTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 11F));
             this.calendarTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 486F));
-            this.calendarTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.calendarTable.Location = new System.Drawing.Point(0, 0);
+            this.calendarTable.Location = new System.Drawing.Point(121, 459);
             this.calendarTable.Margin = new System.Windows.Forms.Padding(0);
             this.calendarTable.Name = "calendarTable";
             this.calendarTable.RowCount = 6;
@@ -231,12 +224,12 @@ namespace PlanEase.Views.panelDesktop
             this.calendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.calendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.calendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.calendarTable.Size = new System.Drawing.Size(551, 391);
+            this.calendarTable.Size = new System.Drawing.Size(30, 30);
             this.calendarTable.TabIndex = 0;
             // 
             // calendarMonth
             // 
-            this.calendarMonth.Location = new System.Drawing.Point(0, 0);
+            this.calendarMonth.Location = new System.Drawing.Point(7, 518);
             this.calendarMonth.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.calendarMonth.Name = "calendarMonth";
             this.calendarMonth.TabIndex = 1;
@@ -244,7 +237,7 @@ namespace PlanEase.Views.panelDesktop
             // btnDayView
             // 
             this.btnDayView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDayView.Location = new System.Drawing.Point(949, 30);
+            this.btnDayView.Location = new System.Drawing.Point(2, 492);
             this.btnDayView.Margin = new System.Windows.Forms.Padding(2);
             this.btnDayView.Name = "btnDayView";
             this.btnDayView.Size = new System.Drawing.Size(32, 20);
@@ -255,7 +248,7 @@ namespace PlanEase.Views.panelDesktop
             // btnWeekView
             // 
             this.btnWeekView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnWeekView.Location = new System.Drawing.Point(987, 30);
+            this.btnWeekView.Location = new System.Drawing.Point(38, 492);
             this.btnWeekView.Margin = new System.Windows.Forms.Padding(2);
             this.btnWeekView.Name = "btnWeekView";
             this.btnWeekView.Size = new System.Drawing.Size(32, 20);
@@ -266,18 +259,17 @@ namespace PlanEase.Views.panelDesktop
             // btnMonthView
             // 
             this.btnMonthView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMonthView.Location = new System.Drawing.Point(1024, 30);
+            this.btnMonthView.Location = new System.Drawing.Point(77, 492);
             this.btnMonthView.Margin = new System.Windows.Forms.Padding(2);
             this.btnMonthView.Name = "btnMonthView";
             this.btnMonthView.Size = new System.Drawing.Size(32, 20);
             this.btnMonthView.TabIndex = 7;
             this.btnMonthView.Text = "월";
-            this.btnMonthView.Click += new System.EventHandler(this.btnMonthView_Click);
             // 
             // btnSettings
             // 
             this.btnSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSettings.Location = new System.Drawing.Point(1062, 30);
+            this.btnSettings.Location = new System.Drawing.Point(121, 492);
             this.btnSettings.Margin = new System.Windows.Forms.Padding(2);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(22, 20);
@@ -308,44 +300,95 @@ namespace PlanEase.Views.panelDesktop
             // 
             // btnPrevMonth
             // 
-            this.btnPrevMonth.Location = new System.Drawing.Point(363, 38);
+            this.btnPrevMonth.BackColor = System.Drawing.Color.AliceBlue;
+            this.btnPrevMonth.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnPrevMonth.ForeColor = System.Drawing.Color.DarkBlue;
+            this.btnPrevMonth.Location = new System.Drawing.Point(421, 55);
             this.btnPrevMonth.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrevMonth.Name = "btnPrevMonth";
-            this.btnPrevMonth.Size = new System.Drawing.Size(40, 20);
+            this.btnPrevMonth.Size = new System.Drawing.Size(50, 25);
             this.btnPrevMonth.TabIndex = 0;
             this.btnPrevMonth.Text = "<";
-            this.btnPrevMonth.UseVisualStyleBackColor = true;
-            this.btnPrevMonth.Click += new System.EventHandler(this.btnPrevMonth_Click);
+            this.btnPrevMonth.UseVisualStyleBackColor = false;
+            this.btnPrevMonth.Click += new System.EventHandler(this.BtnPrevMonth_Click);
             // 
-            // btnNextMonth
+            // btnNextMonth2
             // 
-            this.btnNextMonth.Location = new System.Drawing.Point(564, 38);
-            this.btnNextMonth.Margin = new System.Windows.Forms.Padding(2);
-            this.btnNextMonth.Name = "btnNextMonth";
-            this.btnNextMonth.Size = new System.Drawing.Size(40, 20);
-            this.btnNextMonth.TabIndex = 9;
-            this.btnNextMonth.Text = ">";
-            this.btnNextMonth.UseVisualStyleBackColor = true;
-            this.btnNextMonth.Click += new System.EventHandler(this.btnNextMonth_Click);
+            this.btnNextMonth2.Location = new System.Drawing.Point(186, 64);
+            this.btnNextMonth2.Margin = new System.Windows.Forms.Padding(2);
+            this.btnNextMonth2.Name = "btnNextMonth2";
+            this.btnNextMonth2.Size = new System.Drawing.Size(40, 20);
+            this.btnNextMonth2.TabIndex = 9;
+            this.btnNextMonth2.Text = ">";
+            this.btnNextMonth2.UseVisualStyleBackColor = true;
+            this.btnNextMonth2.Click += new System.EventHandler(this.btnNextMonth_Click);
             // 
             // lblCurrentMonth
             // 
             this.lblCurrentMonth.AutoSize = true;
-            this.lblCurrentMonth.Location = new System.Drawing.Point(469, 42);
+            this.lblCurrentMonth.Location = new System.Drawing.Point(165, 68);
             this.lblCurrentMonth.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCurrentMonth.Name = "lblCurrentMonth";
             this.lblCurrentMonth.Size = new System.Drawing.Size(17, 12);
             this.lblCurrentMonth.TabIndex = 10;
             this.lblCurrentMonth.Text = "월";
             // 
+            // btnNextMonth
+            // 
+            this.btnNextMonth.BackColor = System.Drawing.Color.AliceBlue;
+            this.btnNextMonth.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnNextMonth.ForeColor = System.Drawing.Color.DarkBlue;
+            this.btnNextMonth.Location = new System.Drawing.Point(904, 55);
+            this.btnNextMonth.Margin = new System.Windows.Forms.Padding(2);
+            this.btnNextMonth.Name = "btnNextMonth";
+            this.btnNextMonth.Size = new System.Drawing.Size(50, 25);
+            this.btnNextMonth.TabIndex = 11;
+            this.btnNextMonth.Text = ">";
+            this.btnNextMonth.UseVisualStyleBackColor = false;
+            this.btnNextMonth.Click += new System.EventHandler(this.BtnNextMonth_Click);
+            // 
+            // lblMonthDisplay
+            // 
+            this.lblMonthDisplay.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblMonthDisplay.BackColor = System.Drawing.Color.Transparent;
+            this.lblMonthDisplay.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.lblMonthDisplay.FlatAppearance.BorderSize = 0;
+            this.lblMonthDisplay.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.lblMonthDisplay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.lblMonthDisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblMonthDisplay.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMonthDisplay.ForeColor = System.Drawing.Color.MediumSlateBlue;
+            this.lblMonthDisplay.IconChar = FontAwesome.Sharp.IconChar.Calendar;
+            this.lblMonthDisplay.IconColor = System.Drawing.Color.MediumSlateBlue;
+            this.lblMonthDisplay.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.lblMonthDisplay.IconSize = 40;
+            this.lblMonthDisplay.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblMonthDisplay.Location = new System.Drawing.Point(565, 28);
+            this.lblMonthDisplay.Name = "lblMonthDisplay";
+            this.lblMonthDisplay.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.lblMonthDisplay.Size = new System.Drawing.Size(255, 80);
+            this.lblMonthDisplay.TabIndex = 26;
+            this.lblMonthDisplay.Text = "Calendar";
+            this.lblMonthDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblMonthDisplay.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.lblMonthDisplay.UseVisualStyleBackColor = false;
+            this.lblMonthDisplay.Click += new System.EventHandler(this.LblMonthDisplay_Click);
+            // 
             // Planner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.Lavender;
+            this.Controls.Add(this.lblMonthDisplay);
+            this.Controls.Add(this.btnNextMonth);
+            this.Controls.Add(this.panelMonthView);
+            this.Controls.Add(this.calendarMonth);
+            this.Controls.Add(this.calendarTable);
+            this.Controls.Add(this.panelWeekView);
+            this.Controls.Add(this.panelDayView);
             this.Controls.Add(this.lblTodoTitle);
             this.Controls.Add(this.lblCurrentMonth);
-            this.Controls.Add(this.btnNextMonth);
+            this.Controls.Add(this.btnNextMonth2);
             this.Controls.Add(this.btnPrevMonth);
             this.Controls.Add(this.panelLeft);
             this.Controls.Add(this.btnSearchTag);
@@ -362,8 +405,6 @@ namespace PlanEase.Views.panelDesktop
             this.Size = new System.Drawing.Size(1100, 720);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panelLeft.ResumeLayout(false);
-            this.panelRight.ResumeLayout(false);
-            this.panelMonthView.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -416,12 +457,14 @@ namespace PlanEase.Views.panelDesktop
         private System.Windows.Forms.Button btnMonthView;
         private System.Windows.Forms.Button btnSettings;
         private Button btnPrevMonth;
-        private Button btnNextMonth;
+        private Button btnNextMonth2;
         private Label lblCurrentMonth;
         private ListView ToDoListView;
         private ColumnHeader Title;
         private ColumnHeader DueDate;
         private ColumnHeader Priority;
+        private Button btnNextMonth;
+        private FontAwesome.Sharp.IconButton lblMonthDisplay;
     }
 }
 
