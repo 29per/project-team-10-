@@ -55,10 +55,9 @@
             this.siticoneCloseButton1.BackColor = System.Drawing.Color.Transparent;
             this.siticoneCloseButton1.CountdownFont = new System.Drawing.Font("Segoe UI", 9F);
             this.siticoneCloseButton1.EnableSound = false;
-            this.siticoneCloseButton1.Location = new System.Drawing.Point(1654, -2);
-            this.siticoneCloseButton1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.siticoneCloseButton1.Location = new System.Drawing.Point(827, -1);
             this.siticoneCloseButton1.Name = "siticoneCloseButton1";
-            this.siticoneCloseButton1.Size = new System.Drawing.Size(64, 64);
+            this.siticoneCloseButton1.Size = new System.Drawing.Size(32, 32);
             this.siticoneCloseButton1.TabIndex = 4;
             this.siticoneCloseButton1.Text = "siticoneCloseButton1";
             this.siticoneCloseButton1.TooltipText = "Close button";
@@ -114,9 +113,8 @@
             this.btnLogin.IsReadOnly = false;
             this.btnLogin.IsToggleButton = false;
             this.btnLogin.IsToggled = false;
-            this.btnLogin.Location = new System.Drawing.Point(400, 674);
+            this.btnLogin.Location = new System.Drawing.Point(200, 337);
             this.btnLogin.LongPressDurationMS = 1000;
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.NormalFontStyle = System.Drawing.FontStyle.Regular;
             this.btnLogin.ParticleColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
@@ -134,7 +132,7 @@
             this.btnLogin.ShadowOffset = new System.Drawing.Point(0, 2);
             this.btnLogin.ShakeDuration = 500;
             this.btnLogin.ShakeIntensity = 5;
-            this.btnLogin.Size = new System.Drawing.Size(800, 98);
+            this.btnLogin.Size = new System.Drawing.Size(400, 49);
             this.btnLogin.TabIndex = 5;
             this.btnLogin.Text = "로그인";
             this.btnLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -178,10 +176,9 @@
             this.txtUsername2.HoverBorderColor2 = System.Drawing.Color.Gray;
             this.txtUsername2.IsEnabled = true;
             this.txtUsername2.IsRequired = false;
-            this.txtUsername2.Location = new System.Drawing.Point(400, 394);
-            this.txtUsername2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtUsername2.Location = new System.Drawing.Point(200, 197);
             this.txtUsername2.Name = "txtUsername2";
-            this.txtUsername2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.txtUsername2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.txtUsername2.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(50)))), ((int)(((byte)(87)))));
             this.txtUsername2.PlaceholderText = "아이디를 입력하세요.";
             this.txtUsername2.ReadOnlyBorderColor1 = System.Drawing.Color.LightGray;
@@ -193,7 +190,7 @@
             this.txtUsername2.ShadowAnimationDuration = 1;
             this.txtUsername2.ShadowBlur = 3;
             this.txtUsername2.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
-            this.txtUsername2.Size = new System.Drawing.Size(800, 100);
+            this.txtUsername2.Size = new System.Drawing.Size(400, 50);
             this.txtUsername2.SolidBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.txtUsername2.SolidBorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(255)))));
             this.txtUsername2.SolidBorderHoverColor = System.Drawing.Color.Gray;
@@ -237,11 +234,10 @@
             this.txtPassword2.HoverBorderColor2 = System.Drawing.Color.Gray;
             this.txtPassword2.IsEnabled = true;
             this.txtPassword2.IsRequired = false;
-            this.txtPassword2.Location = new System.Drawing.Point(400, 536);
-            this.txtPassword2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtPassword2.Location = new System.Drawing.Point(200, 268);
             this.txtPassword2.MaxLength = 50;
             this.txtPassword2.Name = "txtPassword2";
-            this.txtPassword2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.txtPassword2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.txtPassword2.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(50)))), ((int)(((byte)(87)))));
             this.txtPassword2.PlaceholderText = "비밀번호를 입력하세요.";
             this.txtPassword2.ReadOnlyBorderColor1 = System.Drawing.Color.LightGray;
@@ -253,7 +249,7 @@
             this.txtPassword2.ShadowAnimationDuration = 1;
             this.txtPassword2.ShadowBlur = 3;
             this.txtPassword2.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
-            this.txtPassword2.Size = new System.Drawing.Size(800, 100);
+            this.txtPassword2.Size = new System.Drawing.Size(400, 50);
             this.txtPassword2.SolidBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.txtPassword2.SolidBorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(255)))));
             this.txtPassword2.SolidBorderHoverColor = System.Drawing.Color.Gray;
@@ -271,10 +267,9 @@
             this.btnRegister.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegister.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.btnRegister.LinkColor = System.Drawing.Color.DodgerBlue;
-            this.btnRegister.Location = new System.Drawing.Point(730, 806);
-            this.btnRegister.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.btnRegister.Location = new System.Drawing.Point(365, 403);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(144, 48);
+            this.btnRegister.Size = new System.Drawing.Size(72, 24);
             this.btnRegister.TabIndex = 9;
             this.btnRegister.TabStop = true;
             this.btnRegister.Text = "회원가입";
@@ -286,10 +281,9 @@
             this.siticoneCloseButton2.BackColor = System.Drawing.Color.Transparent;
             this.siticoneCloseButton2.CountdownFont = new System.Drawing.Font("Segoe UI", 9F);
             this.siticoneCloseButton2.EnableSound = false;
-            this.siticoneCloseButton2.Location = new System.Drawing.Point(1530, 0);
-            this.siticoneCloseButton2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.siticoneCloseButton2.Location = new System.Drawing.Point(765, 0);
             this.siticoneCloseButton2.Name = "siticoneCloseButton2";
-            this.siticoneCloseButton2.Size = new System.Drawing.Size(66, 66);
+            this.siticoneCloseButton2.Size = new System.Drawing.Size(33, 33);
             this.siticoneCloseButton2.TabIndex = 10;
             this.siticoneCloseButton2.Text = "siticoneCloseButton2";
             this.siticoneCloseButton2.TooltipText = "Close";
@@ -299,10 +293,9 @@
             // 
             this.btnGptTest.BackColor = System.Drawing.Color.Pink;
             this.btnGptTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGptTest.Location = new System.Drawing.Point(1300, 848);
-            this.btnGptTest.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnGptTest.Location = new System.Drawing.Point(650, 424);
             this.btnGptTest.Name = "btnGptTest";
-            this.btnGptTest.Size = new System.Drawing.Size(158, 94);
+            this.btnGptTest.Size = new System.Drawing.Size(79, 47);
             this.btnGptTest.TabIndex = 11;
             this.btnGptTest.Text = "일정 생성 테스트";
             this.btnGptTest.UseVisualStyleBackColor = false;
@@ -310,10 +303,10 @@
             // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.Lavender;
-            this.ClientSize = new System.Drawing.Size(1600, 1000);
+            this.ClientSize = new System.Drawing.Size(800, 500);
             this.Controls.Add(this.btnGptTest);
             this.Controls.Add(this.siticoneCloseButton2);
             this.Controls.Add(this.btnRegister);
@@ -323,7 +316,6 @@
             this.Controls.Add(this.siticoneCloseButton1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "LoginForm";
             this.Text = "LoginForm";
             this.Load += new System.EventHandler(this.LoginForm_Load);

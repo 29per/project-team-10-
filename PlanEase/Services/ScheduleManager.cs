@@ -45,19 +45,16 @@ namespace PlanEase.Services
             return new List<Schedule>(schedules); // 외부 변경 방지
         }
 
-        // 파일에서 일정 데이터를 불러와 리스트에 저장
-        //public void LoadSchedules()
-        //{
-        //    List<string> lines = File.Exists(FilePath) ? File.ReadAllLines(FilePath).ToList(): new List<string>();
-        //    schedules = lines.Select(line=>Schedule.FromCsv(line)).ToList();
-        //}
-
-        // 현재 일정 리스트를 파일로 저장
-        //public void SaveSchedules()
-        //{
-        //    List<string> lines = schedules.Select(s => s.ToCsv()).ToList();
-        //    File.WriteAllLines(FilePath, lines);
-        //}
+        // 일정 업데이트
+        public void UpdateSchedule(Schedule updated)
+        {
+            var index = schedules.FindIndex(s => s.Id == updated.Id);
+            if (index != -1)
+            {
+                schedules[index] = updated; // 기존 객체를 통째로 교체 (Id/UserId는 동일하게 유지됨)
+                UpdateScheduleInDb(updated);
+            }
+        }
 
         public void AddScheduleToDb(Schedule schedule)
         {
@@ -126,10 +123,40 @@ namespace PlanEase.Services
             return result;
         }
 
+        private void UpdateScheduleInDb(Schedule s)
+        {
+            using var conn = new MySqlConnection(connStr);
+            conn.Open();
+
+            string tagString = string.Join("|", s.Tags);
+            string query = @"UPDATE Schedules SET 
+                        Title = @Title, StartTime = @StartTime, EndTime = @EndTime,
+                        Tags = @Tags, Priority = @Priority, IsCompleted = @IsCompleted, Description = @Description
+                     WHERE Id = @Id";
+
+            using var cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@Title", s.Title);
+            cmd.Parameters.AddWithValue("@StartTime", s.StartTime);
+            cmd.Parameters.AddWithValue("@EndTime", s.EndTime);
+            cmd.Parameters.AddWithValue("@Tags", tagString);
+            cmd.Parameters.AddWithValue("@Priority", (int)s.Priority);
+            cmd.Parameters.AddWithValue("@IsCompleted", s.IsCompleted);
+            cmd.Parameters.AddWithValue("@Description", s.Description ?? "");
+            cmd.Parameters.AddWithValue("@Id", s.Id);
+
+            cmd.ExecuteNonQuery();
+        }
+
         // 태그 이름으로 일정 조회
         public List<Schedule> GetSchedulesByTag(string tagName)
         {
             return schedules.Where(s => s.Tags.Contains(tagName)).ToList();
         }
+
+        public List<Schedule> GetSchedulesForDate(DateTime date)
+        {
+            return schedules.Where(s => s.StartTime.Date == date.Date).ToList();
+        }
+
     }
 }

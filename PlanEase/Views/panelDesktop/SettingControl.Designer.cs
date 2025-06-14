@@ -48,11 +48,11 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Font = new System.Drawing.Font("나눔바른펜", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.ForeColor = System.Drawing.Color.Navy;
-            this.label1.Location = new System.Drawing.Point(50, 124);
+            this.label1.Location = new System.Drawing.Point(49, 160);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(200, 24);
+            this.label1.Size = new System.Drawing.Size(244, 30);
             this.label1.TabIndex = 1;
             this.label1.Text = "알정 중복 시 자동 해결 여부";
             // 
@@ -95,19 +95,19 @@
             this.chkAutoResolve.EnableRippleEffect = true;
             this.chkAutoResolve.FocusBorderWidth = 2;
             this.chkAutoResolve.FocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
-            this.chkAutoResolve.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.chkAutoResolve.Font = new System.Drawing.Font("나눔바른펜", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.chkAutoResolve.ForeColor = System.Drawing.Color.DarkBlue;
             this.chkAutoResolve.HoverBackColor = System.Drawing.Color.Gainsboro;
             this.chkAutoResolve.IndeterminateBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
             this.chkAutoResolve.IndeterminateColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.chkAutoResolve.IsContained = false;
             this.chkAutoResolve.IsReadOnly = false;
-            this.chkAutoResolve.Location = new System.Drawing.Point(270, 107);
+            this.chkAutoResolve.Location = new System.Drawing.Point(299, 150);
             this.chkAutoResolve.MinimumSize = new System.Drawing.Size(178, 24);
             this.chkAutoResolve.Name = "chkAutoResolve";
             this.chkAutoResolve.PressedBackColor = System.Drawing.Color.DarkGray;
             this.chkAutoResolve.ShowFocusCue = false;
-            this.chkAutoResolve.Size = new System.Drawing.Size(178, 59);
+            this.chkAutoResolve.Size = new System.Drawing.Size(200, 50);
             this.chkAutoResolve.Style = SiticoneNetFrameworkUI.CheckBoxStyle.Material;
             this.chkAutoResolve.SwitchCheckedTrackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(56)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.chkAutoResolve.SwitchTrackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
@@ -122,11 +122,11 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.Font = new System.Drawing.Font("나눔바른펜", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label2.ForeColor = System.Drawing.Color.Navy;
-            this.label2.Location = new System.Drawing.Point(50, 181);
+            this.label2.Location = new System.Drawing.Point(49, 240);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(145, 24);
+            this.label2.Size = new System.Drawing.Size(177, 30);
             this.label2.TabIndex = 3;
             this.label2.Text = "일정 중복 해결 방법";
             // 
@@ -142,11 +142,11 @@
             this.cmbTheme.IconColor = System.Drawing.Color.MediumSlateBlue;
             this.cmbTheme.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
             this.cmbTheme.ListTextColor = System.Drawing.Color.DimGray;
-            this.cmbTheme.Location = new System.Drawing.Point(54, 363);
+            this.cmbTheme.Location = new System.Drawing.Point(54, 460);
             this.cmbTheme.MinimumSize = new System.Drawing.Size(200, 30);
             this.cmbTheme.Name = "cmbTheme";
             this.cmbTheme.Padding = new System.Windows.Forms.Padding(2);
-            this.cmbTheme.Size = new System.Drawing.Size(288, 33);
+            this.cmbTheme.Size = new System.Drawing.Size(380, 45);
             this.cmbTheme.TabIndex = 4;
             this.cmbTheme.Texts = "";
             // 
@@ -173,18 +173,18 @@
             this.rdoAskUser.ContainerTopLeftRadius = 8;
             this.rdoAskUser.ContainerTopRightRadius = 8;
             this.rdoAskUser.EnableRipple = false;
-            this.rdoAskUser.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.rdoAskUser.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdoAskUser.HoverCursor = System.Windows.Forms.Cursors.Hand;
             this.rdoAskUser.IsContained = false;
             this.rdoAskUser.IsReadOnly = false;
-            this.rdoAskUser.Location = new System.Drawing.Point(14, 46);
+            this.rdoAskUser.Location = new System.Drawing.Point(14, 55);
             this.rdoAskUser.MinimumSize = new System.Drawing.Size(178, 24);
             this.rdoAskUser.Name = "rdoAskUser";
             this.rdoAskUser.RippleColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
             this.rdoAskUser.RippleDuration = 0.5F;
             this.rdoAskUser.RippleStyle = SiticoneNetFrameworkUI.SiticoneRadioButton.RippleAnimationStyle.Standard;
             this.rdoAskUser.ShakeDuration = 0.5F;
-            this.rdoAskUser.Size = new System.Drawing.Size(178, 43);
+            this.rdoAskUser.Size = new System.Drawing.Size(230, 35);
             this.rdoAskUser.TabIndex = 5;
             this.rdoAskUser.Text = "사용자에게 물어보기";
             this.rdoAskUser.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
@@ -214,18 +214,18 @@
             this.rdoCheckTime.ContainerTopLeftRadius = 8;
             this.rdoCheckTime.ContainerTopRightRadius = 8;
             this.rdoCheckTime.EnableRipple = false;
-            this.rdoCheckTime.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.rdoCheckTime.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdoCheckTime.HoverCursor = System.Windows.Forms.Cursors.Hand;
             this.rdoCheckTime.IsContained = false;
             this.rdoCheckTime.IsReadOnly = false;
-            this.rdoCheckTime.Location = new System.Drawing.Point(208, 55);
-            this.rdoCheckTime.MinimumSize = new System.Drawing.Size(178, 24);
+            this.rdoCheckTime.Location = new System.Drawing.Point(264, 55);
+            this.rdoCheckTime.MinimumSize = new System.Drawing.Size(178, 26);
             this.rdoCheckTime.Name = "rdoCheckTime";
             this.rdoCheckTime.RippleColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
             this.rdoCheckTime.RippleDuration = 0.5F;
             this.rdoCheckTime.RippleStyle = SiticoneNetFrameworkUI.SiticoneRadioButton.RippleAnimationStyle.Standard;
             this.rdoCheckTime.ShakeDuration = 0.5F;
-            this.rdoCheckTime.Size = new System.Drawing.Size(178, 24);
+            this.rdoCheckTime.Size = new System.Drawing.Size(230, 35);
             this.rdoCheckTime.TabIndex = 6;
             this.rdoCheckTime.Text = "시간 변경";
             this.rdoCheckTime.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
@@ -255,18 +255,18 @@
             this.rdoMerege.ContainerTopLeftRadius = 8;
             this.rdoMerege.ContainerTopRightRadius = 8;
             this.rdoMerege.EnableRipple = false;
-            this.rdoMerege.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.rdoMerege.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdoMerege.HoverCursor = System.Windows.Forms.Cursors.Hand;
             this.rdoMerege.IsContained = false;
             this.rdoMerege.IsReadOnly = false;
-            this.rdoMerege.Location = new System.Drawing.Point(392, 55);
-            this.rdoMerege.MinimumSize = new System.Drawing.Size(178, 24);
+            this.rdoMerege.Location = new System.Drawing.Point(500, 55);
+            this.rdoMerege.MinimumSize = new System.Drawing.Size(178, 26);
             this.rdoMerege.Name = "rdoMerege";
             this.rdoMerege.RippleColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
             this.rdoMerege.RippleDuration = 0.5F;
             this.rdoMerege.RippleStyle = SiticoneNetFrameworkUI.SiticoneRadioButton.RippleAnimationStyle.Standard;
             this.rdoMerege.ShakeDuration = 0.5F;
-            this.rdoMerege.Size = new System.Drawing.Size(178, 24);
+            this.rdoMerege.Size = new System.Drawing.Size(230, 35);
             this.rdoMerege.TabIndex = 7;
             this.rdoMerege.Text = "병합";
             this.rdoMerege.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
@@ -296,18 +296,18 @@
             this.rdoDelete.ContainerTopLeftRadius = 8;
             this.rdoDelete.ContainerTopRightRadius = 8;
             this.rdoDelete.EnableRipple = false;
-            this.rdoDelete.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.rdoDelete.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdoDelete.HoverCursor = System.Windows.Forms.Cursors.Hand;
             this.rdoDelete.IsContained = false;
             this.rdoDelete.IsReadOnly = false;
-            this.rdoDelete.Location = new System.Drawing.Point(576, 55);
-            this.rdoDelete.MinimumSize = new System.Drawing.Size(178, 24);
+            this.rdoDelete.Location = new System.Drawing.Point(700, 55);
+            this.rdoDelete.MinimumSize = new System.Drawing.Size(178, 26);
             this.rdoDelete.Name = "rdoDelete";
             this.rdoDelete.RippleColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
             this.rdoDelete.RippleDuration = 0.5F;
             this.rdoDelete.RippleStyle = SiticoneNetFrameworkUI.SiticoneRadioButton.RippleAnimationStyle.Standard;
             this.rdoDelete.ShakeDuration = 0.5F;
-            this.rdoDelete.Size = new System.Drawing.Size(178, 24);
+            this.rdoDelete.Size = new System.Drawing.Size(230, 35);
             this.rdoDelete.TabIndex = 8;
             this.rdoDelete.Text = "삭제";
             this.rdoDelete.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
@@ -341,7 +341,7 @@
             this.siticoneGroupBox1.CornerRadius = 0;
             this.siticoneGroupBox1.EnableBlinking = false;
             this.siticoneGroupBox1.EnableHoverAnimation = true;
-            this.siticoneGroupBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.siticoneGroupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.siticoneGroupBox1.GradientEndColor = System.Drawing.Color.LightGray;
             this.siticoneGroupBox1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.siticoneGroupBox1.GradientStartColor = System.Drawing.Color.White;
@@ -350,14 +350,14 @@
             this.siticoneGroupBox1.HoveredTitleColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(90)))), ((int)(((byte)(160)))));
             this.siticoneGroupBox1.IsCollapsed = false;
             this.siticoneGroupBox1.IsCollapsible = true;
-            this.siticoneGroupBox1.Location = new System.Drawing.Point(54, 203);
+            this.siticoneGroupBox1.Location = new System.Drawing.Point(54, 273);
             this.siticoneGroupBox1.MaxBlinkCount = 3;
             this.siticoneGroupBox1.Name = "siticoneGroupBox1";
             this.siticoneGroupBox1.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(90)))), ((int)(((byte)(160)))));
             this.siticoneGroupBox1.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.siticoneGroupBox1.ShadowDepth = 3;
             this.siticoneGroupBox1.ShowShadow = true;
-            this.siticoneGroupBox1.Size = new System.Drawing.Size(676, 102);
+            this.siticoneGroupBox1.Size = new System.Drawing.Size(933, 110);
             this.siticoneGroupBox1.SolidFillColor = System.Drawing.Color.WhiteSmoke;
             this.siticoneGroupBox1.StatusIcon = null;
             this.siticoneGroupBox1.StatusText = "";
@@ -373,11 +373,11 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label3.Font = new System.Drawing.Font("나눔바른펜", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label3.ForeColor = System.Drawing.Color.Navy;
-            this.label3.Location = new System.Drawing.Point(50, 326);
+            this.label3.Location = new System.Drawing.Point(49, 418);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 24);
+            this.label3.Size = new System.Drawing.Size(94, 30);
             this.label3.TabIndex = 10;
             this.label3.Text = "테마 선택";
             // 
@@ -433,7 +433,7 @@
             this.btnSave.IsReadOnly = false;
             this.btnSave.IsToggleButton = false;
             this.btnSave.IsToggled = false;
-            this.btnSave.Location = new System.Drawing.Point(233, 452);
+            this.btnSave.Location = new System.Drawing.Point(300, 570);
             this.btnSave.LongPressDurationMS = 1000;
             this.btnSave.Name = "btnSave";
             this.btnSave.NormalFontStyle = System.Drawing.FontStyle.Regular;
@@ -452,7 +452,7 @@
             this.btnSave.ShadowOffset = new System.Drawing.Point(0, 2);
             this.btnSave.ShakeDuration = 500;
             this.btnSave.ShakeIntensity = 5;
-            this.btnSave.Size = new System.Drawing.Size(110, 45);
+            this.btnSave.Size = new System.Drawing.Size(140, 60);
             this.btnSave.TabIndex = 23;
             this.btnSave.Text = "저장";
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -513,7 +513,7 @@
             this.btnReset.IsReadOnly = false;
             this.btnReset.IsToggleButton = false;
             this.btnReset.IsToggled = false;
-            this.btnReset.Location = new System.Drawing.Point(474, 452);
+            this.btnReset.Location = new System.Drawing.Point(660, 570);
             this.btnReset.LongPressDurationMS = 1000;
             this.btnReset.Name = "btnReset";
             this.btnReset.NormalFontStyle = System.Drawing.FontStyle.Regular;
@@ -532,7 +532,7 @@
             this.btnReset.ShadowOffset = new System.Drawing.Point(0, 2);
             this.btnReset.ShakeDuration = 500;
             this.btnReset.ShakeIntensity = 5;
-            this.btnReset.Size = new System.Drawing.Size(110, 45);
+            this.btnReset.Size = new System.Drawing.Size(140, 60);
             this.btnReset.TabIndex = 24;
             this.btnReset.Text = "기본 값 복원";
             this.btnReset.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -550,23 +550,22 @@
             this.btnSetting.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnSetting.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSetting.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSetting.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSetting.ForeColor = System.Drawing.Color.MediumSlateBlue;
             this.btnSetting.IconChar = FontAwesome.Sharp.IconChar.Cog;
             this.btnSetting.IconColor = System.Drawing.Color.MediumSlateBlue;
             this.btnSetting.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSetting.IconSize = 32;
+            this.btnSetting.IconSize = 40;
             this.btnSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSetting.Location = new System.Drawing.Point(338, 10);
+            this.btnSetting.Location = new System.Drawing.Point(474, 11);
             this.btnSetting.Name = "btnSetting";
             this.btnSetting.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnSetting.Size = new System.Drawing.Size(180, 72);
+            this.btnSetting.Size = new System.Drawing.Size(230, 90);
             this.btnSetting.TabIndex = 25;
             this.btnSetting.Text = "Settting";
             this.btnSetting.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSetting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSetting.UseVisualStyleBackColor = false;
-            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
             // 
             // SettingControl
             // 
@@ -583,8 +582,7 @@
             this.Controls.Add(this.chkAutoResolve);
             this.Controls.Add(this.label1);
             this.Name = "SettingControl";
-            this.Size = new System.Drawing.Size(843, 545);
-            this.Load += new System.EventHandler(this.SettingControl_Load);
+            this.Size = new System.Drawing.Size(1100, 720);
             this.siticoneGroupBox1.ResumeLayout(false);
             this.siticoneGroupBox1.PerformLayout();
             this.ResumeLayout(false);
