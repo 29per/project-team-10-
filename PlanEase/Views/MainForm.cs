@@ -21,6 +21,7 @@ namespace PlanEase
         private ScheduleManager scheduleManager;
         private SettingManager settingManager;
         private TagManager tagManager;
+        private ToDoManager toDoManager;
 
         private IconButton currentBtn;
         private Panel leftBorderBtn;
@@ -38,6 +39,8 @@ namespace PlanEase
             settingManager.LoadSetting(loggedInUser.Id);
             tagManager = new TagManager();
             tagManager.LoadTagsFromDb(loggedInUser.Id);
+            toDoManager = new ToDoManager();
+            toDoManager.LoadToDosFromDb(loggedInUser.Id);
 
 
             leftBorderBtn = new Panel();
@@ -185,7 +188,7 @@ namespace PlanEase
 
 
 
-            OpenChildControl(new Planner(loggedInUser, scheduleManager,tagManager));
+            OpenChildControl(new Planner(loggedInUser, scheduleManager,tagManager, toDoManager));
 
         }
 
@@ -198,7 +201,7 @@ namespace PlanEase
         private void btnCalendar_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
-            OpenChildControl(new Planner(loggedInUser,scheduleManager,tagManager));
+            OpenChildControl(new Planner(loggedInUser,scheduleManager,tagManager, toDoManager));
         }
 
         private void btnTag_Click(object sender, EventArgs e)

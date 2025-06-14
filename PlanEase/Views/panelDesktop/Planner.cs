@@ -21,7 +21,7 @@ namespace PlanEase.Views.panelDesktop
         private Dictionary<DateTime, Panel> datePanels = new Dictionary<DateTime, Panel>();
         private User loggedInUser;
         private ScheduleManager scheduleManager;
-        private ToDoManager toDoManager = new ToDoManager();
+        private ToDoManager toDoManager;
         private TagManager tagManager;
         private List<ToDo> toDoList = new List<ToDo>();
 
@@ -170,15 +170,17 @@ namespace PlanEase.Views.panelDesktop
         //}
 
 
-        public Planner(User user, ScheduleManager manager,TagManager tagManager)
+        public Planner(User user, ScheduleManager manager,TagManager tagManager, ToDoManager toDoManager)
         {
             InitializeComponent();
             //SetupCalendarTable();
             this.loggedInUser = user;
             this.scheduleManager = manager;
             this.tagManager = tagManager;
+            this.toDoManager = toDoManager;
             InitializeCalendar();
             InitializeMonthNavigation();
+            RefreshToDoListView();
         }
 
         //private void SetupCalendarTable()
