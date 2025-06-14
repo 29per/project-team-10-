@@ -38,32 +38,32 @@
             // 
             // txtContent
             // 
-            this.txtContent.Location = new System.Drawing.Point(12, 55);
+            this.txtContent.Location = new System.Drawing.Point(10, 48);
             this.txtContent.Name = "txtContent";
-            this.txtContent.Size = new System.Drawing.Size(100, 35);
+            this.txtContent.Size = new System.Drawing.Size(298, 32);
             this.txtContent.TabIndex = 0;
             // 
             // chkDueDate
             // 
             this.chkDueDate.AutoSize = true;
-            this.chkDueDate.Location = new System.Drawing.Point(251, 129);
+            this.chkDueDate.Location = new System.Drawing.Point(322, 122);
             this.chkDueDate.Name = "chkDueDate";
-            this.chkDueDate.Size = new System.Drawing.Size(28, 27);
+            this.chkDueDate.Size = new System.Drawing.Size(22, 21);
             this.chkDueDate.TabIndex = 1;
             this.chkDueDate.UseVisualStyleBackColor = true;
             // 
             // dtpDueDate
             // 
-            this.dtpDueDate.Location = new System.Drawing.Point(12, 129);
+            this.dtpDueDate.Location = new System.Drawing.Point(10, 113);
             this.dtpDueDate.Name = "dtpDueDate";
-            this.dtpDueDate.Size = new System.Drawing.Size(200, 35);
+            this.dtpDueDate.Size = new System.Drawing.Size(298, 32);
             this.dtpDueDate.TabIndex = 2;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(251, 213);
+            this.btnSave.Location = new System.Drawing.Point(212, 186);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(114, 58);
+            this.btnSave.Size = new System.Drawing.Size(96, 51);
             this.btnSave.TabIndex = 3;
             this.btnSave.Text = "저장";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -71,9 +71,9 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(380, 213);
+            this.btnDelete.Location = new System.Drawing.Point(322, 186);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(114, 58);
+            this.btnDelete.Size = new System.Drawing.Size(96, 51);
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "삭제";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -81,9 +81,9 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(515, 213);
+            this.btnCancel.Location = new System.Drawing.Point(436, 186);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(114, 58);
+            this.btnCancel.Size = new System.Drawing.Size(96, 51);
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "취소";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -91,9 +91,9 @@
             // 
             // EditToDoForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(635, 302);
+            this.ClientSize = new System.Drawing.Size(537, 264);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnSave);

@@ -89,10 +89,10 @@ namespace PlanEase.Views.panelDesktop
             // 
             this.panelLeft.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelLeft.Controls.Add(this.ToDoListView);
-            this.panelLeft.Location = new System.Drawing.Point(14, 200);
+            this.panelLeft.Location = new System.Drawing.Point(12, 175);
             this.panelLeft.Margin = new System.Windows.Forms.Padding(4);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(506, 588);
+            this.panelLeft.Size = new System.Drawing.Size(443, 515);
             this.panelLeft.TabIndex = 0;
             // 
             // ToDoListView
@@ -108,7 +108,7 @@ namespace PlanEase.Views.panelDesktop
             this.ToDoListView.Location = new System.Drawing.Point(-1, -1);
             this.ToDoListView.Margin = new System.Windows.Forms.Padding(4);
             this.ToDoListView.Name = "ToDoListView";
-            this.ToDoListView.Size = new System.Drawing.Size(506, 588);
+            this.ToDoListView.Size = new System.Drawing.Size(443, 515);
             this.ToDoListView.TabIndex = 0;
             this.ToDoListView.UseCompatibleStateImageBehavior = false;
             this.ToDoListView.View = System.Windows.Forms.View.Details;
@@ -117,50 +117,50 @@ namespace PlanEase.Views.panelDesktop
             // Title
             // 
             this.Title.Text = "할 일";
-            this.Title.Width = 300;
+            this.Title.Width = 250;
             // 
             // DueDate
             // 
             this.DueDate.Text = "마감일";
-            this.DueDate.Width = 200;
+            this.DueDate.Width = 250;
             // 
             // lblTodoTitle
             // 
             this.lblTodoTitle.AutoSize = true;
             this.lblTodoTitle.Font = new System.Drawing.Font("맑은 고딕", 14F, System.Drawing.FontStyle.Bold);
-            this.lblTodoTitle.Location = new System.Drawing.Point(30, 128);
+            this.lblTodoTitle.Location = new System.Drawing.Point(26, 112);
             this.lblTodoTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTodoTitle.Name = "lblTodoTitle";
-            this.lblTodoTitle.Size = new System.Drawing.Size(200, 51);
+            this.lblTodoTitle.Size = new System.Drawing.Size(176, 45);
             this.lblTodoTitle.TabIndex = 0;
             this.lblTodoTitle.Text = "할 일 목록";
             // 
             // btnAddSchedule
             // 
-            this.btnAddSchedule.Location = new System.Drawing.Point(26, 871);
+            this.btnAddSchedule.Location = new System.Drawing.Point(23, 762);
             this.btnAddSchedule.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddSchedule.Name = "btnAddSchedule";
-            this.btnAddSchedule.Size = new System.Drawing.Size(140, 40);
+            this.btnAddSchedule.Size = new System.Drawing.Size(144, 35);
             this.btnAddSchedule.TabIndex = 3;
             this.btnAddSchedule.Text = "일정 추가";
             this.btnAddSchedule.Click += new System.EventHandler(this.btnAddSchedule_Click);
             // 
             // btnAddTodo
             // 
-            this.btnAddTodo.Location = new System.Drawing.Point(200, 871);
+            this.btnAddTodo.Location = new System.Drawing.Point(175, 762);
             this.btnAddTodo.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddTodo.Name = "btnAddTodo";
-            this.btnAddTodo.Size = new System.Drawing.Size(140, 40);
+            this.btnAddTodo.Size = new System.Drawing.Size(138, 35);
             this.btnAddTodo.TabIndex = 2;
             this.btnAddTodo.Text = "할 일 추가";
             this.btnAddTodo.Click += new System.EventHandler(this.btnAddTodo_Click);
             // 
             // btnSearchTag
             // 
-            this.btnSearchTag.Location = new System.Drawing.Point(380, 871);
+            this.btnSearchTag.Location = new System.Drawing.Point(332, 762);
             this.btnSearchTag.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearchTag.Name = "btnSearchTag";
-            this.btnSearchTag.Size = new System.Drawing.Size(140, 40);
+            this.btnSearchTag.Size = new System.Drawing.Size(133, 35);
             this.btnSearchTag.TabIndex = 1;
             this.btnSearchTag.Text = "태그 검색";
             // 
@@ -170,10 +170,10 @@ namespace PlanEase.Views.panelDesktop
             this.panelRight.Controls.Add(this.panelDayView);
             this.panelRight.Controls.Add(this.panelWeekView);
             this.panelRight.Controls.Add(this.panelMonthView);
-            this.panelRight.Location = new System.Drawing.Point(568, 128);
+            this.panelRight.Location = new System.Drawing.Point(497, 112);
             this.panelRight.Margin = new System.Windows.Forms.Padding(4);
             this.panelRight.Name = "panelRight";
-            this.panelRight.Size = new System.Drawing.Size(1104, 784);
+            this.panelRight.Size = new System.Drawing.Size(966, 686);
             this.panelRight.TabIndex = 1;
             // 
             // panelDayView
@@ -182,7 +182,7 @@ namespace PlanEase.Views.panelDesktop
             this.panelDayView.Location = new System.Drawing.Point(0, 0);
             this.panelDayView.Margin = new System.Windows.Forms.Padding(4);
             this.panelDayView.Name = "panelDayView";
-            this.panelDayView.Size = new System.Drawing.Size(1102, 782);
+            this.panelDayView.Size = new System.Drawing.Size(964, 684);
             this.panelDayView.TabIndex = 0;
             this.panelDayView.Visible = false;
             // 
@@ -192,7 +192,7 @@ namespace PlanEase.Views.panelDesktop
             this.panelWeekView.Location = new System.Drawing.Point(0, 0);
             this.panelWeekView.Margin = new System.Windows.Forms.Padding(4);
             this.panelWeekView.Name = "panelWeekView";
-            this.panelWeekView.Size = new System.Drawing.Size(1102, 782);
+            this.panelWeekView.Size = new System.Drawing.Size(964, 684);
             this.panelWeekView.TabIndex = 1;
             this.panelWeekView.Visible = false;
             // 
@@ -204,76 +204,76 @@ namespace PlanEase.Views.panelDesktop
             this.panelMonthView.Location = new System.Drawing.Point(0, 0);
             this.panelMonthView.Margin = new System.Windows.Forms.Padding(4);
             this.panelMonthView.Name = "panelMonthView";
-            this.panelMonthView.Size = new System.Drawing.Size(1102, 782);
+            this.panelMonthView.Size = new System.Drawing.Size(964, 684);
             this.panelMonthView.TabIndex = 2;
             // 
             // calendarTable
             // 
             this.calendarTable.ColumnCount = 7;
-            this.calendarTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            this.calendarTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            this.calendarTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            this.calendarTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            this.calendarTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            this.calendarTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            this.calendarTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 972F));
+            this.calendarTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.calendarTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.calendarTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.calendarTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.calendarTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.calendarTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.calendarTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 850F));
             this.calendarTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.calendarTable.Location = new System.Drawing.Point(0, 0);
             this.calendarTable.Margin = new System.Windows.Forms.Padding(0);
             this.calendarTable.Name = "calendarTable";
             this.calendarTable.RowCount = 6;
-            this.calendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.calendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.calendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.calendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.calendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.calendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.calendarTable.Size = new System.Drawing.Size(1102, 782);
+            this.calendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
+            this.calendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
+            this.calendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
+            this.calendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
+            this.calendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
+            this.calendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
+            this.calendarTable.Size = new System.Drawing.Size(964, 684);
             this.calendarTable.TabIndex = 0;
             // 
             // calendarMonth
             // 
             this.calendarMonth.Location = new System.Drawing.Point(0, 0);
-            this.calendarMonth.Margin = new System.Windows.Forms.Padding(10, 8, 10, 8);
+            this.calendarMonth.Margin = new System.Windows.Forms.Padding(9, 7, 9, 7);
             this.calendarMonth.Name = "calendarMonth";
             this.calendarMonth.TabIndex = 1;
             // 
             // btnDayView
             // 
-            this.btnDayView.Location = new System.Drawing.Point(1386, 60);
+            this.btnDayView.Location = new System.Drawing.Point(1213, 52);
             this.btnDayView.Margin = new System.Windows.Forms.Padding(4);
             this.btnDayView.Name = "btnDayView";
-            this.btnDayView.Size = new System.Drawing.Size(64, 40);
+            this.btnDayView.Size = new System.Drawing.Size(56, 35);
             this.btnDayView.TabIndex = 5;
             this.btnDayView.Text = "일";
             this.btnDayView.Click += new System.EventHandler(this.btnDayView_Click);
             // 
             // btnWeekView
             // 
-            this.btnWeekView.Location = new System.Drawing.Point(1462, 60);
+            this.btnWeekView.Location = new System.Drawing.Point(1279, 52);
             this.btnWeekView.Margin = new System.Windows.Forms.Padding(4);
             this.btnWeekView.Name = "btnWeekView";
-            this.btnWeekView.Size = new System.Drawing.Size(64, 40);
+            this.btnWeekView.Size = new System.Drawing.Size(56, 35);
             this.btnWeekView.TabIndex = 6;
             this.btnWeekView.Text = "주";
             this.btnWeekView.Click += new System.EventHandler(this.btnWeekView_Click);
             // 
             // btnMonthView
             // 
-            this.btnMonthView.Location = new System.Drawing.Point(1536, 60);
+            this.btnMonthView.Location = new System.Drawing.Point(1344, 52);
             this.btnMonthView.Margin = new System.Windows.Forms.Padding(4);
             this.btnMonthView.Name = "btnMonthView";
-            this.btnMonthView.Size = new System.Drawing.Size(64, 40);
+            this.btnMonthView.Size = new System.Drawing.Size(56, 35);
             this.btnMonthView.TabIndex = 7;
             this.btnMonthView.Text = "월";
             this.btnMonthView.Click += new System.EventHandler(this.btnMonthView_Click);
             // 
             // btnSettings
             // 
-            this.btnSettings.Location = new System.Drawing.Point(1612, 60);
+            this.btnSettings.Location = new System.Drawing.Point(1410, 52);
             this.btnSettings.Margin = new System.Windows.Forms.Padding(4);
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(44, 40);
+            this.btnSettings.Size = new System.Drawing.Size(38, 35);
             this.btnSettings.TabIndex = 8;
             this.btnSettings.Text = "⚙";
             // 
@@ -281,10 +281,10 @@ namespace PlanEase.Views.panelDesktop
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("굴림", 25F);
-            this.lblTitle.Location = new System.Drawing.Point(26, 30);
+            this.lblTitle.Location = new System.Drawing.Point(23, 26);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(367, 67);
+            this.lblTitle.Size = new System.Drawing.Size(323, 59);
             this.lblTitle.TabIndex = 4;
             this.lblTitle.Text = "PLANEASE";
             // 
@@ -301,10 +301,10 @@ namespace PlanEase.Views.panelDesktop
             // 
             // btnPrevMonth
             // 
-            this.btnPrevMonth.Location = new System.Drawing.Point(726, 76);
+            this.btnPrevMonth.Location = new System.Drawing.Point(635, 66);
             this.btnPrevMonth.Margin = new System.Windows.Forms.Padding(4);
             this.btnPrevMonth.Name = "btnPrevMonth";
-            this.btnPrevMonth.Size = new System.Drawing.Size(80, 40);
+            this.btnPrevMonth.Size = new System.Drawing.Size(70, 35);
             this.btnPrevMonth.TabIndex = 0;
             this.btnPrevMonth.Text = "<";
             this.btnPrevMonth.UseVisualStyleBackColor = true;
@@ -312,10 +312,10 @@ namespace PlanEase.Views.panelDesktop
             // 
             // btnNextMonth
             // 
-            this.btnNextMonth.Location = new System.Drawing.Point(1128, 76);
+            this.btnNextMonth.Location = new System.Drawing.Point(987, 66);
             this.btnNextMonth.Margin = new System.Windows.Forms.Padding(4);
             this.btnNextMonth.Name = "btnNextMonth";
-            this.btnNextMonth.Size = new System.Drawing.Size(80, 40);
+            this.btnNextMonth.Size = new System.Drawing.Size(70, 35);
             this.btnNextMonth.TabIndex = 9;
             this.btnNextMonth.Text = ">";
             this.btnNextMonth.UseVisualStyleBackColor = true;
@@ -324,18 +324,18 @@ namespace PlanEase.Views.panelDesktop
             // lblCurrentMonth
             // 
             this.lblCurrentMonth.AutoSize = true;
-            this.lblCurrentMonth.Location = new System.Drawing.Point(938, 84);
+            this.lblCurrentMonth.Location = new System.Drawing.Point(821, 74);
             this.lblCurrentMonth.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCurrentMonth.Name = "lblCurrentMonth";
-            this.lblCurrentMonth.Size = new System.Drawing.Size(34, 24);
+            this.lblCurrentMonth.Size = new System.Drawing.Size(31, 21);
             this.lblCurrentMonth.TabIndex = 10;
             this.lblCurrentMonth.Text = "월";
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(26, 806);
+            this.btnConfirm.Location = new System.Drawing.Point(23, 705);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(77, 38);
+            this.btnConfirm.Size = new System.Drawing.Size(80, 33);
             this.btnConfirm.TabIndex = 11;
             this.btnConfirm.Text = "완료";
             this.btnConfirm.UseVisualStyleBackColor = true;
@@ -343,7 +343,7 @@ namespace PlanEase.Views.panelDesktop
             // 
             // Planner
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(168F, 168F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.Lavender;
             this.Controls.Add(this.btnConfirm);
@@ -363,7 +363,7 @@ namespace PlanEase.Views.panelDesktop
             this.Controls.Add(this.btnSettings);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Planner";
-            this.Size = new System.Drawing.Size(1688, 1060);
+            this.Size = new System.Drawing.Size(1477, 928);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panelLeft.ResumeLayout(false);
             this.panelRight.ResumeLayout(false);
