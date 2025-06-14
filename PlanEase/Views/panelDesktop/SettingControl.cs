@@ -1,120 +1,115 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using PlanEase.Models;
 using PlanEase.Services;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
 
 namespace PlanEase.Views.panelDesktop
 {
     public partial class SettingControl : UserControl
     {
+        private int userId;
+        private readonly SettingManager settingManager;
 
-        private SettingManager settingManager;
-        public SettingControl()
-        {   
+        public SettingControl(SettingManager manager)
+        {
             InitializeComponent();
-            // 이벤트 핸들러 연결
-            btnSave.Click += btnSave_Click;
-            btnReset.Click += btnReset_Click;
-            chkAutoResolve.CheckedChanged += chkAutoResolve_CheckedChanged;
+            this.settingManager = manager;
+
+            InitializeUIFromSetting();
+            BindEvents();
         }
 
-
-        public SettingControl(SettingManager settingManager)
-        : this() // 기본 생성자도 호출
+        private void InitializeUIFromSetting()
         {
-            this.settingManager = settingManager;
-            // 필요하다면 settingManager로 초기화 작업
-        }
+            Setting setting = settingManager.GetSetting();
 
-        private void SettingControl_Load(object sender, EventArgs e)
-        {
-            // 테마 콤보박스 초기화 예시
-            cmbTheme.Items.AddRange(new string[]
-            {
-                "라이트",
-                "다크",
-                "블루",
-                "그린"
-            });
-            cmbTheme.SelectedIndex = 0;
+            chkAutoResolve.Checked = setting.UseAutoConflictResolution;
 
-            // 설정 불러오기
-            var conf = ConflictSetting.Instance;
-            chkAutoResolve.Checked = conf.AutoResolve;
-            switch (conf.Strategy)
+            rdoAskUser.Checked = false;
+            rdoCheckTime.Checked = false;
+            rdoMerege.Checked = false;
+            rdoDelete.Checked = false;
+
+            // 라디오 버튼 선택
+            switch (setting.DefaultStrategy)
             {
-                case ConflictResolveStrategy.AskUser: rdoAskUser.Checked = true; break;
-                case ConflictResolveStrategy.ChangeTime: rdoCheckTime.Checked = true; break;
-                case ConflictResolveStrategy.Merge: rdoMerege.Checked = true; break;
-                case ConflictResolveStrategy.Delete: rdoDelete.Checked = true; break;
+                case ConflictResolutionStrategy.AskUser:
+                    rdoAskUser.Checked = true;
+                    break;
+                case ConflictResolutionStrategy.ChangeTime:
+                    rdoCheckTime.Checked = true;
+                    break;
+                case ConflictResolutionStrategy.Merge:
+                    rdoMerege.Checked = true;
+                    break;
+                case ConflictResolutionStrategy.Delete:
+                    rdoDelete.Checked = true;
+                    break;
             }
-            SetStrategyRadioEnabled(chkAutoResolve.Checked);
+            cmbTheme.Items.Clear();
+            cmbTheme.Items.Add("Purple");
+            cmbTheme.SelectedItem = setting.Theme;
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void BindEvents()
         {
-            // 설정 저장
-            ConflictSetting.Instance.AutoResolve = chkAutoResolve.Checked;
-            if (rdoAskUser.Checked) ConflictSetting.Instance.Strategy = ConflictResolveStrategy.AskUser;
-            else if (rdoCheckTime.Checked) ConflictSetting.Instance.Strategy = ConflictResolveStrategy.ChangeTime;
-            else if (rdoMerege.Checked) ConflictSetting.Instance.Strategy = ConflictResolveStrategy.Merge;
-            else if (rdoDelete.Checked) ConflictSetting.Instance.Strategy = ConflictResolveStrategy.Delete;
-            // 테마 저장 예시 (실제로는 테마 적용 로직 필요)
-            string selectedTheme = cmbTheme.Text;
 
-            MessageBox.Show("설정이 저장되었습니다.", "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            btnSave.Click += (s, e) => SaveSetting();
+            btnReset.Click += (s, e) => ResetSetting();
         }
 
-        private void btnReset_Click(object sender, EventArgs e)
+
+        private void SaveSetting()
         {
-            // 기본값 복원
-            chkAutoResolve.Checked = false;
-            rdoAskUser.Checked = true;
-            cmbTheme.SelectedIndex = 0;
+            var setting = settingManager.GetSetting();
+
+            setting.UseAutoConflictResolution = chkAutoResolve.Checked;
+
+            if (rdoAskUser.Checked)
+                setting.DefaultStrategy = ConflictResolutionStrategy.AskUser;
+            else if (rdoCheckTime.Checked)
+                setting.DefaultStrategy = ConflictResolutionStrategy.ChangeTime;
+            else if (rdoMerege.Checked)
+                setting.DefaultStrategy = ConflictResolutionStrategy.Merge;
+            else if (rdoDelete.Checked)
+                setting.DefaultStrategy = ConflictResolutionStrategy.Delete;
+
+            setting.Theme = cmbTheme.SelectedItem?.ToString() ?? "Purple";
+
+            settingManager.SaveOrUpdateSetting();
+
+            MessageBox.Show("설정이 저장되었습니다.", "저장", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void ResetSetting()
+        {
+            var confirm = MessageBox.Show(
+                "정말로 설정을 기본값으로 복원하시겠습니까?",
+                "설정 초기화",
+                 MessageBoxButtons.YesNo,
+                 MessageBoxIcon.Warning
+            );
+
+            if (confirm != DialogResult.Yes)
+                return;
+
+            settingManager.ResetToDefault();
+            InitializeUIFromSetting();
+
+            MessageBox.Show("기본값으로 복원되었습니다.", "복원", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void chkAutoResolve_Click(object sender, EventArgs e)
         {
-            
-        }
-
-        private void chkAutoResolve_CheckedChanged(object sender, EventArgs e)
-        {
-            // 자동해결 체크시 라디오버튼 활성화, 아니면 AskUser만 활성화
-            SetStrategyRadioEnabled(chkAutoResolve.Checked);
-        }
-
-
-
-        private void SetStrategyRadioEnabled(bool enabled)
-        {
-            // 자동해결 체크시 라디오버튼 활성, 아니면 AskUser만 활성
-            rdoAskUser.Enabled = !enabled || (enabled && rdoAskUser.Checked);
-            rdoCheckTime.Enabled = enabled;
-            rdoMerege.Enabled = enabled;
-            rdoDelete.Enabled = enabled;
-        }
-
-        private void btnSetting_Click(object sender, EventArgs e)
-        {
 
         }
-    }
-
-    // 아래는 설정 저장용 싱글톤 및 enum 예시입니다.
-    public enum ConflictResolveStrategy
-    {
-        AskUser,
-        ChangeTime,
-        Merge,
-        Delete
-    }
-
-    public class ConflictSetting
-    {
-        public bool AutoResolve { get; set; } = false;
-        public ConflictResolveStrategy Strategy { get; set; } = ConflictResolveStrategy.AskUser;
-
-        private static ConflictSetting _instance;
-        public static ConflictSetting Instance => _instance ??= new ConflictSetting();
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PlanEase.Models;
 using PlanEase.Services;
+using PlanEase.Views.panelDesktop;
 
 namespace PlanEase.Views
 {
@@ -28,17 +29,7 @@ namespace PlanEase.Views
 
         private void AddToDoForm_Load(object sender, EventArgs e)
         {
-            // 우선순위 콤보박스 초기화
-            cmbPriority.Items.AddRange(new string[]
-            {
-                "매우 낮음",
-                "낮음",
-                "보통",
-                "높음",
-                "매우 높음"
-            });
-            cmbPriority.SelectedIndex = 2; // 기본값: 보통
-
+            
             // 마감일 초기화
             dtpDueDate.Value = DateTime.Today;
 
@@ -59,18 +50,26 @@ namespace PlanEase.Views
             }
 
             //var selectedTags = clbTags.CheckedIndices
-              //  .Cast<int>()
-                //.Select(i => availableTags[i])
-                //.ToList();
+            //  .Cast<int>()
+            //.Select(i => availableTags[i])
+            //.ToList();
+
+            
 
             var todo = new ToDo
             {
                 Content = txtContent.Text.Trim(),
                 DueDate = chkDueDate.Checked ? dtpDueDate.Value : (DateTime?)null,
-                //Priority = (PriorityLevel)(cmbPriority.SelectedIndex + 1), // Enum이 1부터 시작한다고 가정
                 IsDone = false,
                 UserId = userId,
                 //Tags = selectedTags
+            };
+
+            ToDo newToDo = new ToDo
+            {
+                Content = txtContent.Text,
+                DueDate = dtpDueDate.Value,
+                
             };
 
             toDoManager.AddToDo(todo);
@@ -83,5 +82,10 @@ namespace PlanEase.Views
         {
             this.Close();
         }
+
+       
+
+
+
     }
 }

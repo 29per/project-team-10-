@@ -169,6 +169,36 @@
     <Compile Include="Views\ConflictResolutionForm.Designer.cs">
       <DependentUpon>ConflictResolutionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Controls\CalendarControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Controls\CalendarControl.Designer.cs">
+      <DependentUpon>CalendarControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\DateCellControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Controls\DateCellControl.Designer.cs">
+      <DependentUpon>DateCellControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\ScheduleCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Controls\ScheduleCard.Designer.cs">
+      <DependentUpon>ScheduleCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\ScheduleItemControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Controls\ScheduleItemControl.Designer.cs">
+      <DependentUpon>ScheduleItemControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditToDoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\EditToDoForm.Designer.cs">
+      <DependentUpon>EditToDoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -227,6 +257,12 @@
     <Compile Include="Views\RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\SchedulePopUpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SchedulePopUpForm.Designer.cs">
+      <DependentUpon>SchedulePopUpForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\SettingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -255,6 +291,21 @@
     <EmbeddedResource Include="Views\ConflictResolutionForm.resx">
       <DependentUpon>ConflictResolutionForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Controls\CalendarControl.resx">
+      <DependentUpon>CalendarControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Controls\DateCellControl.resx">
+      <DependentUpon>DateCellControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Controls\ScheduleCard.resx">
+      <DependentUpon>ScheduleCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Controls\ScheduleItemControl.resx">
+      <DependentUpon>ScheduleItemControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\EditToDoForm.resx">
+      <DependentUpon>EditToDoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -279,6 +330,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SchedulePopUpForm.resx">
+      <DependentUpon>SchedulePopUpForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SettingForm.resx">
       <DependentUpon>SettingForm.cs</DependentUpon>

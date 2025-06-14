@@ -16,6 +16,7 @@ namespace PlanEase.Models
         public bool IsDone { get; set; } // 완료 여부
         public DateTime? StartTime { get; set; }  // 할 일 시작 시간 
         public DateTime? DueDate { get; set; } // 마감일 
+        public int Priority { get; set; }  // 1: 높음, 2: 중간, 3: 낮음
 
         public ToDo(int userId, string content, DateTime? dueDate = null, DateTime? startTime = null)
         {

@@ -14,7 +14,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using PlanEase.Views.Controls;
 
 
 namespace PlanEase.Views
@@ -34,11 +34,13 @@ namespace PlanEase.Views
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-
+            
         }
 
       
-    
+
+
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string username = txtUsername2.Text.Trim();
@@ -121,6 +123,6 @@ namespace PlanEase.Views
             this.Close();
         }
 
-        
+
     }
 }
