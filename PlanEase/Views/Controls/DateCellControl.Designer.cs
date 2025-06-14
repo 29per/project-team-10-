@@ -68,6 +68,7 @@
             this.lblMore.TabIndex = 2;
             this.lblMore.Text = "lblMore";
             this.lblMore.Visible = false;
+            this.lblMore.Click += new System.EventHandler(this.lblMore_Click);
             // 
             // panelContent
             // 

@@ -32,8 +32,8 @@ namespace PlanEase.Views.panelDesktop
 
         private void InitializeCalendar()
         {
-            calendar = new CalendarControl();
-            calendar.SetScheduleManager(scheduleManager);
+            calendar = new CalendarControl(scheduleManager);
+            //calendar.SetScheduleManager(scheduleManager);
             calendar.Location = new Point(0, 0); // panelRight 내에서 좌측 상단 정렬
             calendar.Size = new Size(770, 660);
             panelRight.Controls.Add(calendar);

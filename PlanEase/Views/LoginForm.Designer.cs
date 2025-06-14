@@ -178,6 +178,7 @@
             this.txtUsername2.IsRequired = false;
             this.txtUsername2.Location = new System.Drawing.Point(200, 197);
             this.txtUsername2.Name = "txtUsername2";
+            this.txtUsername2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.txtUsername2.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(50)))), ((int)(((byte)(87)))));
             this.txtUsername2.PlaceholderText = "아이디를 입력하세요.";
             this.txtUsername2.ReadOnlyBorderColor1 = System.Drawing.Color.LightGray;
@@ -236,6 +237,7 @@
             this.txtPassword2.Location = new System.Drawing.Point(200, 268);
             this.txtPassword2.MaxLength = 50;
             this.txtPassword2.Name = "txtPassword2";
+            this.txtPassword2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.txtPassword2.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(50)))), ((int)(((byte)(87)))));
             this.txtPassword2.PlaceholderText = "비밀번호를 입력하세요.";
             this.txtPassword2.ReadOnlyBorderColor1 = System.Drawing.Color.LightGray;

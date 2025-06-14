@@ -5,9 +5,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PlanEase.Views.Controls;
 
 namespace PlanEase.Views.Controls
 {
@@ -17,10 +19,12 @@ namespace PlanEase.Views.Controls
         private DateTime currentMonth; 
         private ScheduleManager scheduleManager; 
 
-        public CalendarControl()
+        public CalendarControl(ScheduleManager scheduleManager)
         {
             InitializeComponent();
+            this.scheduleManager = scheduleManager;
             InitializeDateCells();
+            
         }
 
         public void SetScheduleManager(ScheduleManager manager)
@@ -38,7 +42,8 @@ namespace PlanEase.Views.Controls
         {
             for (int i = 0; i < 42; i++)
             {
-                var cell = new DateCellControl();
+
+                var cell = new DateCellControl(scheduleManager);
                 cell.Size = new Size(110, 110);
                 cell.Location = new Point((i % 7) * 110, (i / 7) * 110);
                 cell.Visible = false;
@@ -114,6 +119,13 @@ namespace PlanEase.Views.Controls
 
             scheduleManager.UpdateSchedule(schedule); // DB 반영
             ShowMonth(currentMonth); // 달력 갱신
+            if (SchedulePopUpForm.CurrentInstance != null)
+            {
+                var date = SchedulePopUpForm.CurrentInstance.Date; // Date 프로퍼티가 있어야 함
+                var updatedList = scheduleManager.GetSchedulesForDate(date);
+                SchedulePopUpForm.CurrentInstance.RefreshScheduleList(updatedList);
+            }
+
         }
 
 

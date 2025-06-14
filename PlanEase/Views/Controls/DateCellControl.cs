@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PlanEase.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,10 +14,11 @@ namespace PlanEase.Views.Controls
     public partial class DateCellControl : UserControl
     {
         public DateTime Date { get; private set; } // 이 셀의 날짜
-        private const int MaxVisibleSchedules = 3;
+        private const int MaxVisibleSchedules = 2;
         public event Action<int, DateTime> ScheduleDropped;
+        private ScheduleManager scheduleManager;
 
-        public DateCellControl()
+        public DateCellControl(ScheduleManager scheduleManager)
         {
             InitializeComponent();
             panelContent.AllowDrop = true;
@@ -24,6 +26,7 @@ namespace PlanEase.Views.Controls
             // Drag event 연결
             panelContent.DragEnter += PanelContent_DragEnter;
             panelContent.DragDrop += PanelContent_DragDrop;
+            this.scheduleManager = scheduleManager;
         }
 
 
@@ -82,6 +85,17 @@ namespace PlanEase.Views.Controls
         {
             pnlScheduleList.Controls.Clear();
             lblMore.Visible = false;
+        }
+
+        private void lblMore_Click(object sender, EventArgs e)
+        {
+            var schedules = scheduleManager.GetSchedulesForDate(this.Date);
+            var form = new SchedulePopUpForm(this.Date,schedules);
+
+            var screenLocation = this.PointToScreen(Point.Empty);
+            form.StartPosition = FormStartPosition.Manual;
+            form.Location = new Point(screenLocation.X + 110, screenLocation.Y);
+            form.Show();
         }
     }
 }
