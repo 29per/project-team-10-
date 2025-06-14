@@ -104,10 +104,10 @@ namespace PlanEase.Views.panelDesktop
             this.ToDoListView.FullRowSelect = true;
             this.ToDoListView.GridLines = true;
             this.ToDoListView.HideSelection = false;
-            this.ToDoListView.Location = new System.Drawing.Point(1, 3);
+            this.ToDoListView.Location = new System.Drawing.Point(1, -1);
             this.ToDoListView.Margin = new System.Windows.Forms.Padding(4);
             this.ToDoListView.Name = "ToDoListView";
-            this.ToDoListView.Size = new System.Drawing.Size(456, 515);
+            this.ToDoListView.Size = new System.Drawing.Size(456, 519);
             this.ToDoListView.TabIndex = 0;
             this.ToDoListView.UseCompatibleStateImageBehavior = false;
             this.ToDoListView.View = System.Windows.Forms.View.Details;
@@ -325,7 +325,7 @@ namespace PlanEase.Views.panelDesktop
             this.lblCurrentMonth.Location = new System.Drawing.Point(289, 119);
             this.lblCurrentMonth.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCurrentMonth.Name = "lblCurrentMonth";
-            this.lblCurrentMonth.Size = new System.Drawing.Size(37, 25);
+            this.lblCurrentMonth.Size = new System.Drawing.Size(31, 21);
             this.lblCurrentMonth.TabIndex = 10;
             this.lblCurrentMonth.Text = "월";
             // 

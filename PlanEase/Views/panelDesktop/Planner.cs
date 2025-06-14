@@ -464,6 +464,7 @@ namespace PlanEase.Views.panelDesktop
                 item.SubItems.Add(todo.DueDate?.ToString("yyyy-MM-dd") ?? "없음");
                 item.SubItems.Add(todo.Priority.ToString());
                 item.SubItems.Add(todo.IsDone ? "완료" : "미완료");
+                item.Tag = todo;
                 ToDoListView.Items.Add(item);
             }
         }

@@ -9,6 +9,7 @@ namespace PlanEase.Views
     {
         private readonly ToDoManager toDoManager;
         private readonly ToDo originalToDo;
+        private bool originalIsDone;
 
         public EditToDoForm(ToDo todo, ToDoManager manager)
         {
@@ -23,7 +24,7 @@ namespace PlanEase.Views
             dtpDueDate.Value = originalToDo.DueDate ?? DateTime.Today;
             chkDueDate.Checked = originalToDo.DueDate.HasValue;
 
-
+            originalIsDone = originalToDo.IsDone; //완료 상태 백업
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -36,8 +37,10 @@ namespace PlanEase.Views
 
             originalToDo.Content = txtContent.Text.Trim();
             originalToDo.DueDate = chkDueDate.Checked ? dtpDueDate.Value : (DateTime?)null;
+            originalToDo.IsDone = originalIsDone; //완료 상태 백업
 
             toDoManager.UpdateToDo(originalToDo);
+
             MessageBox.Show("수정 완료!", "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.DialogResult = DialogResult.OK;
         }

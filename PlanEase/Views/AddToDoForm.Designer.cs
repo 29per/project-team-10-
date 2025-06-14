@@ -38,28 +38,28 @@
             this.pnlMain.Controls.Add(this.lblDueDate);
             this.pnlMain.Controls.Add(this.txtContent);
             this.pnlMain.Controls.Add(this.lblTitle);
-            this.pnlMain.Location = new System.Drawing.Point(11, 12);
-            this.pnlMain.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlMain.Location = new System.Drawing.Point(9, 10);
+            this.pnlMain.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(776, 303);
+            this.pnlMain.Size = new System.Drawing.Size(657, 265);
             this.pnlMain.TabIndex = 0;
             // 
             // chkDueDate
             // 
             this.chkDueDate.AutoSize = true;
-            this.chkDueDate.Location = new System.Drawing.Point(371, 88);
-            this.chkDueDate.Margin = new System.Windows.Forms.Padding(4);
+            this.chkDueDate.Location = new System.Drawing.Point(314, 77);
+            this.chkDueDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.chkDueDate.Name = "chkDueDate";
-            this.chkDueDate.Size = new System.Drawing.Size(28, 27);
+            this.chkDueDate.Size = new System.Drawing.Size(22, 21);
             this.chkDueDate.TabIndex = 12;
             this.chkDueDate.UseVisualStyleBackColor = true;
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(620, 219);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancel.Location = new System.Drawing.Point(525, 192);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(100, 40);
+            this.btnCancel.Size = new System.Drawing.Size(85, 35);
             this.btnCancel.TabIndex = 11;
             this.btnCancel.Text = "취소";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -67,10 +67,10 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(492, 219);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAdd.Location = new System.Drawing.Point(416, 192);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(100, 40);
+            this.btnAdd.Size = new System.Drawing.Size(85, 35);
             this.btnAdd.TabIndex = 10;
             this.btnAdd.Text = "확인";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -80,37 +80,35 @@
             // 
             this.dtpDueDate.CustomFormat = "yyyy-MM-dd";
             this.dtpDueDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDueDate.Location = new System.Drawing.Point(150, 84);
-            this.dtpDueDate.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpDueDate.Location = new System.Drawing.Point(127, 74);
+            this.dtpDueDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtpDueDate.Name = "dtpDueDate";
-            this.dtpDueDate.Size = new System.Drawing.Size(201, 35);
+            this.dtpDueDate.Size = new System.Drawing.Size(171, 32);
             this.dtpDueDate.TabIndex = 5;
             // 
             // lblDueDate
             // 
             this.lblDueDate.AutoSize = true;
-            this.lblDueDate.Location = new System.Drawing.Point(30, 90);
-            this.lblDueDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDueDate.Location = new System.Drawing.Point(25, 79);
             this.lblDueDate.Name = "lblDueDate";
-            this.lblDueDate.Size = new System.Drawing.Size(90, 24);
+            this.lblDueDate.Size = new System.Drawing.Size(80, 21);
             this.lblDueDate.TabIndex = 4;
             this.lblDueDate.Text = "마감일:";
             // 
             // txtContent
             // 
-            this.txtContent.Location = new System.Drawing.Point(150, 24);
-            this.txtContent.Margin = new System.Windows.Forms.Padding(4);
+            this.txtContent.Location = new System.Drawing.Point(127, 21);
+            this.txtContent.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtContent.Name = "txtContent";
-            this.txtContent.Size = new System.Drawing.Size(600, 35);
+            this.txtContent.Size = new System.Drawing.Size(508, 32);
             this.txtContent.TabIndex = 1;
             // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Location = new System.Drawing.Point(30, 28);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTitle.Location = new System.Drawing.Point(25, 24);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(74, 24);
+            this.lblTitle.Size = new System.Drawing.Size(66, 21);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "할 일:";
             // 
@@ -120,11 +118,11 @@
             // 
             // AddToDoForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 329);
+            this.ClientSize = new System.Drawing.Size(677, 288);
             this.Controls.Add(this.pnlMain);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "AddToDoForm";
             this.Text = "할 일 추가";
             this.Load += new System.EventHandler(this.AddToDoForm_Load);

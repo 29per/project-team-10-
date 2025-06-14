@@ -154,7 +154,7 @@ namespace PlanEase.Services
             {
                 existing.Content = updatedToDo.Content;
                 existing.DueDate = updatedToDo.DueDate;
-                existing.IsDone = updatedToDo.IsDone;
+                //existing.IsDone = updatedToDo.IsDone;
                 existing.StartTime = updatedToDo.StartTime;
                 existing.Priority = updatedToDo.Priority;
                 // 필요 시 다른 필드도 복사
