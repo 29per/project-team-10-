@@ -41,7 +41,10 @@ namespace PlanEase.Views.Controls
                 var cell = new DateCellControl();
                 cell.Size = new Size(110, 110);
                 cell.Location = new Point((i % 7) * 110, (i / 7) * 110);
-                cell.Visible = false; 
+                cell.Visible = false;
+
+                cell.ScheduleDropped += HandleScheduleDropped; // 이벤트 연결
+
                 this.Controls.Add(cell);
                 dateCells.Add(cell);
             }
@@ -94,5 +97,25 @@ namespace PlanEase.Views.Controls
                 }
             }
         }
+
+        private void HandleScheduleDropped(int scheduleId, DateTime newDate)
+        {
+            var schedule = scheduleManager.GetAllSchedules().FirstOrDefault(s => s.Id == scheduleId);
+            if (schedule == null) return;
+
+            // 날짜만 수정
+            DateTime originalStart = schedule.StartTime;
+            DateTime originalEnd = schedule.EndTime;
+
+            TimeSpan duration = originalEnd - originalStart;
+            schedule.StartTime = newDate.Date + originalStart.TimeOfDay;
+            schedule.EndTime = schedule.StartTime + duration;
+
+
+            scheduleManager.UpdateSchedule(schedule); // DB 반영
+            ShowMonth(currentMonth); // 달력 갱신
+        }
+
+
     }
 }

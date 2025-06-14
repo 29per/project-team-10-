@@ -44,6 +44,18 @@ namespace PlanEase.Services
         {
             return new List<Schedule>(schedules); // 외부 변경 방지
         }
+
+        // 일정 업데이트
+        public void UpdateSchedule(Schedule updated)
+        {
+            var index = schedules.FindIndex(s => s.Id == updated.Id);
+            if (index != -1)
+            {
+                schedules[index] = updated; // 기존 객체를 통째로 교체 (Id/UserId는 동일하게 유지됨)
+                UpdateScheduleInDb(updated);
+            }
+        }
+
         public void AddScheduleToDb(Schedule schedule)
         {
             using var conn = new MySqlConnection(connStr);
@@ -109,6 +121,30 @@ namespace PlanEase.Services
             }
 
             return result;
+        }
+
+        private void UpdateScheduleInDb(Schedule s)
+        {
+            using var conn = new MySqlConnection(connStr);
+            conn.Open();
+
+            string tagString = string.Join("|", s.Tags);
+            string query = @"UPDATE Schedules SET 
+                        Title = @Title, StartTime = @StartTime, EndTime = @EndTime,
+                        Tags = @Tags, Priority = @Priority, IsCompleted = @IsCompleted, Description = @Description
+                     WHERE Id = @Id";
+
+            using var cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@Title", s.Title);
+            cmd.Parameters.AddWithValue("@StartTime", s.StartTime);
+            cmd.Parameters.AddWithValue("@EndTime", s.EndTime);
+            cmd.Parameters.AddWithValue("@Tags", tagString);
+            cmd.Parameters.AddWithValue("@Priority", (int)s.Priority);
+            cmd.Parameters.AddWithValue("@IsCompleted", s.IsCompleted);
+            cmd.Parameters.AddWithValue("@Description", s.Description ?? "");
+            cmd.Parameters.AddWithValue("@Id", s.Id);
+
+            cmd.ExecuteNonQuery();
         }
 
         // 태그 이름으로 일정 조회
