@@ -38,6 +38,9 @@
             this.btnRegister = new SiticoneNetFrameworkUI.SiticoneLinkedLabel();
             this.siticoneCloseButton2 = new SiticoneNetFrameworkUI.SiticoneCloseButton();
             this.btnGptTest = new System.Windows.Forms.Button();
+            this.btnTestTags = new System.Windows.Forms.Button();
+            this.txtResult = new System.Windows.Forms.TextBox();
+            this.txtTitle = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // mySiticoneLicenseSettings1
@@ -301,12 +304,40 @@
             this.btnGptTest.UseVisualStyleBackColor = false;
             this.btnGptTest.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnTestTags
+            // 
+            this.btnTestTags.Location = new System.Drawing.Point(460, 107);
+            this.btnTestTags.Name = "btnTestTags";
+            this.btnTestTags.Size = new System.Drawing.Size(80, 39);
+            this.btnTestTags.TabIndex = 12;
+            this.btnTestTags.Text = "태그 추천";
+            this.btnTestTags.UseVisualStyleBackColor = true;
+            this.btnTestTags.Click += new System.EventHandler(this.btnTestTags_Click);
+            // 
+            // txtResult
+            // 
+            this.txtResult.Location = new System.Drawing.Point(617, 191);
+            this.txtResult.Multiline = true;
+            this.txtResult.Name = "txtResult";
+            this.txtResult.Size = new System.Drawing.Size(148, 146);
+            this.txtResult.TabIndex = 13;
+            // 
+            // txtTitle
+            // 
+            this.txtTitle.Location = new System.Drawing.Point(577, 105);
+            this.txtTitle.Name = "txtTitle";
+            this.txtTitle.Size = new System.Drawing.Size(151, 21);
+            this.txtTitle.TabIndex = 14;
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(800, 500);
+            this.Controls.Add(this.txtTitle);
+            this.Controls.Add(this.txtResult);
+            this.Controls.Add(this.btnTestTags);
             this.Controls.Add(this.btnGptTest);
             this.Controls.Add(this.siticoneCloseButton2);
             this.Controls.Add(this.btnRegister);
@@ -320,6 +351,7 @@
             this.Text = "LoginForm";
             this.Load += new System.EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -333,5 +365,8 @@
         private SiticoneNetFrameworkUI.SiticoneLinkedLabel btnRegister;
         private SiticoneNetFrameworkUI.SiticoneCloseButton siticoneCloseButton2;
         private System.Windows.Forms.Button btnGptTest;
+        private System.Windows.Forms.Button btnTestTags;
+        private System.Windows.Forms.TextBox txtResult;
+        private System.Windows.Forms.TextBox txtTitle;
     }
 }

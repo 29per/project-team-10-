@@ -8,6 +8,10 @@ using System.Net.Http;
 using System.Text;
 using System.Text.Json;
 using PlanEase.Models;
+using PlanEase.LLM.Prompts;
+using PlanEase.LLM.Tagging;
+using static QRCoder.PayloadGenerator;
+using PlanEase.LLM.Memory;
 
 
 
@@ -16,7 +20,7 @@ namespace PlanEase.Helpers
 {
     public class GptService
     {
-        
+
         private static readonly string apiKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY");
         private static readonly string endpoint = "https://api.openai.com/v1/chat/completions";
 
@@ -30,12 +34,13 @@ namespace PlanEase.Helpers
                     "API 키 없음", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return "[ERROR] API 키 없음";
             }
+       
 
             using var httpClient = new HttpClient();
 
             var requestData = new
             {
-                model = "gpt-3.5-turbo",
+                model = "gpt-4o",
                 messages = new[]
                 {
                 new { role = "system", content = systemPrompt },
@@ -64,6 +69,7 @@ namespace PlanEase.Helpers
                 .GetProperty("content")
                 .GetString();
 
+            Console.WriteLine("=== SendChatAsync ===");
             return result;
         }
 
@@ -71,12 +77,8 @@ namespace PlanEase.Helpers
         public static async Task<ParsedScheduleResult> GenerateScheduleFromText(string userInput)
         {
             string today = DateTime.Now.ToString("yyyy-MM-dd");
-            string systemPrompt = $"너는 일정관리 도우미야. 오늘은 {today}야.\n" +
-            "사용자의 입력을 바탕으로 다음 JSON 형식으로 일정 정보를 만들어줘:\n\n" +
-            "{ \"title\": string, \"startTime\": ISO8601 datetime, \"endTime\": ISO8601 datetime, \"tags\": [string], \"description\": string }\n\n" +
-            "title, startTime, endTime은 **사용자가 언급하지 않은 정보를 절대로 추측해서 임의로 값을 채우지 말고 없으면 \"??? 누락됨\"이라고 적어.\n" +
-            "tags는 사용자가 직접 말하지 않더라도 내용을 기반으로 관련된 해시태그 3개를 추천해줘.\n" +
-            "description은 명확하게 언급되지 않았다면 **절대 추측하지 말고 아예 생략해도 돼. '???'로 채우지 마.**\n";
+            var prompt = new SchedulePrompt();
+            string systemPrompt = prompt.Build(today, userInput);
 
 
             ParsedScheduleResult result = new ParsedScheduleResult();
@@ -110,7 +112,7 @@ namespace PlanEase.Helpers
                 {
                     result.FollowUpMessage = $"{string.Join(", ", missingFields)} 정보가 누락되었습니다. 입력해주세요.";
                     return result;
-                }       
+                }
                 string title = titleProp.GetString() ?? "";
                 string startTimeStr = startTimeProp.ToString();
                 string endTimeStr = endTimeProp.ToString();
@@ -123,7 +125,7 @@ namespace PlanEase.Helpers
                     EndTime = DateTime.Parse(endTimeStr),
                     Tags = root.TryGetProperty("tags", out var tagsProp)
                     ? tagsProp.EnumerateArray().Select(t => t.GetString()).Where(t => t != null).ToList()!
-                :    new List<string>(),
+                : new List<string>(),
                     Description = root.TryGetProperty("description", out var descProp)
                     ? (descProp.GetString()?.Contains("???") == true ? "" : (descProp.GetString() ?? "")) : ""
 
@@ -138,5 +140,83 @@ namespace PlanEase.Helpers
                 return result;
             }
         }
+
+        // TitleTagPrompt용
+        public static async Task<List<string>> RequestTitleTagsAsync(string title)
+        {
+            var prompt = new TitleTagPrompt(title);
+            string systemPrompt = prompt.BuildSystemMessage();
+            string userPrompt = prompt.BuildUserMessage();
+            string response = await SendChatAsync(systemPrompt, userPrompt);
+
+            Console.WriteLine("=== SYSTEM(RequestTitleTagsAsync) ===");
+            Console.WriteLine("=== USER(RequestTitleTagsAsync) ===");
+            Console.WriteLine("=== RequestTitleTagsAsync response : " + response);
+
+            List<string> tagList = new List<string>();
+
+            try
+            {
+                // Case 1: 직접 JSON 배열 문자열일 경우 (ex: ["#학업", "#과제", "#공부"])
+                if (response.Trim().StartsWith("[") && response.Trim().EndsWith("]"))
+                {
+                    tagList = JsonSerializer.Deserialize<List<string>>(response);
+                    Console.WriteLine("✅ JSON 배열 파싱 성공 (직접 배열)");
+                }
+                else
+                {
+                    // Case 2: JSON 객체에 태그 배열이 포함된 경우 (ex: { "태그 추천": [ ... ] })
+                    using var doc = JsonDocument.Parse(response);
+                    string[] possibleKeys = { "tags", "태그", "태그 추천", "제안하는 태그" };
+                    foreach (var key in possibleKeys)
+                    {
+                        if (doc.RootElement.TryGetProperty(key, out var arrayElem) && arrayElem.ValueKind == JsonValueKind.Array)
+                        {
+                            tagList = arrayElem.EnumerateArray()
+                                .Select(e => e.GetString())
+                                .Where(tag => !string.IsNullOrWhiteSpace(tag) && tag.StartsWith("#"))
+                                .ToList();
+                            Console.WriteLine("✅ JSON 객체 파싱 성공 (키: " + key + ")");
+                            break;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("⚠️ JSON 파싱 실패: " + ex.Message);
+            }
+
+            // Fallback: 그냥 문자열에서 #태그 추출
+            if (tagList == null || tagList.Count == 0)
+            {
+                tagList = response
+                    .Split(new[] { '\n', ',', ' ', '\"', '[', ']' }, StringSplitOptions.RemoveEmptyEntries)
+                    .Where(tag => tag.StartsWith("#"))
+                    .Distinct()
+                    .ToList();
+                Console.WriteLine("🟡 문자열 기반 파싱 수행");
+            }
+
+            Console.WriteLine("🎯 Tag list count after Distinct: " + tagList.Count);
+            return tagList;
+        }
+
+
+
+        // TagReplacementPrompt용
+        public static async Task<string> RequestTagReplacementAsync(string title, string weakTag, TagMemory memory)
+        {
+            var prompt = new TagReplacementPrompt(title, weakTag, memory);
+            string systemPrompt = prompt.BuildSystemMessage();
+            string userPrompt = prompt.BuildUserMessage();
+            Console.WriteLine("=== SYSTEM(RequestTagReplacementAsync) ===");
+            //Console.WriteLine(systemPrompt);
+            Console.WriteLine("=== USER(RRequestTagReplacementAsync) ===");
+            //Console.WriteLine(userPrompt);
+            string response = await SendChatAsync(systemPrompt, userPrompt);
+            Console.WriteLine("===  RequestTagReplacementAsync response : " + response);
+            return response.Trim();
+        }
     }
-}
+    }

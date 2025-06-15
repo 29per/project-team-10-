@@ -47,7 +47,7 @@ namespace PlanEase.Views
                 Title = txtTitle.Text,
                 StartTime = dtpStartTime.Value,
                 EndTime = dtpEndTime.Value,
-                Tag = selectedTag,
+                //Tag = selectedTag,
                 Description = txtDescription.Text,
                 UserId = _userId
             };
