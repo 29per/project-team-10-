@@ -15,6 +15,7 @@
 
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.picMonster = new System.Windows.Forms.PictureBox();
             this.lblMonsterName = new System.Windows.Forms.Label();
             this.lblLevel = new System.Windows.Forms.Label();
@@ -25,6 +26,7 @@
             this.progressExp = new System.Windows.Forms.ProgressBar();
             this.lblExp = new System.Windows.Forms.Label();
             this.btnDoTask = new SiticoneNetFrameworkUI.SiticoneButton();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picMonster)).BeginInit();
             this.SuspendLayout();
             // 
@@ -33,11 +35,14 @@
             this.picMonster.BackColor = System.Drawing.Color.Transparent;
             this.picMonster.Location = new System.Drawing.Point(40, 40);
             this.picMonster.Name = "picMonster";
-            this.picMonster.Size = new System.Drawing.Size(130, 130);
+            this.picMonster.Size = new System.Drawing.Size(129, 124);
             this.picMonster.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picMonster.TabIndex = 0;
             this.picMonster.TabStop = false;
             this.picMonster.Click += new System.EventHandler(this.picMonster_Click);
+
+
+
             // 
             // lblMonsterName
             // 
@@ -197,6 +202,12 @@
             this.btnDoTask.UseAdvancedRendering = true;
             this.btnDoTask.UseParticles = false;
             // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
             // Adventure
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -213,7 +224,8 @@
             this.Controls.Add(this.lblExp);
             this.Controls.Add(this.btnDoTask);
             this.Name = "Adventure";
-            this.Size = new System.Drawing.Size(600, 400);
+            this.Size = new System.Drawing.Size(837, 539);
+            this.Load += new System.EventHandler(this.Adventure_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picMonster)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -232,5 +244,6 @@
         private System.Windows.Forms.ProgressBar progressExp;
         private System.Windows.Forms.Label lblExp;
         private SiticoneNetFrameworkUI.SiticoneButton btnDoTask;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }

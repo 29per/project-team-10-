@@ -81,7 +81,7 @@
             this.panelMain.RippleMaxSize = 600F;
             this.panelMain.RippleSpeed = 15F;
             this.panelMain.ShowBorder = true;
-            this.panelMain.Size = new System.Drawing.Size(586, 330);
+            this.panelMain.Size = new System.Drawing.Size(725, 330);
             this.panelMain.TabIndex = 0;
             this.panelMain.TabStop = true;
             this.panelMain.TrackSystemTheme = false;
@@ -114,7 +114,7 @@
             this.grpStrategy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpStrategy.Name = "grpStrategy";
             this.grpStrategy.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grpStrategy.Size = new System.Drawing.Size(503, 95);
+            this.grpStrategy.Size = new System.Drawing.Size(656, 95);
             this.grpStrategy.TabIndex = 1;
             this.grpStrategy.TabStop = false;
             this.grpStrategy.Text = "해결 전략";
@@ -230,7 +230,7 @@
             this.radioDelete.HoverCursor = System.Windows.Forms.Cursors.Hand;
             this.radioDelete.IsContained = false;
             this.radioDelete.IsReadOnly = false;
-            this.radioDelete.Location = new System.Drawing.Point(389, 41);
+            this.radioDelete.Location = new System.Drawing.Point(390, 41);
             this.radioDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.radioDelete.MinimumSize = new System.Drawing.Size(178, 24);
             this.radioDelete.Name = "radioDelete";
@@ -408,7 +408,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 351);
+            this.ClientSize = new System.Drawing.Size(725, 351);
             this.Controls.Add(this.panelMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using MySql.Data.MySqlClient;
+using PlanEase.Services.ScheduleConflict;
 
 namespace PlanEase.Services
 {
@@ -16,10 +17,59 @@ namespace PlanEase.Services
         private List<Schedule> schedules = new List<Schedule>(); // 전체 일정 데이터를 메모리에서 관리하는 리스트
         private const string FilePath = "schedules.txt"; // 일정 데이터를 저장할 파일 경로
         private readonly string connStr = "Server=gondola.proxy.rlwy.net;Port=22404;Database=railway;Uid=root;Pwd=vMbiAFpyuiYNKkWXyMCsxdbOFmkqbUHt;SslMode=Required;";
+        private ConflictResolver _conflictResolver;
+        private ScheduleManager _scheduleManager;
+
+
+
+        public ScheduleManager()
+        {
+            schedules = new List<Schedule>();
+            // 중요: 여기서는 this를 전달하여 자기 자신을 참조
+            _conflictResolver = new ConflictResolver(this);
+        }
+
+
+
+        //자동 해결 설정 활성화여부
+        public void SetAutoResolution(bool enabled)
+        {
+            if (_conflictResolver != null)
+            {
+                _conflictResolver.SetAutoResolution(enabled);
+            }
+            else
+            {
+                Console.WriteLine("ConflictResolver is null");
+                // 필요하다면 여기서 초기화
+                _conflictResolver = new ConflictResolver(this);
+                _conflictResolver.SetAutoResolution(enabled);
+            }
+        }
+
+        public bool IsAutoResolutionEnabled()
+        {
+            return _conflictResolver?.IsAutoResolutionEnabled() ?? false;
+        }
+
+
+
+
+
 
         // 새로운 일정을 리스트에 추가하고 파일에 저장
         public void AddSchedule(Schedule s)
         {
+
+            // 자동 충돌 해결이 활성화된 경우
+            if (_conflictResolver != null && _conflictResolver.IsAutoResolutionEnabled())
+            {
+                // 충돌 검사 및 자동 해결
+                var existingSchedules = GetAllSchedules();
+                _conflictResolver.ResolveAllConflicts(s, existingSchedules);
+            }
+
+
             schedules.Add(s);
             //SaveSchedules();
             AddScheduleToDb(s); // DB에 추가
@@ -159,4 +209,6 @@ namespace PlanEase.Services
         }
 
     }
+
+
 }

@@ -149,6 +149,12 @@ namespace PlanEase.Views
 
         // (디자이너 연결용 빈 메서드, 필요 없다면 .Designer.cs에서 이벤트 연결부분을 지워도 됨)
         private void panelMain_Paint(object sender, PaintEventArgs e) { }
+
+        private void siticoneRadioButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void radioDelete_Click(object sender, EventArgs e) { }
         private void ConflictResolutionForm_Load(object sender, EventArgs e) { }
     }

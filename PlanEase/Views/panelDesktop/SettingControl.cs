@@ -1,5 +1,7 @@
-﻿using PlanEase.Models;
+﻿using Google.Protobuf.WellKnownTypes;
+using PlanEase.Models;
 using PlanEase.Services;
+using PlanEase.Services.ScheduleConflict;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,14 +19,19 @@ namespace PlanEase.Views.panelDesktop
     {
         private int userId;
         private readonly SettingManager settingManager;
+        private readonly ScheduleManager _scheduleManager;
 
-        public SettingControl(SettingManager manager)
+        public SettingControl(SettingManager manager, ScheduleManager scheduleManager)
         {
             InitializeComponent();
             this.settingManager = manager;
+            this._scheduleManager = scheduleManager;
 
             InitializeUIFromSetting();
             BindEvents();
+
+
+
         }
 
         private void InitializeUIFromSetting()
@@ -64,6 +71,9 @@ namespace PlanEase.Views.panelDesktop
 
             btnSave.Click += (s, e) => SaveSetting();
             btnReset.Click += (s, e) => ResetSetting();
+
+            chkAutoResolve.Click += chkAutoResolve_Click;
+
         }
 
 
@@ -108,6 +118,52 @@ namespace PlanEase.Views.panelDesktop
         }
 
         private void chkAutoResolve_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // 설정 변경
+                bool isAutoResolveEnabled = chkAutoResolve.Checked;
+
+                // null 체크 추가
+                if (_scheduleManager != null)
+                {
+                    _scheduleManager.SetAutoResolution(isAutoResolveEnabled);
+                    Console.WriteLine($"자동 충돌 해결 설정: {isAutoResolveEnabled}");
+                }
+                else
+                {
+                    MessageBox.Show("ScheduleManager가 초기화되지 않았습니다.", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"설정 변경 중 오류 발생: {ex.Message}", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine($"예외 발생: {ex}");
+            }
+        
+        }
+
+        private void SettingControl_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rdoAskUser_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rdoMerege_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void rdoCheckTime_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rdoDelete_Click(object sender, EventArgs e)
         {
 
         }

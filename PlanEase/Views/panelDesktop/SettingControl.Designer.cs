@@ -48,11 +48,11 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("나눔바른펜", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.ForeColor = System.Drawing.Color.Navy;
             this.label1.Location = new System.Drawing.Point(49, 160);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(244, 30);
+            this.label1.Size = new System.Drawing.Size(252, 29);
             this.label1.TabIndex = 1;
             this.label1.Text = "알정 중복 시 자동 해결 여부";
             // 
@@ -95,7 +95,7 @@
             this.chkAutoResolve.EnableRippleEffect = true;
             this.chkAutoResolve.FocusBorderWidth = 2;
             this.chkAutoResolve.FocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
-            this.chkAutoResolve.Font = new System.Drawing.Font("나눔바른펜", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.chkAutoResolve.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.chkAutoResolve.ForeColor = System.Drawing.Color.DarkBlue;
             this.chkAutoResolve.HoverBackColor = System.Drawing.Color.Gainsboro;
             this.chkAutoResolve.IndeterminateBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
@@ -122,11 +122,11 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("나눔바른펜", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label2.ForeColor = System.Drawing.Color.Navy;
             this.label2.Location = new System.Drawing.Point(49, 240);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(177, 30);
+            this.label2.Size = new System.Drawing.Size(183, 29);
             this.label2.TabIndex = 3;
             this.label2.Text = "일정 중복 해결 방법";
             // 
@@ -190,6 +190,7 @@
             this.rdoAskUser.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.rdoAskUser.ToolTipText = "";
             this.rdoAskUser.UncheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
+            this.rdoAskUser.Click += new System.EventHandler(this.rdoAskUser_Click);
             // 
             // rdoCheckTime
             // 
@@ -231,6 +232,7 @@
             this.rdoCheckTime.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.rdoCheckTime.ToolTipText = "";
             this.rdoCheckTime.UncheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
+            this.rdoCheckTime.Click += new System.EventHandler(this.rdoCheckTime_Click);
             // 
             // rdoMerege
             // 
@@ -272,6 +274,7 @@
             this.rdoMerege.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.rdoMerege.ToolTipText = "";
             this.rdoMerege.UncheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
+            this.rdoMerege.Click += new System.EventHandler(this.rdoMerege_Click);
             // 
             // rdoDelete
             // 
@@ -313,6 +316,7 @@
             this.rdoDelete.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.rdoDelete.ToolTipText = "";
             this.rdoDelete.UncheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
+            this.rdoDelete.Click += new System.EventHandler(this.rdoDelete_Click);
             // 
             // siticoneGroupBox1
             // 
@@ -373,11 +377,11 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("나눔바른펜", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label3.ForeColor = System.Drawing.Color.Navy;
             this.label3.Location = new System.Drawing.Point(49, 418);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 30);
+            this.label3.Size = new System.Drawing.Size(95, 29);
             this.label3.TabIndex = 10;
             this.label3.Text = "테마 선택";
             // 
@@ -583,6 +587,7 @@
             this.Controls.Add(this.label1);
             this.Name = "SettingControl";
             this.Size = new System.Drawing.Size(1100, 720);
+            this.Load += new System.EventHandler(this.SettingControl_Load);
             this.siticoneGroupBox1.ResumeLayout(false);
             this.siticoneGroupBox1.PerformLayout();
             this.ResumeLayout(false);
