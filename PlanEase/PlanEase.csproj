@@ -208,6 +208,12 @@
     <Compile Include="Views\Controls\ScheduleItemControl.Designer.cs">
       <DependentUpon>ScheduleItemControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Controls\TodoItemControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Controls\TodoItemControl.Designer.cs">
+      <DependentUpon>TodoItemControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\EditToDoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -318,6 +324,9 @@
     <EmbeddedResource Include="Views\Controls\ScheduleItemControl.resx">
       <DependentUpon>ScheduleItemControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Controls\TodoItemControl.resx">
+      <DependentUpon>TodoItemControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\EditToDoForm.resx">
       <DependentUpon>EditToDoForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -372,6 +381,9 @@
     <Folder Include="Helpers\" />
     <Folder Include="LLM\Agents\" />
     <Folder Include="LLM\Tools\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\화면 캡처 2025-06-17 030523.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
