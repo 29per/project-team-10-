@@ -35,7 +35,7 @@ namespace PlanEase.Views.panelDesktop
             calendar = new CalendarControl(scheduleManager);
             //calendar.SetScheduleManager(scheduleManager);
             calendar.Location = new Point(0, 0); // panelRight 내에서 좌측 상단 정렬
-            calendar.Size = new Size(770, 660);
+            //calendar.Size = new Size(770, 660);
             panelRight.Controls.Add(calendar);
 
             calendar.ShowMonth(DateTime.Now); // 현재 월 표시
