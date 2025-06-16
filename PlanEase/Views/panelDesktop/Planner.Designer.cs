@@ -120,7 +120,7 @@ namespace PlanEase.Views.panelDesktop
             // 
             // DueDate
             // 
-            this.DueDate.Text = "마감일";
+            this.DueDate.Text = "마감 기한";
             this.DueDate.Width = 250;
             // 
             // lblTodoTitle

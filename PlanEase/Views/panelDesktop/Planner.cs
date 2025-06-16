@@ -461,7 +461,7 @@ namespace PlanEase.Views.panelDesktop
             foreach (var todo in todos)
             {
                 var item = new ListViewItem(todo.Content);
-                item.SubItems.Add(todo.DueDate?.ToString("yyyy-MM-dd") ?? "없음");
+                item.SubItems.Add(todo.DueDate?.ToString("yyyy-MM-dd HH:mm") ?? "없음");
                 item.SubItems.Add(todo.Priority.ToString());
                 item.SubItems.Add(todo.IsDone ? "완료" : "미완료");
                 item.Tag = todo;
@@ -488,7 +488,7 @@ namespace PlanEase.Views.panelDesktop
             {
                 ListViewItem item = new ListViewItem(todo.Content);
                 if (todo.DueDate.HasValue)
-                    item.SubItems.Add(todo.DueDate.Value.ToString("yyyy-MM-dd"));
+                    item.SubItems.Add(todo.DueDate.Value.ToString("yyyy-MM-dd HH:mm"));
                 else
                     item.SubItems.Add("미정");
                 item.SubItems.Add(GetPriorityText(todo.Priority)); // 예: "높음", "중간", "낮음"
@@ -559,6 +559,7 @@ namespace PlanEase.Views.panelDesktop
             LoadToDoList();
         }
 
+        
     }
 }
 
