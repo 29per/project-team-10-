@@ -106,7 +106,6 @@ namespace PlanEase
             //SetupCalendarTable();
         }
 
-
         private void OpenChildControl(UserControl newControl)
         {
             // 기존 컨트롤 제거
@@ -198,6 +197,16 @@ namespace PlanEase
             
         }
 
+        private void btnPlanner_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAssistant_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnCalendar_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
@@ -219,7 +228,7 @@ namespace PlanEase
         private void btnGuide_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color4);
-            OpenChildControl(new Guide());
+            OpenChildControl(new Assistant(scheduleManager,loggedInUser.Id));
         }
 
         private void btnSetting_Click(object sender, EventArgs e)
@@ -247,9 +256,6 @@ namespace PlanEase
         {
             DisableButton();
             leftBorderBtn.Visible = false;
-            //iconCurrentChildForm.IconChar = IconChar.Home;
-            //iconCurrentChildForm.IconColor = Color.MediumPurple;
-            //lblTitleChildForm.Text = "Home";
         }
 
         private void btnSettings_Click(object sender, EventArgs e)

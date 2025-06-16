@@ -12,6 +12,7 @@ using PlanEase.LLM.Prompts;
 using PlanEase.LLM.Tagging;
 using static QRCoder.PayloadGenerator;
 using PlanEase.LLM.Memory;
+using PlanEase.LLM.Models;
 
 
 
@@ -161,7 +162,7 @@ namespace PlanEase.Helpers
                 if (response.Trim().StartsWith("[") && response.Trim().EndsWith("]"))
                 {
                     tagList = JsonSerializer.Deserialize<List<string>>(response);
-                    Console.WriteLine("✅ JSON 배열 파싱 성공 (직접 배열)");
+                    Console.WriteLine("JSON 배열 파싱 성공 (직접 배열)");
                 }
                 else
                 {
@@ -176,7 +177,7 @@ namespace PlanEase.Helpers
                                 .Select(e => e.GetString())
                                 .Where(tag => !string.IsNullOrWhiteSpace(tag) && tag.StartsWith("#"))
                                 .ToList();
-                            Console.WriteLine("✅ JSON 객체 파싱 성공 (키: " + key + ")");
+                            Console.WriteLine("JSON 객체 파싱 성공 (키: " + key + ")");
                             break;
                         }
                     }
@@ -184,7 +185,7 @@ namespace PlanEase.Helpers
             }
             catch (Exception ex)
             {
-                Console.WriteLine("⚠️ JSON 파싱 실패: " + ex.Message);
+                Console.WriteLine("JSON 파싱 실패: " + ex.Message);
             }
 
             // Fallback: 그냥 문자열에서 #태그 추출
@@ -195,10 +196,10 @@ namespace PlanEase.Helpers
                     .Where(tag => tag.StartsWith("#"))
                     .Distinct()
                     .ToList();
-                Console.WriteLine("🟡 문자열 기반 파싱 수행");
+                Console.WriteLine("문자열 기반 파싱 수행");
             }
 
-            Console.WriteLine("🎯 Tag list count after Distinct: " + tagList.Count);
+            Console.WriteLine("Tag list count after Distinct: " + tagList.Count);
             return tagList;
         }
 
@@ -218,5 +219,41 @@ namespace PlanEase.Helpers
             Console.WriteLine("===  RequestTagReplacementAsync response : " + response);
             return response.Trim();
         }
+
+
+        // IsScheduleCommandPrompt용
+        public static async Task<bool> IsScheduleCommandAsync(string userInput)
+        {
+            var prompt = new IsScheduleCommandPrompt(userInput);
+            string system = prompt.BuildSystemMessage();
+            string user = prompt.BuildUserMessage();
+
+            string response = await SendChatAsync(system, user);
+            response = response.Trim().ToLower();
+
+            return response.StartsWith("y");
+        }
+        // TaskInquiryPrompt용 
+        public static async Task<ScheduleCommand?> ExtractScheduleCommandAsync(string userInput)
+        {
+            string today = DateTime.Now.ToString("yyyy-MM-dd");
+            var prompt = new TaskInquiryPrompt(today, userInput);
+            string systemMessage = prompt.BuildSystemMessage();
+            string userMessage = prompt.BuildUserMessage();
+
+            Console.WriteLine("=== SYSTEM(ExtractScheduleCommandAsync) ===");
+            Console.WriteLine(systemMessage);
+            Console.WriteLine("=== USER(ExtractScheduleCommandAsync) ===");
+            Console.WriteLine(userMessage);
+
+            string gptResponse = await SendChatAsync(systemMessage, userMessage);
+            Console.WriteLine("=== GPT RESPONSE ===");
+            Console.WriteLine(gptResponse);
+
+            // 파싱 후 반환
+            var command = CommandParser.Parse(gptResponse);
+            return command;
+        }
+
     }
-    }
+}

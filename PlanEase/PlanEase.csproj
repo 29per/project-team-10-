@@ -142,19 +142,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LLM\Assistant\Agents\PlannerAgent.cs" />
+    <Compile Include="LLM\Assistant\Helpers\CommandParser.cs" />
     <Compile Include="LLM\Chains\TagRecommendationPipeline.cs" />
+    <Compile Include="LLM\Assistant\Chains\TaskInqueryChain.cs" />
     <Compile Include="LLM\GptService.cs" />
     <Compile Include="LLM\Chains\TagRefinementChain.cs" />
+    <Compile Include="LLM\Assistant\Memory\ConversationMemory.cs" />
     <Compile Include="LLM\Memory\TagMemory.cs" />
+    <Compile Include="LLM\Assistant\Models\ScheduleCommand.cs" />
     <Compile Include="LLM\Prompts\IPrompt.cs" />
+    <Compile Include="LLM\Assistant\Prompts\IsScheduleCommandPrompt.cs" />
     <Compile Include="LLM\Prompts\TagReplacementPrompt.cs" />
     <Compile Include="LLM\Prompts\PromptTemplate.cs" />
     <Compile Include="LLM\Prompts\SchedulePrompt.cs" />
+    <Compile Include="LLM\Assistant\Prompts\TaskInqueryPrompt.cs" />
+    <Compile Include="LLM\Assistant\Retrieval\DocumentationRetriever.cs" />
     <Compile Include="LLM\Retrieval\EmbeddingHelper.cs" />
     <Compile Include="LLM\Tagging\OfficialTagData.cs" />
     <Compile Include="LLM\Tagging\OfficialTagManager.cs" />
     <Compile Include="LLM\Tagging\TagRecommendationValidator.cs" />
     <Compile Include="LLM\Tagging\TitleTagPrompt.cs" />
+    <Compile Include="LLM\Assistant\Tools\ScheduleCommandTool.cs" />
     <Compile Include="Models\ParsedScheduleResult.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Services\SettingManager.cs" />
@@ -189,6 +198,12 @@
     </Compile>
     <Compile Include="Views\Controls\CalendarControl.Designer.cs">
       <DependentUpon>CalendarControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\ChatBubbleControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Controls\ChatBubbleControl.Designer.cs">
+      <DependentUpon>ChatBubbleControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Controls\DateCellControl.cs">
       <SubType>UserControl</SubType>
@@ -236,11 +251,11 @@
     <Compile Include="Services\ScheduleConflict\ConflictResolver.cs" />
     <Compile Include="Services\ScheduleManager.cs" />
     <Compile Include="Services\ToDoManager.cs" />
-    <Compile Include="Views\panelDesktop\Guide.cs">
+    <Compile Include="Views\panelDesktop\Assistant.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\panelDesktop\Guide.Designer.cs">
-      <DependentUpon>Guide.cs</DependentUpon>
+    <Compile Include="Views\panelDesktop\Assistant.Designer.cs">
+      <DependentUpon>Assistant.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\panelDesktop\Planner.cs">
       <SubType>UserControl</SubType>
@@ -309,6 +324,9 @@
     <EmbeddedResource Include="Views\Controls\CalendarControl.resx">
       <DependentUpon>CalendarControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Controls\ChatBubbleControl.resx">
+      <DependentUpon>ChatBubbleControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Controls\DateCellControl.resx">
       <DependentUpon>DateCellControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -327,8 +345,8 @@
     <EmbeddedResource Include="Views\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\panelDesktop\Guide.resx">
-      <DependentUpon>Guide.cs</DependentUpon>
+    <EmbeddedResource Include="Views\panelDesktop\Assistant.resx">
+      <DependentUpon>Assistant.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\panelDesktop\Planner.resx">
       <DependentUpon>Planner.cs</DependentUpon>
@@ -370,8 +388,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Helpers\" />
-    <Folder Include="LLM\Agents\" />
-    <Folder Include="LLM\Tools\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

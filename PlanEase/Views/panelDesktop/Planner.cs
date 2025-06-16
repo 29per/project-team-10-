@@ -25,7 +25,7 @@ namespace PlanEase.Views.panelDesktop
         private TagManager tagManager;
         private List<ToDo> toDoList = new List<ToDo>();
 
-        private CalendarControl calendar;
+        public CalendarControl calendar;
         private Panel pnlMonthPicker;
         private ComboBox cbYear;
         private ComboBox cbMonth;

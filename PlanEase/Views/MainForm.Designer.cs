@@ -200,7 +200,7 @@ namespace PlanEase
             this.panelMenu.InnerShadowOpacity = 0.2F;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.panelMenu.Padding = new System.Windows.Forms.Padding(10);
             this.panelMenu.RadialGradientCenter = ((System.Drawing.PointF)(resources.GetObject("panelMenu.RadialGradientCenter")));
             this.panelMenu.RadialGradientRadius = 1F;
             this.panelMenu.ScaleRatio = 0.8F;
@@ -264,7 +264,7 @@ namespace PlanEase
             this.btnGuide.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnGuide.Size = new System.Drawing.Size(230, 75);
             this.btnGuide.TabIndex = 4;
-            this.btnGuide.Text = "   Guide";
+            this.btnGuide.Text = "   Assistant";
             this.btnGuide.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGuide.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGuide.UseVisualStyleBackColor = false;
@@ -491,7 +491,7 @@ namespace PlanEase
             this.panelDesktop.InnerShadowOpacity = 0.2F;
             this.panelDesktop.Location = new System.Drawing.Point(250, 30);
             this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.panelDesktop.Padding = new System.Windows.Forms.Padding(10);
             this.panelDesktop.RadialGradientCenter = ((System.Drawing.PointF)(resources.GetObject("panelDesktop.RadialGradientCenter")));
             this.panelDesktop.RadialGradientRadius = 1F;
             this.panelDesktop.ScaleRatio = 0.8F;
@@ -517,7 +517,7 @@ namespace PlanEase
             this.Controls.Add(this.siticoneCloseButton);
             this.Controls.Add(this.panelMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
             this.Text = "6";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
