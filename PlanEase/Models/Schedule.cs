@@ -29,7 +29,6 @@ namespace PlanEase.Models
         public PriorityLevel Priority { get; set; } = PriorityLevel.Medium; // 우선순위(5단계 Enum)
         public bool IsCompleted { get; set; } = false; // 완료 여부
         public string Description { get; set; } = "";// 일정에 대한 상세 설명
-        public Tag Tag { get; set; } // 단일 태그만 사용 시
 
         public Schedule() { }
         public Schedule(int userId, string title, DateTime startTime, DateTime endTime)
@@ -41,33 +40,5 @@ namespace PlanEase.Models
             UserId = userId;
         }
 
-        // Schedule 객체를 CSV 형식으로 변환
-        //    public string ToCsv()
-        //    {
-        //        string tags = string.Join("|", Tags);
-        //        return $"{Id},{Title},{StartTime},{EndTime},{IsCompleted},{Priority},{tags}";
-        //    }
-
-        //    // 문자열로부터 Schedule 객체 생성
-        //    public static Schedule FromCsv(string line)
-        //    {
-        //        string[] parts = line.Split(',');
-
-        //        int id = int.Parse(parts[0]);
-        //        string title = parts[1];
-        //        DateTime start = DateTime.Parse(parts[2]);
-        //        DateTime end = DateTime.Parse(parts[3]);
-        //        bool isCompleted = bool.Parse(parts[4]);
-        //        PriorityLevel priority = (PriorityLevel)Enum.Parse(typeof(PriorityLevel), parts[5]);
-        //        List<string> tags = parts.Length > 6 ? parts[6].Split('|').ToList() : new List<string>();
-
-        //        var schedule = new Schedule(id, title, start, end)
-        //        {
-        //            IsCompleted = isCompleted,
-        //            Priority = priority,
-        //            Tags = tags
-        //        };
-        //        return schedule;
-        //    }
     }
 }

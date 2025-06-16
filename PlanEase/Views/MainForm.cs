@@ -21,6 +21,7 @@ namespace PlanEase
         private ScheduleManager scheduleManager;
         private SettingManager settingManager;
         private TagManager tagManager;
+        private ToDoManager toDoManager;
 
         private IconButton currentBtn;
         private Panel leftBorderBtn;
@@ -38,6 +39,8 @@ namespace PlanEase
             settingManager.LoadSetting(loggedInUser.Id);
             tagManager = new TagManager();
             tagManager.LoadTagsFromDb(loggedInUser.Id);
+            toDoManager = new ToDoManager();
+            toDoManager.LoadToDosFromDb(loggedInUser.Id);
 
 
             leftBorderBtn = new Panel();
@@ -102,7 +105,6 @@ namespace PlanEase
             InitializeComponent();
             //SetupCalendarTable();
         }
-
 
         private void OpenChildControl(UserControl newControl)
         {
@@ -185,7 +187,7 @@ namespace PlanEase
 
 
 
-            OpenChildControl(new Planner(loggedInUser, scheduleManager,tagManager));
+            OpenChildControl(new Planner(loggedInUser, scheduleManager,tagManager, toDoManager));
 
         }
 
@@ -195,10 +197,20 @@ namespace PlanEase
             
         }
 
+        private void btnPlanner_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAssistant_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnCalendar_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
-            OpenChildControl(new Planner(loggedInUser,scheduleManager,tagManager));
+            OpenChildControl(new Planner(loggedInUser,scheduleManager,tagManager, toDoManager));
         }
 
         private void btnTag_Click(object sender, EventArgs e)
@@ -216,7 +228,7 @@ namespace PlanEase
         private void btnGuide_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color4);
-            OpenChildControl(new Guide());
+            OpenChildControl(new Assistant(scheduleManager,loggedInUser.Id));
         }
 
         private void btnSetting_Click(object sender, EventArgs e)
@@ -244,9 +256,6 @@ namespace PlanEase
         {
             DisableButton();
             leftBorderBtn.Visible = false;
-            //iconCurrentChildForm.IconChar = IconChar.Home;
-            //iconCurrentChildForm.IconColor = Color.MediumPurple;
-            //lblTitleChildForm.Text = "Home";
         }
 
         private void btnSettings_Click(object sender, EventArgs e)

@@ -44,8 +44,8 @@ namespace PlanEase.Views.Controls
             {
 
                 var cell = new DateCellControl(scheduleManager);
-                cell.Size = new Size(110, 110);
-                cell.Location = new Point((i % 7) * 110, (i / 7) * 110);
+                //cell.Size = new Size(110, 110);
+                cell.Location = new Point((i % 7) * (cell.Size.Width), (i / 7) * (cell.Size.Height));
                 cell.Visible = false;
 
                 cell.ScheduleDropped += HandleScheduleDropped; // 이벤트 연결

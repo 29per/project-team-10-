@@ -71,7 +71,6 @@ namespace PlanEase.Services
 
 
             schedules.Add(s);
-            //SaveSchedules();
             AddScheduleToDb(s); // DB에 추가
         }
 

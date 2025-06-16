@@ -59,5 +59,15 @@ namespace PlanEase.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap 화면_캡처_2025_06_17_030523 {
+            get {
+                object obj = ResourceManager.GetObject("화면 캡처 2025-06-17 030523", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

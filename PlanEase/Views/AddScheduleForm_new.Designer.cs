@@ -61,10 +61,10 @@
             this.btnClose.BackColor = System.Drawing.Color.Transparent;
             this.btnClose.CountdownFont = new System.Drawing.Font("Segoe UI", 9F);
             this.btnClose.EnableSound = false;
-            this.btnClose.Location = new System.Drawing.Point(1053, -2);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(6);
+            this.btnClose.Location = new System.Drawing.Point(921, -2);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(66, 66);
+            this.btnClose.Size = new System.Drawing.Size(58, 58);
             this.btnClose.TabIndex = 12;
             this.btnClose.Text = "siticoneCloseButton2";
             this.btnClose.TooltipText = "Close";
@@ -109,8 +109,8 @@
         0F,
         0.5F,
         1F};
-            this.panelTextbox.Location = new System.Drawing.Point(0, 60);
-            this.panelTextbox.Margin = new System.Windows.Forms.Padding(6);
+            this.panelTextbox.Location = new System.Drawing.Point(0, 52);
+            this.panelTextbox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.panelTextbox.Name = "panelTextbox";
             this.panelTextbox.PatternStyle = System.Drawing.Drawing2D.HatchStyle.LargeGrid;
             this.panelTextbox.RippleAlpha = 50;
@@ -119,7 +119,7 @@
             this.panelTextbox.RippleMaxSize = 600F;
             this.panelTextbox.RippleSpeed = 15F;
             this.panelTextbox.ShowBorder = true;
-            this.panelTextbox.Size = new System.Drawing.Size(1114, 740);
+            this.panelTextbox.Size = new System.Drawing.Size(975, 648);
             this.panelTextbox.TabIndex = 14;
             this.panelTextbox.TabStop = true;
             this.panelTextbox.TrackSystemTheme = false;
@@ -181,9 +181,9 @@
             this.btnCancel.IsReadOnly = false;
             this.btnCancel.IsToggleButton = false;
             this.btnCancel.IsToggled = false;
-            this.btnCancel.Location = new System.Drawing.Point(557, 592);
+            this.btnCancel.Location = new System.Drawing.Point(487, 518);
             this.btnCancel.LongPressDurationMS = 1000;
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(6);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.NormalFontStyle = System.Drawing.FontStyle.Regular;
             this.btnCancel.ParticleColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
@@ -201,7 +201,7 @@
             this.btnCancel.ShadowOffset = new System.Drawing.Point(0, 2);
             this.btnCancel.ShakeDuration = 500;
             this.btnCancel.ShakeIntensity = 5;
-            this.btnCancel.Size = new System.Drawing.Size(182, 78);
+            this.btnCancel.Size = new System.Drawing.Size(159, 68);
             this.btnCancel.TabIndex = 23;
             this.btnCancel.Text = "취소";
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -263,9 +263,9 @@
             this.btnAdd.IsReadOnly = false;
             this.btnAdd.IsToggleButton = false;
             this.btnAdd.IsToggled = false;
-            this.btnAdd.Location = new System.Drawing.Point(310, 592);
+            this.btnAdd.Location = new System.Drawing.Point(271, 518);
             this.btnAdd.LongPressDurationMS = 1000;
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(6);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.NormalFontStyle = System.Drawing.FontStyle.Regular;
             this.btnAdd.ParticleColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
@@ -283,7 +283,7 @@
             this.btnAdd.ShadowOffset = new System.Drawing.Point(0, 2);
             this.btnAdd.ShakeDuration = 500;
             this.btnAdd.ShakeIntensity = 5;
-            this.btnAdd.Size = new System.Drawing.Size(182, 78);
+            this.btnAdd.Size = new System.Drawing.Size(159, 68);
             this.btnAdd.TabIndex = 22;
             this.btnAdd.Text = "확인";
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -297,13 +297,13 @@
             // 
             this.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtDescription.Location = new System.Drawing.Point(310, 416);
-            this.txtDescription.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
-            this.txtDescription.MinimumSize = new System.Drawing.Size(186, 140);
+            this.txtDescription.Location = new System.Drawing.Point(271, 364);
+            this.txtDescription.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
+            this.txtDescription.MinimumSize = new System.Drawing.Size(163, 122);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDescription.Size = new System.Drawing.Size(429, 140);
+            this.txtDescription.Size = new System.Drawing.Size(375, 122);
             this.txtDescription.TabIndex = 21;
             // 
             // cmbPriority
@@ -317,12 +317,12 @@
             this.cmbPriority.IconColor = System.Drawing.Color.MediumSlateBlue;
             this.cmbPriority.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
             this.cmbPriority.ListTextColor = System.Drawing.Color.DimGray;
-            this.cmbPriority.Location = new System.Drawing.Point(310, 332);
-            this.cmbPriority.Margin = new System.Windows.Forms.Padding(6);
-            this.cmbPriority.MinimumSize = new System.Drawing.Size(371, 50);
+            this.cmbPriority.Location = new System.Drawing.Point(271, 290);
+            this.cmbPriority.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cmbPriority.MinimumSize = new System.Drawing.Size(325, 44);
             this.cmbPriority.Name = "cmbPriority";
             this.cmbPriority.Padding = new System.Windows.Forms.Padding(2);
-            this.cmbPriority.Size = new System.Drawing.Size(429, 50);
+            this.cmbPriority.Size = new System.Drawing.Size(375, 44);
             this.cmbPriority.TabIndex = 20;
             this.cmbPriority.Texts = "";
             // 
@@ -359,8 +359,8 @@
             this.txtTag.HoverBorderColor1 = System.Drawing.Color.Gray;
             this.txtTag.HoverBorderColor2 = System.Drawing.Color.Gray;
             this.txtTag.IsEnabled = true;
-            this.txtTag.Location = new System.Drawing.Point(312, 260);
-            this.txtTag.Margin = new System.Windows.Forms.Padding(6);
+            this.txtTag.Location = new System.Drawing.Point(273, 228);
+            this.txtTag.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtTag.Name = "txtTag";
             this.txtTag.PlaceholderColor = System.Drawing.Color.Gray;
             this.txtTag.PlaceholderText = "Enter text here...";
@@ -373,7 +373,7 @@
             this.txtTag.ShadowAnimationDuration = 1;
             this.txtTag.ShadowBlur = 10;
             this.txtTag.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.txtTag.Size = new System.Drawing.Size(429, 50);
+            this.txtTag.Size = new System.Drawing.Size(375, 44);
             this.txtTag.SolidBorderColor = System.Drawing.Color.LightSlateGray;
             this.txtTag.SolidBorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(255)))));
             this.txtTag.SolidBorderHoverColor = System.Drawing.Color.Gray;
@@ -390,11 +390,11 @@
             this.dtpEndTime.CustomFormat = "yyyy-MM-dd HH:mm";
             this.dtpEndTime.Font = new System.Drawing.Font("굴림", 9.5F);
             this.dtpEndTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpEndTime.Location = new System.Drawing.Point(316, 192);
-            this.dtpEndTime.Margin = new System.Windows.Forms.Padding(6);
+            this.dtpEndTime.Location = new System.Drawing.Point(276, 168);
+            this.dtpEndTime.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.dtpEndTime.MinimumSize = new System.Drawing.Size(4, 25);
             this.dtpEndTime.Name = "dtpEndTime";
-            this.dtpEndTime.Size = new System.Drawing.Size(424, 37);
+            this.dtpEndTime.Size = new System.Drawing.Size(372, 33);
             this.dtpEndTime.SkinColor = System.Drawing.Color.Lavender;
             this.dtpEndTime.TabIndex = 18;
             this.dtpEndTime.TextColor = System.Drawing.Color.Black;
@@ -406,11 +406,11 @@
             this.dtpStartTime.CustomFormat = "yyyy-MM-dd HH:mm";
             this.dtpStartTime.Font = new System.Drawing.Font("굴림", 9.5F);
             this.dtpStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpStartTime.Location = new System.Drawing.Point(312, 110);
-            this.dtpStartTime.Margin = new System.Windows.Forms.Padding(6);
+            this.dtpStartTime.Location = new System.Drawing.Point(273, 96);
+            this.dtpStartTime.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.dtpStartTime.MinimumSize = new System.Drawing.Size(4, 25);
             this.dtpStartTime.Name = "dtpStartTime";
-            this.dtpStartTime.Size = new System.Drawing.Size(424, 37);
+            this.dtpStartTime.Size = new System.Drawing.Size(372, 33);
             this.dtpStartTime.SkinColor = System.Drawing.Color.Lavender;
             this.dtpStartTime.TabIndex = 17;
             this.dtpStartTime.TextColor = System.Drawing.Color.Black;
@@ -449,8 +449,8 @@
             this.txtTitle.HoverBorderColor1 = System.Drawing.Color.Gray;
             this.txtTitle.HoverBorderColor2 = System.Drawing.Color.Gray;
             this.txtTitle.IsEnabled = true;
-            this.txtTitle.Location = new System.Drawing.Point(314, 36);
-            this.txtTitle.Margin = new System.Windows.Forms.Padding(6);
+            this.txtTitle.Location = new System.Drawing.Point(275, 32);
+            this.txtTitle.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.PlaceholderColor = System.Drawing.Color.Gray;
             this.txtTitle.PlaceholderText = "Enter text here...";
@@ -463,7 +463,7 @@
             this.txtTitle.ShadowAnimationDuration = 1;
             this.txtTitle.ShadowBlur = 10;
             this.txtTitle.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.txtTitle.Size = new System.Drawing.Size(429, 50);
+            this.txtTitle.Size = new System.Drawing.Size(375, 44);
             this.txtTitle.SolidBorderColor = System.Drawing.Color.LightSlateGray;
             this.txtTitle.SolidBorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(255)))));
             this.txtTitle.SolidBorderHoverColor = System.Drawing.Color.Gray;
@@ -478,10 +478,10 @@
             this.lblPriority.AutoSize = true;
             this.lblPriority.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblPriority.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblPriority.Location = new System.Drawing.Point(154, 350);
+            this.lblPriority.Location = new System.Drawing.Point(135, 306);
             this.lblPriority.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPriority.Name = "lblPriority";
-            this.lblPriority.Size = new System.Drawing.Size(132, 32);
+            this.lblPriority.Size = new System.Drawing.Size(114, 28);
             this.lblPriority.TabIndex = 10;
             this.lblPriority.Text = "중요도: ";
             // 
@@ -490,10 +490,10 @@
             this.lblDescription.AutoSize = true;
             this.lblDescription.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblDescription.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblDescription.Location = new System.Drawing.Point(154, 416);
+            this.lblDescription.Location = new System.Drawing.Point(135, 364);
             this.lblDescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(89, 32);
+            this.lblDescription.Size = new System.Drawing.Size(77, 28);
             this.lblDescription.TabIndex = 9;
             this.lblDescription.Text = "설명:";
             // 
@@ -502,10 +502,10 @@
             this.lblTag.AutoSize = true;
             this.lblTag.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblTag.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblTag.Location = new System.Drawing.Point(154, 278);
+            this.lblTag.Location = new System.Drawing.Point(135, 243);
             this.lblTag.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTag.Name = "lblTag";
-            this.lblTag.Size = new System.Drawing.Size(89, 32);
+            this.lblTag.Size = new System.Drawing.Size(77, 28);
             this.lblTag.TabIndex = 7;
             this.lblTag.Text = "태그:";
             // 
@@ -514,10 +514,10 @@
             this.lblEndTime.AutoSize = true;
             this.lblEndTime.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblEndTime.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblEndTime.Location = new System.Drawing.Point(154, 202);
+            this.lblEndTime.Location = new System.Drawing.Point(135, 177);
             this.lblEndTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEndTime.Name = "lblEndTime";
-            this.lblEndTime.Size = new System.Drawing.Size(164, 32);
+            this.lblEndTime.Size = new System.Drawing.Size(142, 28);
             this.lblEndTime.TabIndex = 5;
             this.lblEndTime.Text = "종료 시간:";
             // 
@@ -526,10 +526,10 @@
             this.lblStartTime.AutoSize = true;
             this.lblStartTime.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblStartTime.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblStartTime.Location = new System.Drawing.Point(154, 120);
+            this.lblStartTime.Location = new System.Drawing.Point(135, 105);
             this.lblStartTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblStartTime.Name = "lblStartTime";
-            this.lblStartTime.Size = new System.Drawing.Size(164, 32);
+            this.lblStartTime.Size = new System.Drawing.Size(142, 28);
             this.lblStartTime.TabIndex = 3;
             this.lblStartTime.Text = "시작 시간:";
             // 
@@ -538,23 +538,23 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(154, 56);
+            this.lblTitle.Location = new System.Drawing.Point(135, 49);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(83, 30);
+            this.lblTitle.Size = new System.Drawing.Size(75, 27);
             this.lblTitle.TabIndex = 1;
             this.lblTitle.Text = "제목:";
             this.lblTitle.Click += new System.EventHandler(this.lblTitle_Click);
             // 
             // AddScheduleForm_new_
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(168F, 168F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1114, 800);
+            this.ClientSize = new System.Drawing.Size(975, 700);
             this.Controls.Add(this.panelTextbox);
             this.Controls.Add(this.btnClose);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(6);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "AddScheduleForm_new_";
             this.Text = "AddScheduleForm_new_";
             this.Load += new System.EventHandler(this.AddScheduleForm_new__Load);

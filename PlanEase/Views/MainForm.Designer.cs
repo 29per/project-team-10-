@@ -264,7 +264,7 @@ namespace PlanEase
             this.btnGuide.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnGuide.Size = new System.Drawing.Size(230, 75);
             this.btnGuide.TabIndex = 4;
-            this.btnGuide.Text = "   Guide";
+            this.btnGuide.Text = "   Assistant";
             this.btnGuide.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGuide.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGuide.UseVisualStyleBackColor = false;

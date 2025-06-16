@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{C63AAD5F-8C25-417C-87D3-812DAB8E0E65}</ProjectGuid>
     <LangVersion>8.0</LangVersion>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>PlanEase</RootNamespace>
     <AssemblyName>PlanEase</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
@@ -50,6 +50,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
@@ -155,7 +158,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helpers\GptService.cs" />
+    <Compile Include="LLM\Assistant\Agents\PlannerAgent.cs" />
+    <Compile Include="LLM\Assistant\Helpers\CommandParser.cs" />
+    <Compile Include="LLM\Chains\TagRecommendationPipeline.cs" />
+    <Compile Include="LLM\Assistant\Chains\TaskInqueryChain.cs" />
+    <Compile Include="LLM\GptService.cs" />
+    <Compile Include="LLM\Chains\TagRefinementChain.cs" />
+    <Compile Include="LLM\Assistant\Memory\ConversationMemory.cs" />
+    <Compile Include="LLM\Memory\TagMemory.cs" />
+    <Compile Include="LLM\Assistant\Models\ScheduleCommand.cs" />
+    <Compile Include="LLM\Prompts\IPrompt.cs" />
+    <Compile Include="LLM\Assistant\Prompts\IsScheduleCommandPrompt.cs" />
+    <Compile Include="LLM\Prompts\TagReplacementPrompt.cs" />
+    <Compile Include="LLM\Prompts\PromptTemplate.cs" />
+    <Compile Include="LLM\Prompts\SchedulePrompt.cs" />
+    <Compile Include="LLM\Assistant\Prompts\TaskInqueryPrompt.cs" />
+    <Compile Include="LLM\Assistant\Retrieval\DocumentationRetriever.cs" />
+    <Compile Include="LLM\Retrieval\EmbeddingHelper.cs" />
+    <Compile Include="LLM\Tagging\OfficialTagData.cs" />
+    <Compile Include="LLM\Tagging\OfficialTagManager.cs" />
+    <Compile Include="LLM\Tagging\TagRecommendationValidator.cs" />
+    <Compile Include="LLM\Tagging\TitleTagPrompt.cs" />
+    <Compile Include="LLM\Assistant\Tools\ScheduleCommandTool.cs" />
     <Compile Include="Models\ParsedScheduleResult.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Services\SettingManager.cs" />
@@ -191,6 +215,12 @@
     <Compile Include="Views\Controls\CalendarControl.Designer.cs">
       <DependentUpon>CalendarControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Controls\ChatBubbleControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Controls\ChatBubbleControl.Designer.cs">
+      <DependentUpon>ChatBubbleControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Controls\DateCellControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -208,6 +238,12 @@
     </Compile>
     <Compile Include="Views\Controls\ScheduleItemControl.Designer.cs">
       <DependentUpon>ScheduleItemControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\TodoItemControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Controls\TodoItemControl.Designer.cs">
+      <DependentUpon>TodoItemControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\EditToDoForm.cs">
       <SubType>Form</SubType>
@@ -237,11 +273,11 @@
     <Compile Include="Services\ScheduleConflict\ConflictResolver.cs" />
     <Compile Include="Services\ScheduleManager.cs" />
     <Compile Include="Services\ToDoManager.cs" />
-    <Compile Include="Views\panelDesktop\Guide.cs">
+    <Compile Include="Views\panelDesktop\Assistant.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\panelDesktop\Guide.Designer.cs">
-      <DependentUpon>Guide.cs</DependentUpon>
+    <Compile Include="Views\panelDesktop\Assistant.Designer.cs">
+      <DependentUpon>Assistant.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\panelDesktop\Planner.cs">
       <SubType>UserControl</SubType>
@@ -310,6 +346,9 @@
     <EmbeddedResource Include="Views\Controls\CalendarControl.resx">
       <DependentUpon>CalendarControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Controls\ChatBubbleControl.resx">
+      <DependentUpon>ChatBubbleControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Controls\DateCellControl.resx">
       <DependentUpon>DateCellControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -318,6 +357,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Controls\ScheduleItemControl.resx">
       <DependentUpon>ScheduleItemControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Controls\TodoItemControl.resx">
+      <DependentUpon>TodoItemControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\EditToDoForm.resx">
       <DependentUpon>EditToDoForm.cs</DependentUpon>
@@ -329,8 +371,8 @@
       <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\panelDesktop\Guide.resx">
-      <DependentUpon>Guide.cs</DependentUpon>
+    <EmbeddedResource Include="Views\panelDesktop\Assistant.resx">
+      <DependentUpon>Assistant.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\panelDesktop\Planner.resx">
       <DependentUpon>Planner.cs</DependentUpon>
@@ -365,12 +407,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\official_tags.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <Folder Include="Helpers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\화면 캡처 2025-06-17 030523.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">

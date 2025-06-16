@@ -15,6 +15,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PlanEase.Views.Controls;
+using PlanEase.LLM.Chains;
+using PlanEase.LLM.Retrieval;
 
 
 namespace PlanEase.Views
@@ -81,7 +83,11 @@ namespace PlanEase.Views
         
         private async void button1_Click(object sender, EventArgs e)
         {
+            var original = await EmbeddingHelper.ComputeTitleTagRelevanceAsync("알고리즘 과제하기", "#코딩");
+            var noHash = await EmbeddingHelper.ComputeTitleTagRelevanceAsync("알고리즘 과제하기", "코딩");
 
+            Console.WriteLine($"'#코딩' 유사도: {original}");
+            Console.WriteLine($"'코딩' 유사도: {noHash}");
             // 테스트용 사용자 입력
             string testInput = "5월 28일 오후 2시부터 4시까지 졸업 작품 발표가 있어. #졸업 #프로젝트"; //  정상 입력 (모든 정보 제공)
             //string testInput = "6월 3일 오전 10시에 병원 예약 있음."; //종료 시간 누락
@@ -123,6 +129,29 @@ namespace PlanEase.Views
             this.Close();
         }
 
+        private async void btnTestTags_Click(object sender, EventArgs e)
+        {
+            string title = txtTitle.Text;
+            if (string.IsNullOrWhiteSpace(title))
+            {
+                MessageBox.Show("일정 제목을 입력하세요.");
+                return;
+            }
 
+            txtResult.Text = "GPT 호출 중...";
+
+            try
+            {
+                var pipeline = new TagRecommendationPipeline();
+                var resultTags = await pipeline.RecommendTagsAsync(title);
+
+                txtResult.Text = string.Join(", ", resultTags);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("오류 발생: " + ex.Message);
+                txtResult.Text = "";
+            }
+        }
     }
 }
