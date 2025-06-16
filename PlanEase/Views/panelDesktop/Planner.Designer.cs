@@ -65,7 +65,6 @@ namespace PlanEase.Views.panelDesktop
             this.lblMonthDisplay = new FontAwesome.Sharp.IconButton();
             this.btnConfirm = new SiticoneNetFrameworkUI.SiticoneButton();
             this.btnAddSchedule = new SiticoneNetFrameworkUI.SiticoneButton();
-            this.btnSearchTag = new SiticoneNetFrameworkUI.SiticoneButton();
             this.btnAddTodo = new SiticoneNetFrameworkUI.SiticoneButton();
             this.SuspendLayout();
             // 
@@ -73,10 +72,10 @@ namespace PlanEase.Views.panelDesktop
             // 
             this.lblTodoTitle.AutoSize = true;
             this.lblTodoTitle.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 14.14286F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblTodoTitle.Location = new System.Drawing.Point(16, 131);
-            this.lblTodoTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTodoTitle.Location = new System.Drawing.Point(9, 75);
+            this.lblTodoTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTodoTitle.Name = "lblTodoTitle";
-            this.lblTodoTitle.Size = new System.Drawing.Size(152, 43);
+            this.lblTodoTitle.Size = new System.Drawing.Size(88, 25);
             this.lblTodoTitle.TabIndex = 0;
             this.lblTodoTitle.Text = "할 일 목록";
             // 
@@ -85,10 +84,10 @@ namespace PlanEase.Views.panelDesktop
             this.panelRight.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelRight.AutoScroll = true;
-            this.panelRight.Location = new System.Drawing.Point(544, 264);
-            this.panelRight.Margin = new System.Windows.Forms.Padding(4);
+            this.panelRight.Location = new System.Drawing.Point(300, 120);
+            this.panelRight.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelRight.Name = "panelRight";
-            this.panelRight.Size = new System.Drawing.Size(1272, 913);
+            this.panelRight.Size = new System.Drawing.Size(790, 580);
             this.panelRight.TabIndex = 1;
             // 
             // lblTitle
@@ -96,10 +95,10 @@ namespace PlanEase.Views.panelDesktop
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 26.14285F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblTitle.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.lblTitle.Location = new System.Drawing.Point(9, 30);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTitle.Location = new System.Drawing.Point(5, 17);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(324, 78);
+            this.lblTitle.Size = new System.Drawing.Size(188, 45);
             this.lblTitle.TabIndex = 4;
             this.lblTitle.Text = "PLANEASE";
             // 
@@ -119,10 +118,10 @@ namespace PlanEase.Views.panelDesktop
             this.btnPrevMonth.BackColor = System.Drawing.Color.AliceBlue;
             this.btnPrevMonth.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnPrevMonth.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnPrevMonth.Location = new System.Drawing.Point(831, 84);
-            this.btnPrevMonth.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPrevMonth.Location = new System.Drawing.Point(475, 48);
+            this.btnPrevMonth.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPrevMonth.Name = "btnPrevMonth";
-            this.btnPrevMonth.Size = new System.Drawing.Size(88, 44);
+            this.btnPrevMonth.Size = new System.Drawing.Size(50, 25);
             this.btnPrevMonth.TabIndex = 0;
             this.btnPrevMonth.Text = "<";
             this.btnPrevMonth.UseVisualStyleBackColor = false;
@@ -133,10 +132,10 @@ namespace PlanEase.Views.panelDesktop
             this.btnNextMonth.BackColor = System.Drawing.Color.AliceBlue;
             this.btnNextMonth.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnNextMonth.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnNextMonth.Location = new System.Drawing.Point(1639, 88);
-            this.btnNextMonth.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNextMonth.Location = new System.Drawing.Point(892, 48);
+            this.btnNextMonth.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnNextMonth.Name = "btnNextMonth";
-            this.btnNextMonth.Size = new System.Drawing.Size(88, 44);
+            this.btnNextMonth.Size = new System.Drawing.Size(50, 25);
             this.btnNextMonth.TabIndex = 11;
             this.btnNextMonth.Text = ">";
             this.btnNextMonth.UseVisualStyleBackColor = false;
@@ -174,8 +173,8 @@ namespace PlanEase.Views.panelDesktop
             this.txtNewTodo.HoverBorderColor1 = System.Drawing.Color.Gray;
             this.txtNewTodo.HoverBorderColor2 = System.Drawing.Color.Gray;
             this.txtNewTodo.IsEnabled = true;
-            this.txtNewTodo.Location = new System.Drawing.Point(0, 264);
-            this.txtNewTodo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNewTodo.Location = new System.Drawing.Point(0, 151);
+            this.txtNewTodo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNewTodo.Name = "txtNewTodo";
             this.txtNewTodo.PlaceholderColor = System.Drawing.Color.Gray;
             this.txtNewTodo.PlaceholderText = "할 일을 입력하세요...";
@@ -188,7 +187,7 @@ namespace PlanEase.Views.panelDesktop
             this.txtNewTodo.ShadowAnimationDuration = 1;
             this.txtNewTodo.ShadowBlur = 10;
             this.txtNewTodo.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.txtNewTodo.Size = new System.Drawing.Size(436, 40);
+            this.txtNewTodo.Size = new System.Drawing.Size(249, 23);
             this.txtNewTodo.SolidBorderColor = System.Drawing.Color.LightSlateGray;
             this.txtNewTodo.SolidBorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(255)))));
             this.txtNewTodo.SolidBorderHoverColor = System.Drawing.Color.Gray;
@@ -202,10 +201,10 @@ namespace PlanEase.Views.panelDesktop
             // 
             this.flpTodoList.AutoScroll = true;
             this.flpTodoList.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpTodoList.Location = new System.Drawing.Point(4, 314);
-            this.flpTodoList.Margin = new System.Windows.Forms.Padding(4);
+            this.flpTodoList.Location = new System.Drawing.Point(2, 179);
+            this.flpTodoList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.flpTodoList.Name = "flpTodoList";
-            this.flpTodoList.Size = new System.Drawing.Size(516, 863);
+            this.flpTodoList.Size = new System.Drawing.Size(295, 493);
             this.flpTodoList.TabIndex = 28;
             this.flpTodoList.WrapContents = false;
             // 
@@ -225,11 +224,10 @@ namespace PlanEase.Views.panelDesktop
             this.lblMonthDisplay.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.lblMonthDisplay.IconSize = 40;
             this.lblMonthDisplay.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblMonthDisplay.Location = new System.Drawing.Point(1057, 3);
-            this.lblMonthDisplay.Margin = new System.Windows.Forms.Padding(5);
+            this.lblMonthDisplay.Location = new System.Drawing.Point(611, 20);
             this.lblMonthDisplay.Name = "lblMonthDisplay";
-            this.lblMonthDisplay.Padding = new System.Windows.Forms.Padding(18, 0, 35, 0);
-            this.lblMonthDisplay.Size = new System.Drawing.Size(446, 140);
+            this.lblMonthDisplay.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.lblMonthDisplay.Size = new System.Drawing.Size(255, 80);
             this.lblMonthDisplay.TabIndex = 26;
             this.lblMonthDisplay.Text = "Calendar";
             this.lblMonthDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -288,9 +286,9 @@ namespace PlanEase.Views.panelDesktop
             this.btnConfirm.IsReadOnly = false;
             this.btnConfirm.IsToggleButton = false;
             this.btnConfirm.IsToggled = false;
-            this.btnConfirm.Location = new System.Drawing.Point(5, 205);
+            this.btnConfirm.Location = new System.Drawing.Point(3, 117);
             this.btnConfirm.LongPressDurationMS = 1000;
-            this.btnConfirm.Margin = new System.Windows.Forms.Padding(4);
+            this.btnConfirm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.NormalFontStyle = System.Drawing.FontStyle.Regular;
             this.btnConfirm.ParticleColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
@@ -308,7 +306,7 @@ namespace PlanEase.Views.panelDesktop
             this.btnConfirm.ShadowOffset = new System.Drawing.Point(2, 2);
             this.btnConfirm.ShakeDuration = 500;
             this.btnConfirm.ShakeIntensity = 5;
-            this.btnConfirm.Size = new System.Drawing.Size(142, 53);
+            this.btnConfirm.Size = new System.Drawing.Size(81, 30);
             this.btnConfirm.TabIndex = 0;
             this.btnConfirm.Text = "할 일 완료";
             this.btnConfirm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -369,9 +367,9 @@ namespace PlanEase.Views.panelDesktop
             this.btnAddSchedule.IsReadOnly = false;
             this.btnAddSchedule.IsToggleButton = false;
             this.btnAddSchedule.IsToggled = false;
-            this.btnAddSchedule.Location = new System.Drawing.Point(1520, 205);
+            this.btnAddSchedule.Location = new System.Drawing.Point(1008, 87);
             this.btnAddSchedule.LongPressDurationMS = 1000;
-            this.btnAddSchedule.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddSchedule.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAddSchedule.Name = "btnAddSchedule";
             this.btnAddSchedule.NormalFontStyle = System.Drawing.FontStyle.Regular;
             this.btnAddSchedule.ParticleColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
@@ -389,7 +387,7 @@ namespace PlanEase.Views.panelDesktop
             this.btnAddSchedule.ShadowOffset = new System.Drawing.Point(2, 2);
             this.btnAddSchedule.ShakeDuration = 500;
             this.btnAddSchedule.ShakeIntensity = 5;
-            this.btnAddSchedule.Size = new System.Drawing.Size(144, 51);
+            this.btnAddSchedule.Size = new System.Drawing.Size(82, 29);
             this.btnAddSchedule.TabIndex = 29;
             this.btnAddSchedule.Text = "일정 추가";
             this.btnAddSchedule.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -398,86 +396,6 @@ namespace PlanEase.Views.panelDesktop
             this.btnAddSchedule.UseAdvancedRendering = true;
             this.btnAddSchedule.UseParticles = false;
             this.btnAddSchedule.Click += new System.EventHandler(this.btnAddSchedule_Click);
-            // 
-            // btnSearchTag
-            // 
-            this.btnSearchTag.AccessibleDescription = "The default button control that accept input though the mouse, touch and keyboard" +
-    "";
-            this.btnSearchTag.AccessibleName = "태그 검색";
-            this.btnSearchTag.AutoSizeBasedOnText = false;
-            this.btnSearchTag.BackColor = System.Drawing.Color.Transparent;
-            this.btnSearchTag.BadgeBackColor = System.Drawing.Color.Black;
-            this.btnSearchTag.BadgeFont = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnSearchTag.BadgeValue = 0;
-            this.btnSearchTag.BadgeValueForeColor = System.Drawing.Color.White;
-            this.btnSearchTag.BorderColor = System.Drawing.Color.White;
-            this.btnSearchTag.BorderWidth = 2;
-            this.btnSearchTag.ButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnSearchTag.ButtonImage = null;
-            this.btnSearchTag.ButtonTextLeftPadding = 0;
-            this.btnSearchTag.CanBeep = true;
-            this.btnSearchTag.CanGlow = false;
-            this.btnSearchTag.CanShake = true;
-            this.btnSearchTag.ContextMenuStripEx = null;
-            this.btnSearchTag.CornerRadiusBottomLeft = 5;
-            this.btnSearchTag.CornerRadiusBottomRight = 5;
-            this.btnSearchTag.CornerRadiusTopLeft = 5;
-            this.btnSearchTag.CornerRadiusTopRight = 5;
-            this.btnSearchTag.CustomCursor = System.Windows.Forms.Cursors.Default;
-            this.btnSearchTag.DisabledTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
-            this.btnSearchTag.EnableLongPress = false;
-            this.btnSearchTag.EnablePressAnimation = true;
-            this.btnSearchTag.EnableRippleEffect = true;
-            this.btnSearchTag.EnableShadow = false;
-            this.btnSearchTag.EnableTextWrapping = false;
-            this.btnSearchTag.Font = new System.Drawing.Font("한컴 말랑말랑 Regular", 9.857142F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnSearchTag.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnSearchTag.GlowColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnSearchTag.GlowIntensity = 100;
-            this.btnSearchTag.GlowRadius = 20F;
-            this.btnSearchTag.GradientBackground = false;
-            this.btnSearchTag.GradientColor = System.Drawing.Color.White;
-            this.btnSearchTag.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.btnSearchTag.HintText = null;
-            this.btnSearchTag.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnSearchTag.HoverFontStyle = System.Drawing.FontStyle.Regular;
-            this.btnSearchTag.HoverTextColor = System.Drawing.Color.White;
-            this.btnSearchTag.HoverTransitionDuration = 250;
-            this.btnSearchTag.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearchTag.ImagePadding = 5;
-            this.btnSearchTag.ImageSize = new System.Drawing.Size(16, 16);
-            this.btnSearchTag.IsRadial = false;
-            this.btnSearchTag.IsReadOnly = false;
-            this.btnSearchTag.IsToggleButton = false;
-            this.btnSearchTag.IsToggled = false;
-            this.btnSearchTag.Location = new System.Drawing.Point(1672, 205);
-            this.btnSearchTag.LongPressDurationMS = 1000;
-            this.btnSearchTag.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSearchTag.Name = "btnSearchTag";
-            this.btnSearchTag.NormalFontStyle = System.Drawing.FontStyle.Regular;
-            this.btnSearchTag.ParticleColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.btnSearchTag.ParticleCount = 15;
-            this.btnSearchTag.PressAnimationScale = 0.97F;
-            this.btnSearchTag.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnSearchTag.PressedFontStyle = System.Drawing.FontStyle.Regular;
-            this.btnSearchTag.PressTransitionDuration = 150;
-            this.btnSearchTag.ReadOnlyTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.btnSearchTag.RippleColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnSearchTag.RippleOpacity = 0.3F;
-            this.btnSearchTag.RippleRadiusMultiplier = 0.6F;
-            this.btnSearchTag.ShadowBlur = 5;
-            this.btnSearchTag.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnSearchTag.ShadowOffset = new System.Drawing.Point(2, 2);
-            this.btnSearchTag.ShakeDuration = 500;
-            this.btnSearchTag.ShakeIntensity = 5;
-            this.btnSearchTag.Size = new System.Drawing.Size(144, 51);
-            this.btnSearchTag.TabIndex = 30;
-            this.btnSearchTag.Text = "태그 검색";
-            this.btnSearchTag.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnSearchTag.TextColor = System.Drawing.Color.Black;
-            this.btnSearchTag.TooltipText = null;
-            this.btnSearchTag.UseAdvancedRendering = true;
-            this.btnSearchTag.UseParticles = false;
             // 
             // btnAddTodo
             // 
@@ -530,9 +448,9 @@ namespace PlanEase.Views.panelDesktop
             this.btnAddTodo.IsReadOnly = false;
             this.btnAddTodo.IsToggleButton = false;
             this.btnAddTodo.IsToggled = false;
-            this.btnAddTodo.Location = new System.Drawing.Point(440, 264);
+            this.btnAddTodo.Location = new System.Drawing.Point(251, 151);
             this.btnAddTodo.LongPressDurationMS = 1000;
-            this.btnAddTodo.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddTodo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAddTodo.Name = "btnAddTodo";
             this.btnAddTodo.NormalFontStyle = System.Drawing.FontStyle.Regular;
             this.btnAddTodo.ParticleColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
@@ -550,7 +468,7 @@ namespace PlanEase.Views.panelDesktop
             this.btnAddTodo.ShadowOffset = new System.Drawing.Point(2, 2);
             this.btnAddTodo.ShakeDuration = 500;
             this.btnAddTodo.ShakeIntensity = 5;
-            this.btnAddTodo.Size = new System.Drawing.Size(80, 40);
+            this.btnAddTodo.Size = new System.Drawing.Size(46, 23);
             this.btnAddTodo.TabIndex = 31;
             this.btnAddTodo.Text = "추가";
             this.btnAddTodo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -562,12 +480,11 @@ namespace PlanEase.Views.panelDesktop
             // 
             // Planner
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(168F, 168F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.Lavender;
             this.Controls.Add(this.btnAddTodo);
             this.Controls.Add(this.btnNextMonth);
-            this.Controls.Add(this.btnSearchTag);
             this.Controls.Add(this.btnAddSchedule);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.flpTodoList);
@@ -577,9 +494,9 @@ namespace PlanEase.Views.panelDesktop
             this.Controls.Add(this.btnPrevMonth);
             this.Controls.Add(this.panelRight);
             this.Controls.Add(this.lblTitle);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Planner";
-            this.Size = new System.Drawing.Size(1901, 1199);
+            this.Size = new System.Drawing.Size(1100, 720);
             this.Load += new System.EventHandler(this.Planner_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -625,7 +542,6 @@ namespace PlanEase.Views.panelDesktop
         private FlowLayoutPanel flpTodoList;
         private SiticoneNetFrameworkUI.SiticoneButton btnConfirm;
         private SiticoneNetFrameworkUI.SiticoneButton btnAddSchedule;
-        private SiticoneNetFrameworkUI.SiticoneButton btnSearchTag;
         private SiticoneNetFrameworkUI.SiticoneButton btnAddTodo;
     }
 }
