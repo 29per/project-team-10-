@@ -215,43 +215,43 @@ namespace PlanEase.Views.panelDesktop
         //    calendarTable.ResumeLayout();
         //}
 
-        private void btnDayView_Click(object sender, EventArgs e)
-        {
-            panelDayView.Visible = true;
-            panelWeekView.Visible = false;
-            panelMonthView.Visible = false;
-            //InitializeDayView(DateTime.Today);
+        //private void btnDayView_Click(object sender, EventArgs e)
+        //{
+        //    panelDayView.Visible = true;
+        //    panelWeekView.Visible = false;
+        //    panelMonthView.Visible = false;
+        //    //InitializeDayView(DateTime.Today);
 
-            // 예시 콘텐츠
-            panelDayView.Controls.Clear();
-            Label lbl = new Label
-            {
-                Text = "오늘의 일정 보기",
-                Dock = DockStyle.Fill,
-                TextAlign = ContentAlignment.MiddleCenter,
-                Font = new Font("맑은 고딕", 20)
-            };
-            panelDayView.Controls.Add(lbl);
-        }
+        //    // 예시 콘텐츠
+        //    panelDayView.Controls.Clear();
+        //    Label lbl = new Label
+        //    {
+        //        Text = "오늘의 일정 보기",
+        //        Dock = DockStyle.Fill,
+        //        TextAlign = ContentAlignment.MiddleCenter,
+        //        Font = new Font("맑은 고딕", 20)
+        //    };
+        //    panelDayView.Controls.Add(lbl);
+        //}
 
-        private void btnWeekView_Click(object sender, EventArgs e)
-        {
-            panelDayView.Visible = false;
-            panelWeekView.Visible = true;
-            panelMonthView.Visible = false;
-            //InitializeWeekCalendar(DateTime.Today);
+        //private void btnWeekView_Click(object sender, EventArgs e)
+        //{
+        //    panelDayView.Visible = false;
+        //    panelWeekView.Visible = true;
+        //    panelMonthView.Visible = false;
+        //    //InitializeWeekCalendar(DateTime.Today);
 
-            // 예시 콘텐츠
-            panelWeekView.Controls.Clear();
-            Label lbl = new Label
-            {
-                Text = "이번 주 일정 보기",
-                Dock = DockStyle.Fill,
-                TextAlign = ContentAlignment.MiddleCenter,
-                Font = new Font("맑은 고딕", 20)
-            };
-            panelWeekView.Controls.Add(lbl);
-        }
+        //    // 예시 콘텐츠
+        //    panelWeekView.Controls.Clear();
+        //    Label lbl = new Label
+        //    {
+        //        Text = "이번 주 일정 보기",
+        //        Dock = DockStyle.Fill,
+        //        TextAlign = ContentAlignment.MiddleCenter,
+        //        Font = new Font("맑은 고딕", 20)
+        //    };
+        //    panelWeekView.Controls.Add(lbl);
+        //}
 
         //private void btnMonthView_Click(object sender, EventArgs e)
         //{
@@ -414,26 +414,26 @@ namespace PlanEase.Views.panelDesktop
         private DateTime currentDate = DateTime.Today;
 
         //달력 넘김
-        private void UpdateMonthLabel()
-        {
-            lblCurrentMonth.Text = currentDate.ToString("yyyy년 M월");
-        }
+        //private void UpdateMonthLabel()
+        //{
+        //    lblCurrentMonth.Text = currentDate.ToString("yyyy년 M월");
+        //}
 
-        private void btnPrevMonth_Click(object sender, EventArgs e)
-        {
-            currentDate = currentDate.AddMonths(-1);
-            UpdateMonthLabel();
-            //GenerateCalendar(currentDate);
+        //private void btnPrevMonth_Click(object sender, EventArgs e)
+        //{
+        //    currentDate = currentDate.AddMonths(-1);
+        //    UpdateMonthLabel();
+        //    //GenerateCalendar(currentDate);
 
-        }
+        //}
 
-        private void btnNextMonth_Click(object sender, EventArgs e)
-        {
-            currentDate = currentDate.AddMonths(1);
-            UpdateMonthLabel();
-            //GenerateCalendar(currentDate);
+        //private void btnNextMonth_Click(object sender, EventArgs e)
+        //{
+        //    currentDate = currentDate.AddMonths(1);
+        //    UpdateMonthLabel();
+        //    //GenerateCalendar(currentDate);
 
-        }
+        //}
 
 
 
