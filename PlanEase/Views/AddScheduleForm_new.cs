@@ -143,6 +143,27 @@ namespace PlanEase.Views
                 return;
             }
 
+            DateTime startDate = dtpStartTime.Value.Date;
+            DateTime endDate = dtpEndTime.Value.Date;
+
+            if (!int.TryParse(cmbStartHour.SelectedItem?.ToString(), out int startHour) ||
+                !int.TryParse(cmbStartMinute.SelectedItem?.ToString(), out int startMinute) ||
+                !int.TryParse(cmbEndHour.SelectedItem?.ToString(), out int endHour) ||
+                !int.TryParse(cmbEndMinute.SelectedItem?.ToString(), out int endMinute))
+            {
+                MessageBox.Show("시작/종료 시간과 분을 정확히 선택해주세요.", "입력 오류", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DateTime startTime = startDate.AddHours(startHour).AddMinutes(startMinute);
+            DateTime endTime = endDate.AddHours(endHour).AddMinutes(endMinute);
+
+            if (endTime <= startTime)
+            {
+                MessageBox.Show("종료 시간이 시작 시간보다 빠를 수 없습니다.", "입력 오류", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             // 2. 태그 파싱 및 등록
             List<string> tagList = txtTag.Text
                 .Split(new[] { ',', ' ', '|' }, StringSplitOptions.RemoveEmptyEntries)
@@ -400,6 +421,8 @@ namespace PlanEase.Views
             {
                 // 7. 충돌 없으면 일정 추가
                 scheduleManager.AddSchedule(schedule);
+                planner.calendar.ShowMonth(schedule.StartTime);
+
 
                 MessageBox.Show("일정이 성공적으로 추가되었습니다.", "성공", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;
