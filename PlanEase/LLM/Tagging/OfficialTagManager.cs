@@ -8,7 +8,11 @@ namespace PlanEase.LLM.Tagging
 {
     public static class OfficialTagManager
     {
-        private static readonly string JsonPath = "Resources/official_tags.json";
+        //private static readonly string JsonPath = "Resources/official_tags.json";
+        private static readonly string JsonPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"Resources","official_tags.json"
+);
+
+
 
         // 전체 JSON 파싱
         private static OfficialTagData LoadRaw()

@@ -18,13 +18,17 @@ namespace PlanEase.Views.Controls
         private List<DateCellControl> dateCells = new List<DateCellControl>();
         private DateTime currentMonth; 
         private ScheduleManager scheduleManager; 
+        private TagManager tagManager;
+        int userId;
 
-        public CalendarControl(ScheduleManager scheduleManager)
+        public CalendarControl(ScheduleManager scheduleManager, TagManager tagManager, int userId)
         {
             InitializeComponent();
             this.scheduleManager = scheduleManager;
+            this.tagManager = tagManager;
+            this.userId = userId;
             InitializeDateCells();
-            
+            Console.WriteLine("CalendarControl 생성자 호출됨. UserId: " + userId);
         }
 
         public void SetScheduleManager(ScheduleManager manager)
@@ -43,7 +47,7 @@ namespace PlanEase.Views.Controls
             for (int i = 0; i < 42; i++)
             {
 
-                var cell = new DateCellControl(scheduleManager);
+                var cell = new DateCellControl(scheduleManager, tagManager,userId);
                 //cell.Size = new Size(110, 110);
                 cell.Location = new Point((i % 7) * (cell.Size.Width), (i / 7) * (cell.Size.Height));
                 cell.Visible = false;
@@ -90,7 +94,7 @@ namespace PlanEase.Views.Controls
                         var schedules = scheduleManager.GetSchedulesForDate(cellDate);
                         foreach (var sched in schedules)
                         {
-                            var item = new ScheduleItemControl(sched.Title, sched.Priority);
+                            var item = new ScheduleItemControl(sched.Title, sched.Priority,scheduleManager);
                             item.ScheduleId = sched.Id;
                             cell.AddScheduleControl(item);
                         }

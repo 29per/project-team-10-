@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using MySql.Data.MySqlClient;
-using PlanEase.Services.ScheduleConflict;
 
 namespace PlanEase.Services
 {
@@ -60,18 +59,9 @@ namespace PlanEase.Services
         // 새로운 일정을 리스트에 추가하고 파일에 저장
         public void AddSchedule(Schedule s)
         {
-
-            // 자동 충돌 해결이 활성화된 경우
-            if (_conflictResolver != null && _conflictResolver.IsAutoResolutionEnabled())
-            {
-                // 충돌 검사 및 자동 해결
-                var existingSchedules = GetAllSchedules();
-                _conflictResolver.ResolveAllConflicts(s, existingSchedules);
-            }
-
-
             schedules.Add(s);
             AddScheduleToDb(s); // DB에 추가
+            Console.WriteLine($"[ScheduleManager] DB에 일정 추가됨: {s.Title} ({s.StartTime} ~ {s.EndTime})");
         }
 
         // ID에 해당하는 일정을 삭제하고 파일에 저장

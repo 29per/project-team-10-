@@ -41,6 +41,7 @@
             this.btnTestTags = new System.Windows.Forms.Button();
             this.txtResult = new System.Windows.Forms.TextBox();
             this.txtTitle = new System.Windows.Forms.TextBox();
+           
             this.SuspendLayout();
             // 
             // mySiticoneLicenseSettings1
@@ -328,6 +329,8 @@
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(151, 21);
             this.txtTitle.TabIndex = 14;
+
+    
             // 
             // LoginForm
             // 

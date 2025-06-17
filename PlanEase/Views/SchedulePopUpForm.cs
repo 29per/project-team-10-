@@ -1,5 +1,6 @@
 ﻿using MySqlX.XDevAPI;
 using PlanEase.Models;
+using PlanEase.Services;
 using PlanEase.Views.Controls;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,8 @@ namespace PlanEase.Views
     {
         public static SchedulePopUpForm CurrentInstance { get; private set; }
         public DateTime Date { get; private set; }
-        public SchedulePopUpForm(DateTime date, List<Schedule> schedules)
+        private ScheduleManager scheduleManager;
+        public SchedulePopUpForm(DateTime date, List<Schedule> schedules, ScheduleManager scheduleManager)
         {
             InitializeComponent();
 
@@ -26,6 +28,7 @@ namespace PlanEase.Views
             CurrentInstance = this;
 
             RefreshScheduleList(schedules);
+            this.scheduleManager = scheduleManager;
             this.FormClosed += SchedulePopUpForm_FormClosed;
 
         }
@@ -54,7 +57,7 @@ namespace PlanEase.Views
 
             foreach (var sched in schedules)
             {
-                var item = new ScheduleItemControl(sched.Title, sched.Priority);
+                var item = new ScheduleItemControl(sched.Title, sched.Priority,scheduleManager);
                 item.ScheduleId = sched.Id;
 
                 // 드래그를 위해 이벤트 핸들러 추가
