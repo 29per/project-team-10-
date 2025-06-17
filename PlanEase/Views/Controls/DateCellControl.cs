@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,10 @@ namespace PlanEase.Views.Controls
         private ScheduleManager scheduleManager;
         private TagManager tagManager;
         private ContextMenuStrip contextMenuStrip;
+        int userId;
 
 
-        public DateCellControl(ScheduleManager scheduleManager, TagManager tagManager)
+        public DateCellControl(ScheduleManager scheduleManager, TagManager tagManager, int userId)
         {
             InitializeComponent();
             panelContent.AllowDrop = true;
@@ -34,6 +36,8 @@ namespace PlanEase.Views.Controls
             this.tagManager = tagManager;
 
             InitializeContextMenu();
+            this.userId = userId;
+            Console.WriteLine("DateCellControl 생성자 호출됨. UserId: " + userId);
         }
 
         private void InitializeContextMenu()
@@ -86,21 +90,62 @@ namespace PlanEase.Views.Controls
         // 일정 드래그 들어올 때
         private void PanelContent_DragEnter(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent(DataFormats.Text)) // 드롭 가능한지를 검사
-                e.Effect = DragDropEffects.Move;
+            if (e.Data.GetDataPresent(DataFormats.Text))
+            {
+                string data = e.Data.GetData(DataFormats.Text).ToString();
+
+                // 일정 ID 형식인지 (숫자) 또는 할일 형식인지 ("TODO:") 확인
+                if (data.StartsWith("TODO:") || int.TryParse(data, out _))
+                {
+                    e.Effect = DragDropEffects.Copy; // 드롭 허용
+                }
+                else
+                {
+                    e.Effect = DragDropEffects.None; // 허용하지 않음
+                }
+            }
         }
 
         // 일정 드랍했을 때
         private void PanelContent_DragDrop(object sender, DragEventArgs e)
         {
-            //string scheduleId = e.Data.GetData(DataFormats.Text).ToString();
-            //// TODO: ID로 Schedule 찾아서 AddScheduleControl() 호출
-            //MessageBox.Show($"드롭 성공! 날짜: {Date.ToShortDateString()}, 일정 ID: {scheduleId}");
+            string data = e.Data.GetData(DataFormats.Text).ToString();
+            
 
-            string scheduleIdStr = e.Data.GetData(DataFormats.Text).ToString();
-            if (int.TryParse(scheduleIdStr, out int scheduleId))
+            if (data.StartsWith("TODO:")) // 할일 항목 드랍
             {
-                ScheduleDropped?.Invoke(scheduleId, this.Date); // 이벤트 발생
+                string todoTitle = data.Substring("TODO:".Length);
+                Debug.WriteLine($"[DateCellControl] 드롭된 할일 제목: {todoTitle} at {this.Date}");
+                // 시간 입력받는 창 호출
+                using (var timeForm = new TimeSelectionForm())
+                {
+                    if (timeForm.ShowDialog() == DialogResult.OK)
+                    {
+                        var (startHour, startMinute, endHour, endMinute) = timeForm.GetSelectedTime();
+
+                        var start = this.Date.Date.AddHours(startHour).AddMinutes(startMinute);
+                        var end = this.Date.Date.AddHours(endHour).AddMinutes(endMinute);
+
+                        var schedule = new Schedule
+                        {
+                            Title = todoTitle,
+                            StartTime = start,
+                            EndTime = end,
+                            UserId = this.userId, // 또는 현재 로그인된 사용자 ID
+                            Priority = PriorityLevel.Medium,
+                            Tags = new List<string>(),
+                            Description = "",
+                            IsCompleted = false
+                        };
+                        Console.WriteLine("현재 로그인된 사용자 ID: " + this.userId);
+                        scheduleManager.AddSchedule(schedule);
+                        LoadSchedules();
+                    }
+                }
+            }
+            else if (int.TryParse(data, out int scheduleId)) // 일정 항목 드랍
+            {
+                ScheduleDropped?.Invoke(scheduleId, this.Date);
             }
         }
 
@@ -176,7 +221,7 @@ namespace PlanEase.Views.Controls
             var copied = new Schedule
             {
                 UserId = original.UserId,
-                Title = original.Title + " (복사됨)",
+                Title = original.Title, //" (복사됨)"
                 Description = original.Description,
                 Tags = new List<string>(original.Tags),
                 Priority = original.Priority,

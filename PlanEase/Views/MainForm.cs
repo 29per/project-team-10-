@@ -41,7 +41,7 @@ namespace PlanEase
             tagManager.LoadTagsFromDb(loggedInUser.Id);
             toDoManager = new ToDoManager();
             toDoManager.LoadToDosFromDb(loggedInUser.Id);
-
+            Console.WriteLine("MainForm 생성자 호출됨. UserId: " + loggedInUser.Id);
 
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(10, btnCalendar.Size.Height);

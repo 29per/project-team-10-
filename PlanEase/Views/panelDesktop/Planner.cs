@@ -32,7 +32,7 @@ namespace PlanEase.Views.panelDesktop
 
         private void InitializeCalendar()
         {
-            calendar = new CalendarControl(scheduleManager,tagManager);
+            calendar = new CalendarControl(scheduleManager,tagManager,loggedInUser.Id);
             //calendar.SetScheduleManager(scheduleManager);
             calendar.Location = new Point(0, 0); // panelRight 내에서 좌측 상단 정렬
             //calendar.Size = new Size(770, 660);
@@ -188,6 +188,7 @@ namespace PlanEase.Views.panelDesktop
             this.toDoManager.LoadToDosFromDb(this.loggedInUser.Id);
             // 4. 불러온 데이터를 화면에 표시
             LoadToDoList();
+            Console.WriteLine("Planner 생성자 호출됨. UserId: " + loggedInUser.Id);
         }
 
         //private void SetupCalendarTable()

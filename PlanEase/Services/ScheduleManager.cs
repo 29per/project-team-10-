@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using MySql.Data.MySqlClient;
+using System.Diagnostics;
 
 namespace PlanEase.Services
 {
@@ -20,8 +21,10 @@ namespace PlanEase.Services
         // 새로운 일정을 리스트에 추가하고 파일에 저장
         public void AddSchedule(Schedule s)
         {
+            Console.WriteLine("AddSchedule시작" +s.UserId);
             schedules.Add(s);
             AddScheduleToDb(s); // DB에 추가
+            Console.WriteLine($"[ScheduleManager] DB에 일정 추가됨: {s.Title} ({s.StartTime} ~ {s.EndTime})");
         }
 
         // ID에 해당하는 일정을 삭제하고 파일에 저장
