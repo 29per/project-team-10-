@@ -137,23 +137,7 @@ namespace PlanEase.Views
                 MessageBox.Show("제목을 입력해주세요.", "입력 오류", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            // 날짜 + 시간 조합
-            DateTime startDate = dtpStartTime.Value.Date;
-            DateTime endDate = dtpEndTime.Value.Date;
-
-            if (!int.TryParse(cmbStartHour.SelectedItem?.ToString(), out int startHour) ||
-                !int.TryParse(cmbStartMinute.SelectedItem?.ToString(), out int startMinute) ||
-                !int.TryParse(cmbEndHour.SelectedItem?.ToString(), out int endHour) ||
-                !int.TryParse(cmbEndMinute.SelectedItem?.ToString(), out int endMinute))
-            {
-                MessageBox.Show("시작/종료 시간과 분을 정확히 선택해주세요.", "입력 오류", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            DateTime startTime = startDate.AddHours(startHour).AddMinutes(startMinute);
-            DateTime endTime = endDate.AddHours(endHour).AddMinutes(endMinute);
-
-            if (endTime <= startTime)
+            if (dtpEndTime.Value <= dtpStartTime.Value)
             {
                 MessageBox.Show("종료 시간이 시작 시간보다 빠를 수 없습니다.", "입력 오류", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -177,15 +161,15 @@ namespace PlanEase.Views
                 Title = txtTitle.Text.Trim(),
                 StartTime = dtpStartTime.Value,
                 EndTime = dtpEndTime.Value,
-                Tags = tagList, // Schedule.cs가 List<string>이면 OK, List<Tag>라면 매핑 필요
+                Tags = tagList,
                 Priority = (PriorityLevel)(cmbPriority.SelectedIndex + 1),
                 Description = txtDescription.Text.Trim(),
                 IsCompleted = false,
                 UserId = userId
             };
 
-                var allSchedules = scheduleManager.GetAllSchedules();
-                var conflicts = allSchedules.Where(s => ConflictChecker.IsConflict(schedule, s)).ToList();
+            // 4. 기존 일정 가져오기
+            List<Schedule> allSchedules = scheduleManager.GetAllSchedules();
 
             // 5. 충돌 검사
             var conflictingSchedules = allSchedules
@@ -194,24 +178,228 @@ namespace PlanEase.Views
 
             if (conflictingSchedules.Any())
             {
-                // 6. 충돌 시 ConflictResolutionForm 띄우기
+                // 6. 충돌 시 처리
                 var resolver = new ConflictResolver(scheduleManager);
-                var conflictForm = new ConflictResolutionForm(schedule, conflictingSchedules, resolver);
-                var result = conflictForm.ShowDialog();
 
-                if (result == DialogResult.OK)
+                // SettingManager를 통해 현재 설정 가져오기
+                var settingManager = new SettingManager();
+                settingManager.LoadSetting(userId);
+                var currentSetting = settingManager.GetSetting();
+
+                // 자동 충돌 해결 여부 확인
+                bool autoResolveEnabled = currentSetting.UseAutoConflictResolution;
+
+                if (autoResolveEnabled)
                 {
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
+                    // 자동 해결 활성화 - 충돌 유형에 따라 자동 해결
+                    resolver.SetAutoResolution(true);
+
+                    // 충돌 유형별로 그룹화하여 처리
+                    var conflictsByType = ConflictChecker.FindConflictsByType(schedule, conflictingSchedules);
+
+                    // 충돌 유형별로 처리 결과 추적
+                    StringBuilder resultMessage = new StringBuilder("충돌이 자동으로 처리되었습니다:\n\n");
+                    bool hasProcessed = false;
+
+                    // 각 충돌 유형별 처리
+                    foreach (var conflictGroup in conflictsByType)
+                    {
+                        ConflictType conflictType = conflictGroup.Key;
+                        List<Schedule> conflicts = conflictGroup.Value;
+
+                        // 충돌 유형에 따른 기본 처리 방식 결정
+                        switch (conflictType)
+                        {
+                            case ConflictType.Same: // 완전 일치
+                                                    // 동일한 일정은 병합 처리
+                                foreach (var conflict in conflicts)
+                                {
+                                    resolver.Merge(schedule, conflict);
+                                }
+                                resultMessage.AppendLine($"- 동일한 일정 {conflicts.Count}개가 병합되었습니다.");
+                                hasProcessed = true;
+                                break;
+
+                            case ConflictType.Contain: // A가 B를 포함
+                                                       // 새 일정이 기존 일정을 포함하면 기존 일정 삭제
+                                foreach (var conflict in conflicts)
+                                {
+                                    resolver.Delete(conflict);
+                                }
+                                resultMessage.AppendLine($"- 포함된 일정 {conflicts.Count}개가 삭제되었습니다.");
+                                hasProcessed = true;
+                                break;
+
+                            case ConflictType.Contain2: // B가 A를 포함
+                                                        // 기존 일정이 새 일정을 포함하면 시간 변경
+                                                        // 가장 늦은 종료 시간 이후로 설정
+                                DateTime newStartTime = schedule.StartTime;
+                                foreach (var conflict in conflicts)
+                                {
+                                    if (conflict.EndTime > newStartTime)
+                                    {
+                                        newStartTime = conflict.EndTime;
+                                    }
+                                }
+
+                                TimeSpan duration = schedule.EndTime - schedule.StartTime;
+                                DateTime newEndTime = newStartTime.Add(duration);
+
+                                schedule.StartTime = newStartTime;
+                                schedule.EndTime = newEndTime;
+
+                                resultMessage.AppendLine($"- 일정이 포함된 경우, 시간이 변경되었습니다: {newStartTime:HH:mm}~{newEndTime:HH:mm}");
+                                hasProcessed = true;
+                                break;
+
+                            case ConflictType.Overlap: // A가 먼저 시작, 일부 겹침
+                            case ConflictType.Overlap2: // B가 먼저 시작, 일부 겹침
+                                                        // 일부 겹침은 시간 변경으로 처리
+                                                        // 가장 늦은 종료 시간 이후로 설정
+                                DateTime overlapNewStart = schedule.StartTime;
+                                foreach (var conflict in conflicts)
+                                {
+                                    if (conflict.EndTime > overlapNewStart)
+                                    {
+                                        overlapNewStart = conflict.EndTime;
+                                    }
+                                }
+
+                                TimeSpan overlapDuration = schedule.EndTime - schedule.StartTime;
+                                DateTime overlapNewEnd = overlapNewStart.Add(overlapDuration);
+
+                                schedule.StartTime = overlapNewStart;
+                                schedule.EndTime = overlapNewEnd;
+
+                                resultMessage.AppendLine($"- 일부 겹친 일정이 있어 시간이 변경되었습니다: {overlapNewStart:HH:mm}~{overlapNewEnd:HH:mm}");
+                                hasProcessed = true;
+                                break;
+
+                            case ConflictType.After: // A 다음에 B
+                            case ConflictType.Before: // B 다음에 A
+                                                      // 연속된 일정은 그대로 두거나 병합 가능
+                                                      // 여기서는 그대로 둠
+                                resultMessage.AppendLine($"- 연속된 일정 {conflicts.Count}개가 유지되었습니다.");
+                                hasProcessed = true;
+                                break;
+
+                            default:
+                                // 기타 충돌 유형은 일단 무시
+                                break;
+                        }
+                    }
+
+                    // 처리 결과 메시지 표시
+                    if (hasProcessed)
+                    {
+                        MessageBox.Show(resultMessage.ToString(), "충돌 자동 해결", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // 충돌이 해결된 경우 일정 추가
+                        scheduleManager.AddSchedule(schedule);
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                    else
+                    {
+                        // 처리되지 않은 충돌이 있는 경우 사용자에게 물어봄
+                        MessageBox.Show("자동으로 처리할 수 없는 충돌이 있습니다. 수동으로 해결해주세요.",
+                            "충돌 해결 필요", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                        var conflictForm = new ConflictResolutionForm(schedule, conflictingSchedules, resolver);
+                        var result = conflictForm.ShowDialog();
+
+                        if (result == DialogResult.OK)
+                        {
+                            this.DialogResult = DialogResult.OK;
+                            this.Close();
+                        }
+                        return;
+                    }
                 }
-                // 사용자가 취소 또는 무시하면 일정 등록 안 함
-                return;
+                else
+                {
+                    // 자동 충돌 해결이 비활성화된 경우
+                    // 전략에 따라 처리
+                    var strategy = currentSetting.DefaultStrategy;
+
+                    if (strategy == ConflictResolutionStrategy.AskUser)
+                    {
+                        // 사용자에게 물어보는 전략
+                        var conflictForm = new ConflictResolutionForm(schedule, conflictingSchedules, resolver);
+                        var result = conflictForm.ShowDialog();
+
+                        if (result != DialogResult.OK)
+                        {
+                            // 사용자가 취소 또는 무시하면 일정 등록 안 함
+                            return;
+                        }
+
+                        // ConflictResolutionForm에서 OK를 누르면 이미 처리되었을 수 있음
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                        return;
+                    }
+                    else
+                    {
+                        // 다른 전략은 기존 코드와 동일하게 처리
+                        switch (strategy)
+                        {
+                            case ConflictResolutionStrategy.Merge:
+                                // 병합 전략
+                                foreach (var conflictingSchedule in conflictingSchedules)
+                                {
+                                    resolver.Merge(schedule, conflictingSchedule);
+                                }
+                                MessageBox.Show("충돌이 자동으로 병합 처리되었습니다.", "충돌 해결", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                break;
+
+                            case ConflictResolutionStrategy.ChangeTime:
+                                // 시간 변경 전략
+                                DateTime newStartTime = schedule.StartTime;
+                                DateTime newEndTime = schedule.EndTime;
+
+                                foreach (var conflictingSchedule in conflictingSchedules)
+                                {
+                                    if (conflictingSchedule.EndTime > newStartTime)
+                                    {
+                                        newStartTime = conflictingSchedule.EndTime;
+                                        TimeSpan duration = schedule.EndTime - schedule.StartTime;
+                                        newEndTime = newStartTime.Add(duration);
+                                    }
+                                }
+
+                                schedule.StartTime = newStartTime;
+                                schedule.EndTime = newEndTime;
+
+                                MessageBox.Show($"충돌이 자동으로 시간 변경으로 처리되었습니다.\n새 시간: {newStartTime:HH:mm}~{newEndTime:HH:mm}",
+                                    "충돌 해결", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                break;
+
+                            case ConflictResolutionStrategy.Delete:
+                                // 삭제 전략
+                                foreach (var conflictingSchedule in conflictingSchedules)
+                                {
+                                    resolver.Delete(conflictingSchedule);
+                                }
+                                MessageBox.Show("충돌이 자동으로 기존 일정 삭제로 처리되었습니다.", "충돌 해결", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                break;
+
+                            default:
+                                MessageBox.Show("알 수 없는 충돌 해결 전략입니다.", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                        }
+
+                        // 충돌이 해결된 경우 일정 추가
+                        scheduleManager.AddSchedule(schedule);
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                }
             }
             else
             {
                 // 7. 충돌 없으면 일정 추가
                 scheduleManager.AddSchedule(schedule);
-                planner.calendar.ShowMonth(schedule.StartTime);
 
                 MessageBox.Show("일정이 성공적으로 추가되었습니다.", "성공", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;
