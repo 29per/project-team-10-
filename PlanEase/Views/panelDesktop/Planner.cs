@@ -644,6 +644,27 @@ namespace PlanEase.Views.panelDesktop
             // 2. ToDoManager를 통해 DB와 메모리에 할 일 추가
             toDoManager.AddToDo(newTodo);
 
+            try
+            {
+                // Adventure 인스턴스에 직접 접근하여 새 할 일 전달
+                if (PlanEase.Views.panelDesktop.Adventure.Instance != null)
+                {
+                    // 비동기 람다가 아닌 일반 메서드 호출
+                    PlanEase.Views.panelDesktop.Adventure.Instance.HandleNewTodo(newTodo);
+                    Console.WriteLine("Adventure에 새 할 일 알림 성공");
+                }
+                else
+                {
+                    Console.WriteLine("Adventure 인스턴스가 null입니다");
+                }
+            }
+            catch (Exception ex)
+            {
+                // 오류가 발생해도 일정 추가는 계속 진행
+                Console.WriteLine($"Adventure 참조 오류: {ex.Message}");
+            }
+
+
             // 3. 전체 목록을 다시 불러와 UI를 새로고침
             LoadToDoList();
 

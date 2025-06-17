@@ -27,6 +27,12 @@
             this.lblExp = new System.Windows.Forms.Label();
             this.btnDoTask = new SiticoneNetFrameworkUI.SiticoneButton();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.siticoneLabel1 = new SiticoneNetFrameworkUI.SiticoneLabel();
+            this.siticoneLabel2 = new SiticoneNetFrameworkUI.SiticoneLabel();
+            this.siticoneLabel3 = new SiticoneNetFrameworkUI.SiticoneLabel();
+            this.siticoneLabel4 = new SiticoneNetFrameworkUI.SiticoneLabel();
+            this.siticoneLabel5 = new SiticoneNetFrameworkUI.SiticoneLabel();
+            this.siticoneLabel6 = new SiticoneNetFrameworkUI.SiticoneLabel();
             ((System.ComponentModel.ISupportInitialize)(this.picMonster)).BeginInit();
             this.SuspendLayout();
             // 
@@ -40,9 +46,6 @@
             this.picMonster.TabIndex = 0;
             this.picMonster.TabStop = false;
             this.picMonster.Click += new System.EventHandler(this.picMonster_Click);
-
-
-
             // 
             // lblMonsterName
             // 
@@ -54,6 +57,7 @@
             this.lblMonsterName.Size = new System.Drawing.Size(129, 31);
             this.lblMonsterName.TabIndex = 1;
             this.lblMonsterName.Text = "몬스터이름";
+            this.lblMonsterName.Click += new System.EventHandler(this.lblMonsterName_Click);
             // 
             // lblLevel
             // 
@@ -208,11 +212,84 @@
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // siticoneLabel1
+            // 
+            this.siticoneLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneLabel1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.siticoneLabel1.ForeColor = System.Drawing.Color.White;
+            this.siticoneLabel1.Location = new System.Drawing.Point(636, 116);
+            this.siticoneLabel1.Name = "siticoneLabel1";
+            this.siticoneLabel1.Size = new System.Drawing.Size(139, 37);
+            this.siticoneLabel1.TabIndex = 10;
+            this.siticoneLabel1.Text = "Lv1. 브론즈";
+            this.siticoneLabel1.Click += new System.EventHandler(this.siticoneLabel1_Click);
+            // 
+            // siticoneLabel2
+            // 
+            this.siticoneLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneLabel2.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.siticoneLabel2.ForeColor = System.Drawing.Color.White;
+            this.siticoneLabel2.Location = new System.Drawing.Point(636, 153);
+            this.siticoneLabel2.Name = "siticoneLabel2";
+            this.siticoneLabel2.Size = new System.Drawing.Size(139, 37);
+            this.siticoneLabel2.TabIndex = 11;
+            this.siticoneLabel2.Text = "Lv2. 실버";
+            // 
+            // siticoneLabel3
+            // 
+            this.siticoneLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneLabel3.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.siticoneLabel3.ForeColor = System.Drawing.Color.White;
+            this.siticoneLabel3.Location = new System.Drawing.Point(636, 190);
+            this.siticoneLabel3.Name = "siticoneLabel3";
+            this.siticoneLabel3.Size = new System.Drawing.Size(139, 37);
+            this.siticoneLabel3.TabIndex = 12;
+            this.siticoneLabel3.Text = "Lv3. 골드";
+            // 
+            // siticoneLabel4
+            // 
+            this.siticoneLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneLabel4.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.siticoneLabel4.ForeColor = System.Drawing.Color.White;
+            this.siticoneLabel4.Location = new System.Drawing.Point(636, 307);
+            this.siticoneLabel4.Name = "siticoneLabel4";
+            this.siticoneLabel4.Size = new System.Drawing.Size(139, 37);
+            this.siticoneLabel4.TabIndex = 15;
+            this.siticoneLabel4.Text = "Lv6. 마스터";
+            // 
+            // siticoneLabel5
+            // 
+            this.siticoneLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneLabel5.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.siticoneLabel5.ForeColor = System.Drawing.Color.White;
+            this.siticoneLabel5.Location = new System.Drawing.Point(636, 270);
+            this.siticoneLabel5.Name = "siticoneLabel5";
+            this.siticoneLabel5.Size = new System.Drawing.Size(139, 37);
+            this.siticoneLabel5.TabIndex = 14;
+            this.siticoneLabel5.Text = "Lv5. 다이아";
+            // 
+            // siticoneLabel6
+            // 
+            this.siticoneLabel6.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneLabel6.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.siticoneLabel6.ForeColor = System.Drawing.Color.White;
+            this.siticoneLabel6.Location = new System.Drawing.Point(636, 233);
+            this.siticoneLabel6.Name = "siticoneLabel6";
+            this.siticoneLabel6.Size = new System.Drawing.Size(139, 37);
+            this.siticoneLabel6.TabIndex = 13;
+            this.siticoneLabel6.Text = "Lv4. 에메랄드";
+            // 
             // Adventure
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(138)))), ((int)(((byte)(114)))));
+            this.Controls.Add(this.siticoneLabel4);
+            this.Controls.Add(this.siticoneLabel5);
+            this.Controls.Add(this.siticoneLabel6);
+            this.Controls.Add(this.siticoneLabel3);
+            this.Controls.Add(this.siticoneLabel2);
+            this.Controls.Add(this.siticoneLabel1);
             this.Controls.Add(this.picMonster);
             this.Controls.Add(this.lblMonsterName);
             this.Controls.Add(this.lblLevel);
@@ -224,7 +301,7 @@
             this.Controls.Add(this.lblExp);
             this.Controls.Add(this.btnDoTask);
             this.Name = "Adventure";
-            this.Size = new System.Drawing.Size(837, 539);
+            this.Size = new System.Drawing.Size(873, 578);
             this.Load += new System.EventHandler(this.Adventure_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picMonster)).EndInit();
             this.ResumeLayout(false);
@@ -245,5 +322,11 @@
         private System.Windows.Forms.Label lblExp;
         private SiticoneNetFrameworkUI.SiticoneButton btnDoTask;
         private System.Windows.Forms.ImageList imageList1;
+        private SiticoneNetFrameworkUI.SiticoneLabel siticoneLabel1;
+        private SiticoneNetFrameworkUI.SiticoneLabel siticoneLabel2;
+        private SiticoneNetFrameworkUI.SiticoneLabel siticoneLabel3;
+        private SiticoneNetFrameworkUI.SiticoneLabel siticoneLabel4;
+        private SiticoneNetFrameworkUI.SiticoneLabel siticoneLabel5;
+        private SiticoneNetFrameworkUI.SiticoneLabel siticoneLabel6;
     }
 }

@@ -49,10 +49,27 @@ namespace PlanEase.Services
 
         public void SaveOrUpdateSetting()
         {
+            // 디버깅 메시지: 저장할 설정 값 표시
+            Console.WriteLine($"설정 저장: 자동 충돌 해결={currentSetting.UseAutoConflictResolution}, 기본 전략={currentSetting.DefaultStrategy}");
+
+
             if (SettingExists(currentSetting.UserId))
                 UpdateSettingInDb(currentSetting);
             else
                 InsertSettingToDb(currentSetting);
+
+            var savedSetting = LoadSettingFromDb(currentSetting.UserId);
+            if (savedSetting != null)
+            {
+                Console.WriteLine($"저장 후 로드: 자동 충돌 해결={savedSetting.UseAutoConflictResolution}, 기본 전략={savedSetting.DefaultStrategy}");
+            }
+            else
+            {
+                Console.WriteLine("저장 후 설정을 로드할 수 없습니다.");
+            }
+
+
+
         }
 
         private Setting? LoadSettingFromDb(int userId)

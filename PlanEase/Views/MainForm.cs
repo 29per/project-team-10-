@@ -222,7 +222,7 @@ namespace PlanEase
         private void btnPlants_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
-            OpenChildControl(new Adventure());
+            OpenChildControl(new Adventure(loggedInUser.Id));
         }
 
         private void btnGuide_Click(object sender, EventArgs e)
@@ -263,7 +263,10 @@ namespace PlanEase
 
         }
 
-        
+        private void panelDesktop_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
 

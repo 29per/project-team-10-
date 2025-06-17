@@ -79,5 +79,30 @@ namespace PlanEase.Services
             byte[] hash = sha.ComputeHash(bytes);
             return BitConverter.ToString(hash).Replace("-", "").ToLower();
         }
+
+        public bool UpdateUserXpAndLevel(int userId, int xp, int level)
+        {
+            using var conn = new MySqlConnection(connStr);
+            conn.Open();
+
+            string query = "UPDATE Users SET XP = @xp, Level = @level WHERE Id = @userId";
+            using var cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@xp", xp);
+            cmd.Parameters.AddWithValue("@level", level);
+            cmd.Parameters.AddWithValue("@userId", userId);
+
+            try
+            {
+                int rowsAffected = cmd.ExecuteNonQuery();
+                return rowsAffected > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"사용자 경험치/레벨 업데이트 오류: {ex.Message}");
+                return false;
+            }
+        }
+
+
     }
 }

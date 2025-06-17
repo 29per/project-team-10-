@@ -44,15 +44,16 @@
             this.pnlMain.Controls.Add(this.cboTheme);
             this.pnlMain.Controls.Add(this.lblTheme);
             this.pnlMain.Location = new System.Drawing.Point(6, 6);
-            this.pnlMain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlMain.Margin = new System.Windows.Forms.Padding(2);
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(418, 213);
             this.pnlMain.TabIndex = 0;
+            this.pnlMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMain_Paint);
             // 
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(350, 180);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(54, 20);
             this.btnCancel.TabIndex = 9;
@@ -62,7 +63,7 @@
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(291, 180);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(54, 20);
             this.btnSave.TabIndex = 8;
@@ -72,7 +73,7 @@
             // txtNotificationTime
             // 
             this.txtNotificationTime.Location = new System.Drawing.Point(103, 87);
-            this.txtNotificationTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNotificationTime.Margin = new System.Windows.Forms.Padding(2);
             this.txtNotificationTime.Name = "txtNotificationTime";
             this.txtNotificationTime.Size = new System.Drawing.Size(56, 21);
             this.txtNotificationTime.TabIndex = 7;
@@ -92,7 +93,7 @@
             // 
             this.chkNotification.AutoSize = true;
             this.chkNotification.Location = new System.Drawing.Point(81, 65);
-            this.chkNotification.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkNotification.Margin = new System.Windows.Forms.Padding(2);
             this.chkNotification.Name = "chkNotification";
             this.chkNotification.Size = new System.Drawing.Size(88, 16);
             this.chkNotification.TabIndex = 5;
@@ -116,7 +117,7 @@
             "주간",
             "월간"});
             this.cboDefaultView.Location = new System.Drawing.Point(81, 38);
-            this.cboDefaultView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboDefaultView.Margin = new System.Windows.Forms.Padding(2);
             this.cboDefaultView.Name = "cboDefaultView";
             this.cboDefaultView.Size = new System.Drawing.Size(83, 20);
             this.cboDefaultView.TabIndex = 3;
@@ -137,7 +138,7 @@
             "밝은 모드",
             "어두운 모드"});
             this.cboTheme.Location = new System.Drawing.Point(81, 12);
-            this.cboTheme.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboTheme.Margin = new System.Windows.Forms.Padding(2);
             this.cboTheme.Name = "cboTheme";
             this.cboTheme.Size = new System.Drawing.Size(83, 20);
             this.cboTheme.TabIndex = 1;
@@ -158,7 +159,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(431, 225);
             this.Controls.Add(this.pnlMain);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SettingForm";
             this.Text = "설정";
             this.pnlMain.ResumeLayout(false);

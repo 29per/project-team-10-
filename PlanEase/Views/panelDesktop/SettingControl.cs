@@ -150,22 +150,119 @@ namespace PlanEase.Views.panelDesktop
 
         private void rdoAskUser_Click(object sender, EventArgs e)
         {
+            try
+            {
+                // 현재 설정 가져오기
+                var setting = settingManager.GetSetting();
 
+                // 사용자에게 물어보는 전략으로 설정
+                setting.DefaultStrategy = ConflictResolutionStrategy.AskUser;
+
+                // 자동 충돌 해결 활성화 여부는 체크박스에 따라 설정
+                setting.UseAutoConflictResolution = chkAutoResolve.Checked;
+
+                // 설정 저장
+                settingManager.SaveOrUpdateSetting();
+
+                // 자동 충돌 해결이 활성화된 경우에만 즉시 적용
+                if (chkAutoResolve.Checked && _scheduleManager != null)
+                {
+                    // ConflictResolver의 내부 로직을 수정해야 할 수도 있습니다
+                    Console.WriteLine("기본 충돌 해결 전략을 '사용자에게 물어보기'로 변경했습니다.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"설정 변경 중 오류 발생: {ex.Message}", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine($"예외 발생: {ex}");
+            }
         }
 
         private void rdoMerege_Click(object sender, EventArgs e)
         {
-           
+            try
+            {
+                // 현재 설정 가져오기
+                var setting = settingManager.GetSetting();
+
+                // 병합 전략으로 설정
+                setting.DefaultStrategy = ConflictResolutionStrategy.Merge;
+
+                // 자동 충돌 해결 활성화 여부는 체크박스에 따라 설정
+                setting.UseAutoConflictResolution = chkAutoResolve.Checked;
+
+                // 설정 저장
+                settingManager.SaveOrUpdateSetting();
+
+                // 자동 충돌 해결이 활성화된 경우에만 즉시 적용
+                if (chkAutoResolve.Checked && _scheduleManager != null)
+                {
+                    Console.WriteLine("기본 충돌 해결 전략을 '병합'으로 변경했습니다.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"설정 변경 중 오류 발생: {ex.Message}", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine($"예외 발생: {ex}");
+            }
         }
 
         private void rdoCheckTime_Click(object sender, EventArgs e)
         {
+            try
+            {
+                // 현재 설정 가져오기
+                var setting = settingManager.GetSetting();
 
+                // 시간 변경 전략으로 설정
+                setting.DefaultStrategy = ConflictResolutionStrategy.ChangeTime;
+
+                // 자동 충돌 해결 활성화 여부는 체크박스에 따라 설정
+                setting.UseAutoConflictResolution = chkAutoResolve.Checked;
+
+                // 설정 저장
+                settingManager.SaveOrUpdateSetting();
+
+                // 자동 충돌 해결이 활성화된 경우에만 즉시 적용
+                if (chkAutoResolve.Checked && _scheduleManager != null)
+                {
+                    Console.WriteLine("기본 충돌 해결 전략을 '시간 변경'으로 변경했습니다.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"설정 변경 중 오류 발생: {ex.Message}", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine($"예외 발생: {ex}");
+            }
         }
 
         private void rdoDelete_Click(object sender, EventArgs e)
         {
+            try
+            {
+                // 현재 설정 가져오기
+                var setting = settingManager.GetSetting();
 
+                // 삭제 전략으로 설정
+                setting.DefaultStrategy = ConflictResolutionStrategy.Delete;
+
+                // 자동 충돌 해결 활성화 여부는 체크박스에 따라 설정
+                setting.UseAutoConflictResolution = chkAutoResolve.Checked;
+
+                // 설정 저장
+                settingManager.SaveOrUpdateSetting();
+
+                // 자동 충돌 해결이 활성화된 경우에만 즉시 적용
+                if (chkAutoResolve.Checked && _scheduleManager != null)
+                {
+                    Console.WriteLine("기본 충돌 해결 전략을 '삭제'로 변경했습니다.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"설정 변경 중 오류 발생: {ex.Message}", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine($"예외 발생: {ex}");
+            }
         }
     }
 }

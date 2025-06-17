@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.IO;
 using MySql.Data.MySqlClient;
 using System.Collections;
+using PlanEase.Views.panelDesktop;
 
 namespace PlanEase.Services
 {
@@ -17,6 +18,7 @@ namespace PlanEase.Services
         private List<ToDo> todos = new List<ToDo>(); // 메모리 상에 저장된 전체 할 일 목록
         private const string FilePath = "todos.txt"; // 할 일 데이터를 저장할 파일 경로
         private readonly string connStr = "Server=gondola.proxy.rlwy.net;Port=22404;Database=railway;Uid=root;Pwd=vMbiAFpyuiYNKkWXyMCsxdbOFmkqbUHt;SslMode=Required;";
+        
 
         // 할 일을 추가하고 DB에 저장
         public void AddToDo(ToDo todo)
@@ -25,6 +27,8 @@ namespace PlanEase.Services
             todos.Add(todo);
             //SaveToDos();
             AddToDoToDb(todo);
+            
+
         }
 
         // 할일을 삭제 (메모리,DB)
@@ -146,6 +150,9 @@ namespace PlanEase.Services
                 
                 
         }
+
+
+
 
         public void UpdateToDo(ToDo updatedToDo)
         {

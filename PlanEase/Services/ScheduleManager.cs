@@ -18,7 +18,7 @@ namespace PlanEase.Services
         private const string FilePath = "schedules.txt"; // 일정 데이터를 저장할 파일 경로
         private readonly string connStr = "Server=gondola.proxy.rlwy.net;Port=22404;Database=railway;Uid=root;Pwd=vMbiAFpyuiYNKkWXyMCsxdbOFmkqbUHt;SslMode=Required;";
         private ConflictResolver _conflictResolver;
-        private ScheduleManager _scheduleManager;
+        
 
 
 
@@ -100,6 +100,18 @@ namespace PlanEase.Services
             var index = schedules.FindIndex(s => s.Id == updated.Id);
             if (index != -1)
             {
+                if (_conflictResolver != null && _conflictResolver.IsAutoResolutionEnabled())
+                {
+                    Console.WriteLine("자동 충돌 해결 실행: 일정 업데이트");
+                    // 현재 업데이트 중인 일정을 제외한 다른 일정들과의 충돌만 검사
+                    var otherSchedules = schedules.Where(s => s.Id != updated.Id).ToList();
+                    _conflictResolver.ResolveAllConflicts(updated, otherSchedules);
+                }
+
+
+
+
+
                 schedules[index] = updated; // 기존 객체를 통째로 교체 (Id/UserId는 동일하게 유지됨)
                 UpdateScheduleInDb(updated);
             }

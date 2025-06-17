@@ -506,6 +506,7 @@ namespace PlanEase
             this.panelDesktop.TabIndex = 12;
             this.panelDesktop.TopLeftRadius = 5;
             this.panelDesktop.TopRightRadius = 5;
+            this.panelDesktop.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDesktop_Paint);
             // 
             // MainForm
             // 
