@@ -32,7 +32,7 @@ namespace PlanEase.Views.panelDesktop
 
         private void InitializeCalendar()
         {
-            calendar = new CalendarControl(scheduleManager);
+            calendar = new CalendarControl(scheduleManager,tagManager);
             //calendar.SetScheduleManager(scheduleManager);
             calendar.Location = new Point(0, 0); // panelRight 내에서 좌측 상단 정렬
             //calendar.Size = new Size(770, 660);
@@ -412,7 +412,7 @@ namespace PlanEase.Views.panelDesktop
 
         private void btnAddSchedule_Click(object sender, EventArgs e)
         {
-            AddScheduleForm_new_ addScheduleForm = new AddScheduleForm_new_(loggedInUser.Id,scheduleManager,tagManager);
+            AddScheduleForm_new_ addScheduleForm = new AddScheduleForm_new_(loggedInUser.Id,scheduleManager,tagManager,this);
             addScheduleForm.ShowDialog();
         }
 

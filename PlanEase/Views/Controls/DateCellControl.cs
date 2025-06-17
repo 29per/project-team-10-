@@ -1,4 +1,5 @@
-﻿using PlanEase.Services;
+﻿using PlanEase.Models;
+using PlanEase.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,8 +18,9 @@ namespace PlanEase.Views.Controls
         private const int MaxVisibleSchedules = 2;
         public event Action<int, DateTime> ScheduleDropped;
         private ScheduleManager scheduleManager;
+        private TagManager tagManager;
 
-        public DateCellControl(ScheduleManager scheduleManager)
+        public DateCellControl(ScheduleManager scheduleManager, TagManager tagManager)
         {
             InitializeComponent();
             panelContent.AllowDrop = true;
@@ -27,6 +29,7 @@ namespace PlanEase.Views.Controls
             panelContent.DragEnter += PanelContent_DragEnter;
             panelContent.DragDrop += PanelContent_DragDrop;
             this.scheduleManager = scheduleManager;
+            this.tagManager = tagManager;
         }
 
 
@@ -44,8 +47,10 @@ namespace PlanEase.Views.Controls
         }
 
         // 일정 추가
-        public void AddScheduleControl(Control scheduleItem)
+        public void AddScheduleControl(ScheduleItemControl scheduleItem)
         {
+            scheduleItem.ScheduleEditRequested += OnScheduleEditRequested;
+
             if (pnlScheduleList.Controls.Count < MaxVisibleSchedules)
             {
                 pnlScheduleList.Controls.Add(scheduleItem);
@@ -56,6 +61,7 @@ namespace PlanEase.Views.Controls
                 lblMore.Text = $"+{pnlScheduleList.Controls.Count - MaxVisibleSchedules + 1}";
             }
         }
+
 
         // 일정 드래그 들어올 때
         private void PanelContent_DragEnter(object sender, DragEventArgs e)
@@ -90,12 +96,31 @@ namespace PlanEase.Views.Controls
         private void lblMore_Click(object sender, EventArgs e)
         {
             var schedules = scheduleManager.GetSchedulesForDate(this.Date);
-            var form = new SchedulePopUpForm(this.Date,schedules);
+            var form = new SchedulePopUpForm(this.Date,schedules,scheduleManager);
 
             var screenLocation = this.PointToScreen(Point.Empty);
             form.StartPosition = FormStartPosition.Manual;
             form.Location = new Point(screenLocation.X + 110, screenLocation.Y);
             form.Show();
+        }
+
+        private void OnScheduleEditRequested(Schedule schedule)
+        {
+            var form = new AddScheduleForm_new_(
+                schedule,
+                scheduleManager,
+                tagManager,
+                () =>
+                {
+                    var calendar = this.FindForm()
+                                       .Controls
+                                       .Find("calendar", true)
+                                       .FirstOrDefault() as CalendarControl;
+
+                    calendar?.ShowMonth(schedule.StartTime);
+                });
+
+            form.ShowDialog();
         }
     }
 }

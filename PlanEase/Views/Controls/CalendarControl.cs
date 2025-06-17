@@ -18,11 +18,13 @@ namespace PlanEase.Views.Controls
         private List<DateCellControl> dateCells = new List<DateCellControl>();
         private DateTime currentMonth; 
         private ScheduleManager scheduleManager; 
+        private TagManager tagManager; 
 
-        public CalendarControl(ScheduleManager scheduleManager)
+        public CalendarControl(ScheduleManager scheduleManager, TagManager tagManager)
         {
             InitializeComponent();
             this.scheduleManager = scheduleManager;
+            this.tagManager = tagManager;
             InitializeDateCells();
             
         }
@@ -43,7 +45,7 @@ namespace PlanEase.Views.Controls
             for (int i = 0; i < 42; i++)
             {
 
-                var cell = new DateCellControl(scheduleManager);
+                var cell = new DateCellControl(scheduleManager, tagManager);
                 //cell.Size = new Size(110, 110);
                 cell.Location = new Point((i % 7) * (cell.Size.Width), (i / 7) * (cell.Size.Height));
                 cell.Visible = false;
@@ -90,7 +92,7 @@ namespace PlanEase.Views.Controls
                         var schedules = scheduleManager.GetSchedulesForDate(cellDate);
                         foreach (var sched in schedules)
                         {
-                            var item = new ScheduleItemControl(sched.Title, sched.Priority);
+                            var item = new ScheduleItemControl(sched.Title, sched.Priority,scheduleManager);
                             item.ScheduleId = sched.Id;
                             cell.AddScheduleControl(item);
                         }
