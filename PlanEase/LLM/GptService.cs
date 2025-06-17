@@ -22,9 +22,9 @@ namespace PlanEase.Helpers
     public class GptService
     {
 
-        // private static readonly string apiKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY");
+        private static readonly string apiKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY");
         private static readonly string endpoint = "https://api.openai.com/v1/chat/completions";
-        private static readonly string apiKey = "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";
+        
 
 
         public static async Task<string> SendChatAsync(string systemPrompt, string userPrompt)
