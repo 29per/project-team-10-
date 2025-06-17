@@ -60,7 +60,7 @@ namespace PlanEase.Views.Controls
                 case PriorityLevel.Low:
                     this.BackColor = Color.LightCyan; break;
                 case PriorityLevel.VeryLow:
-                    this.BackColor = Color.MediumPurple; break;
+                    this.BackColor = Color.FromArgb(226, 203, 247); break;
                 default:
                     this.BackColor = Color.WhiteSmoke; break;
             }

@@ -56,11 +56,11 @@ namespace PlanEase
 
         private struct RGBColors
         {
-            public static Color color1 = Color.FromArgb(172, 126, 241);
-            public static Color color2 = Color.FromArgb(249, 118, 176);
+            public static Color color1 = Color.FromArgb(226, 203, 247);
+            public static Color color2 = Color.FromArgb(214, 246, 255);
             public static Color color3 = Color.FromArgb(253, 138, 114);
-            public static Color color4 = Color.FromArgb(95, 77, 221);
-            public static Color color5 = Color.FromArgb(249, 88, 155);
+            public static Color color4 = Color.FromArgb(179, 245, 188);
+            public static Color color5 = Color.FromArgb(249, 255, 181);
             public static Color color6 = Color.FromArgb(24, 161, 251);
         }
 
@@ -120,37 +120,7 @@ namespace PlanEase
             panelDesktop.Controls.Add(currentControl);
             currentControl.BringToFront();
         }
-        //private void SetupCalendarTable()
-        //{
-        //    // calendarTable 스타일 초기화 및 설정 담당 (중복 호출 대비 안전)
-        //    calendarTable.SuspendLayout();
-
-        //    // Clear 이전 스타일
-        //    calendarTable.ColumnStyles.Clear();
-        //    calendarTable.RowStyles.Clear();
-
-        //    // 고정 열, 행 설정
-        //    calendarTable.ColumnCount = 7;
-        //    calendarTable.RowCount = 6;
-
-        //    // Dock 및 Margin 설정도 여기서 통합 관리 (필요 시)
-        //    calendarTable.Dock = DockStyle.Fill;
-        //    calendarTable.Margin = new Padding(0);
-
-        //    // 열 비율 지정 (7일)
-        //    for (int i = 0; i < 7; i++)
-        //    {
-        //        calendarTable.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100f / 7));
-        //    }
-
-        //    // 행 비율 지정 (6주)
-        //    for (int i = 0; i < 6; i++)
-        //    {
-        //        calendarTable.RowStyles.Add(new RowStyle(SizeType.Percent, 100f / 6));
-        //    }
-
-        //    calendarTable.ResumeLayout();
-        //}
+       
 
         private void TestDbConnection()
         {

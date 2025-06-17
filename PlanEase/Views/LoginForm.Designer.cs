@@ -37,11 +37,7 @@
             this.txtPassword2 = new SiticoneNetFrameworkUI.SiticoneMaterialTextbox();
             this.btnRegister = new SiticoneNetFrameworkUI.SiticoneLinkedLabel();
             this.siticoneCloseButton2 = new SiticoneNetFrameworkUI.SiticoneCloseButton();
-            this.btnGptTest = new System.Windows.Forms.Button();
-            this.btnTestTags = new System.Windows.Forms.Button();
-            this.txtResult = new System.Windows.Forms.TextBox();
-            this.txtTitle = new System.Windows.Forms.TextBox();
-           
+            this.lblTitle = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // mySiticoneLicenseSettings1
@@ -293,44 +289,19 @@
             this.siticoneCloseButton2.TooltipText = "Close";
             this.siticoneCloseButton2.Click += new System.EventHandler(this.siticoneCloseButton2_Click);
             // 
-            // btnGptTest
+            // lblTitle
             // 
-            this.btnGptTest.BackColor = System.Drawing.Color.Pink;
-            this.btnGptTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGptTest.Location = new System.Drawing.Point(650, 424);
-            this.btnGptTest.Name = "btnGptTest";
-            this.btnGptTest.Size = new System.Drawing.Size(79, 47);
-            this.btnGptTest.TabIndex = 11;
-            this.btnGptTest.Text = "일정 생성 테스트";
-            this.btnGptTest.UseVisualStyleBackColor = false;
-            this.btnGptTest.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnTestTags
-            // 
-            this.btnTestTags.Location = new System.Drawing.Point(460, 107);
-            this.btnTestTags.Name = "btnTestTags";
-            this.btnTestTags.Size = new System.Drawing.Size(80, 39);
-            this.btnTestTags.TabIndex = 12;
-            this.btnTestTags.Text = "태그 추천";
-            this.btnTestTags.UseVisualStyleBackColor = true;
-            this.btnTestTags.Click += new System.EventHandler(this.btnTestTags_Click);
-            // 
-            // txtResult
-            // 
-            this.txtResult.Location = new System.Drawing.Point(617, 191);
-            this.txtResult.Multiline = true;
-            this.txtResult.Name = "txtResult";
-            this.txtResult.Size = new System.Drawing.Size(148, 146);
-            this.txtResult.TabIndex = 13;
-            // 
-            // txtTitle
-            // 
-            this.txtTitle.Location = new System.Drawing.Point(577, 105);
-            this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(151, 21);
-            this.txtTitle.TabIndex = 14;
-
-    
+            this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("한컴 말랑말랑 Bold", 26.14285F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblTitle.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.lblTitle.Location = new System.Drawing.Point(313, 95);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(188, 45);
+            this.lblTitle.TabIndex = 11;
+            this.lblTitle.Text = "PLANEASE";
             // 
             // LoginForm
             // 
@@ -338,10 +309,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(800, 500);
-            this.Controls.Add(this.txtTitle);
-            this.Controls.Add(this.txtResult);
-            this.Controls.Add(this.btnTestTags);
-            this.Controls.Add(this.btnGptTest);
+            this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.siticoneCloseButton2);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.txtPassword2);
@@ -367,9 +335,6 @@
         private SiticoneNetFrameworkUI.SiticoneMaterialTextbox txtPassword2;
         private SiticoneNetFrameworkUI.SiticoneLinkedLabel btnRegister;
         private SiticoneNetFrameworkUI.SiticoneCloseButton siticoneCloseButton2;
-        private System.Windows.Forms.Button btnGptTest;
-        private System.Windows.Forms.Button btnTestTags;
-        private System.Windows.Forms.TextBox txtResult;
-        private System.Windows.Forms.TextBox txtTitle;
+        private System.Windows.Forms.Label lblTitle;
     }
 }

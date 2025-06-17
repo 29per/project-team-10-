@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{C63AAD5F-8C25-417C-87D3-812DAB8E0E65}</ProjectGuid>
     <LangVersion>8.0</LangVersion>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>PlanEase</RootNamespace>
     <AssemblyName>PlanEase</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>

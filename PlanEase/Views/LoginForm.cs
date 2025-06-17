@@ -131,27 +131,27 @@ namespace PlanEase.Views
 
         private async void btnTestTags_Click(object sender, EventArgs e)
         {
-            string title = txtTitle.Text;
-            if (string.IsNullOrWhiteSpace(title))
-            {
-                MessageBox.Show("일정 제목을 입력하세요.");
-                return;
-            }
+            //string title = txtTitle.Text;
+            //if (string.IsNullOrWhiteSpace(title))
+            //{
+            //    MessageBox.Show("일정 제목을 입력하세요.");
+            //    return;
+            //}
 
-            txtResult.Text = "GPT 호출 중...";
+            //txtResult.Text = "GPT 호출 중...";
 
-            try
-            {
-                var pipeline = new TagRecommendationPipeline();
-                var resultTags = await pipeline.RecommendTagsAsync(title);
+            //try
+            //{
+            //    var pipeline = new TagRecommendationPipeline();
+            //    var resultTags = await pipeline.RecommendTagsAsync(title);
 
-                txtResult.Text = string.Join(", ", resultTags);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("오류 발생: " + ex.Message);
-                txtResult.Text = "";
-            }
+            //    txtResult.Text = string.Join(", ", resultTags);
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("오류 발생: " + ex.Message);
+            //    txtResult.Text = "";
+            //}
         }
     }
 }
