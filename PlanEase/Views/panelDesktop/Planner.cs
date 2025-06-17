@@ -537,7 +537,28 @@ namespace PlanEase.Views.panelDesktop
 
                 // 이벤트 핸들러 연결
                 //item.CompletionToggled += TodoItem_CompletionToggled; // 체크박스 상태 변경 이벤트 연결
-                item.DeleteRequested += TodoItem_DeleteRequested;   // 삭제 버튼 이벤트 연결 (이전 답변 내용)
+                item.DeleteRequested += TodoItem_DeleteRequested;   // 삭제 버튼 이벤트 연결Add commentMore actions
+
+                // 수정 이벤트 핸들러 연결
+                item.EditRequested += (s, e) =>
+                {
+                    EditToDoForm editForm = new EditToDoForm(todo, toDoManager); // ToDo 객체 전달
+                    var result = editForm.ShowDialog();
+
+                    if (result == DialogResult.OK)
+                    {
+                        // 수정 완료 시 UI 갱신
+                        item.TodoText = todo.Content;
+                        item.IsCompleted = todo.IsDone;
+                    }
+                    else if (result == DialogResult.Abort)
+                    {
+                        // 삭제 완료 시 컨트롤 제거
+                        flpTodoList.Controls.Remove(item);
+                        item.Dispose();
+                    }
+                   
+                };
 
                 // FlowLayoutPanel에 최종적으로 추가
                 flpTodoList.Controls.Add(item);

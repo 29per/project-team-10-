@@ -40,6 +40,8 @@
             this.chkCompleted.AccessibleName = "";
             this.chkCompleted.AccessibleRole = System.Windows.Forms.AccessibleRole.CheckButton;
             this.chkCompleted.AllowIndeterminate = false;
+            this.chkCompleted.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.chkCompleted.BackColor = System.Drawing.Color.Transparent;
             this.chkCompleted.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.chkCompleted.BorderWidth = 2;
@@ -95,6 +97,8 @@
             // 
             // lblTodoText
             // 
+            this.lblTodoText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTodoText.BackColor = System.Drawing.Color.Transparent;
             this.lblTodoText.Font = new System.Drawing.Font("맑은 고딕", 11.14286F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblTodoText.ForeColor = System.Drawing.Color.White;
@@ -154,6 +158,8 @@
             // 
             // iconButton1
             // 
+            this.iconButton1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Backspace;
             this.iconButton1.IconColor = System.Drawing.Color.LightSlateGray;

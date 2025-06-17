@@ -12,11 +12,16 @@ namespace PlanEase.Views.Controls
 {
     public partial class TodoItemControl : UserControl
     {
+        public event EventHandler EditRequested;
         public TodoItemControl()
         {
             InitializeComponent();
             // chkCompleted 체크박스의 상태가 변경될 때마다 chkCompleted_CheckedChanged 메서드를 실행하도록 연결
             chkCompleted.CheckedChanged += chkCompleted_CheckedChanged;
+
+            // 더블클릭 이벤트 핸들러 연결Add commentMore actions
+            this.DoubleClick += TodoItemControl_DoubleClick;
+            lblTodoText.DoubleClick += TodoItemControl_DoubleClick; // 텍스트만 눌러도 반응
 
             // 드래그 앤 드롭 이벤트 연결
             this.MouseDown += TodoItemControl_MouseDown;
@@ -73,7 +78,13 @@ namespace PlanEase.Views.Controls
                 DoDragDrop("TODO:" + this.TodoText, DragDropEffects.Copy);
             }
         }
+        private void TodoItemControl_DoubleClick(object sender, EventArgs e)
+        {
+            MessageBox.Show("더블클릭 감지됨");
+            Console.WriteLine("DoubleClick 호출됨");
+            EditRequested?.Invoke(this, EventArgs.Empty); // MainForm에 알림
+        }
 
 
-    }
+}
 }
