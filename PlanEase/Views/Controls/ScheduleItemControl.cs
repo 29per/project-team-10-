@@ -38,10 +38,11 @@ namespace PlanEase.Views.Controls
             // Context Menu 설정
             contextMenu = new ContextMenuStrip();
             var editItem = new ToolStripMenuItem("수정하기");
-            var editItem2 = new ToolStripMenuItem("복사하기");
-            var editItem3 = new ToolStripMenuItem("붙여하기");
             editItem.Click += (s, e) => TriggerEdit();
             contextMenu.Items.Add(editItem);
+            contextMenu.Items.Add("삭제하기", null, (s, e) => TriggerDelete());
+            contextMenu.Items.Add("복사하기", null, (s, e) => TriggerCopy());
+
         }
 
 
@@ -84,13 +85,49 @@ namespace PlanEase.Views.Controls
         {
             if (this.scheduleManager != null)
             {
-                var schedule = scheduleManager.GetAllSchedules()
-                                              .FirstOrDefault(s => s.Id == this.ScheduleId);
-                if (schedule != null)
-                {
-                    ScheduleEditRequested?.Invoke(schedule);
-                }
+            var schedule = scheduleManager.GetAllSchedules()
+                                          .FirstOrDefault(s => s.Id == this.ScheduleId);
+            if (schedule != null)
+            {
+                ScheduleEditRequested?.Invoke(schedule);
+            }
             }
         }
+
+        private void TriggerDelete()
+        {
+            var schedule = scheduleManager?.GetAllSchedules()
+                                           .FirstOrDefault(s => s.Id == this.ScheduleId);
+            if (schedule != null)
+            {
+                scheduleManager.RemoveSchedule(schedule.Id);
+
+                // 부모 컨트롤에게 갱신 요청 (DateCellControl이 RefreshScheduleList 호출하도록)
+                this.Parent?.Controls.Remove(this); // 화면에서 삭제
+            }
+        }
+
+        private void TriggerCopy()
+        {
+            var schedule = scheduleManager?.GetAllSchedules()
+                                           .FirstOrDefault(s => s.Id == this.ScheduleId);
+            if (schedule != null)
+            {
+                ScheduleClipboard.CopiedSchedule = new Schedule
+                {
+                    UserId = schedule.UserId,
+                    Title = schedule.Title,
+                    Description = schedule.Description,
+                    Tags = new List<string>(schedule.Tags),
+                    Priority = schedule.Priority,
+                    StartTime = schedule.StartTime,
+                    EndTime = schedule.EndTime,
+                    IsCompleted = schedule.IsCompleted
+                };
+                MessageBox.Show("일정이 복사되었습니다.");
+            }
+        }
+
+
     }
 }

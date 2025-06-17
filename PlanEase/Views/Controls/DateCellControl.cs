@@ -19,6 +19,8 @@ namespace PlanEase.Views.Controls
         public event Action<int, DateTime> ScheduleDropped;
         private ScheduleManager scheduleManager;
         private TagManager tagManager;
+        private ContextMenuStrip contextMenuStrip;
+
 
         public DateCellControl(ScheduleManager scheduleManager, TagManager tagManager)
         {
@@ -30,6 +32,24 @@ namespace PlanEase.Views.Controls
             panelContent.DragDrop += PanelContent_DragDrop;
             this.scheduleManager = scheduleManager;
             this.tagManager = tagManager;
+
+            InitializeContextMenu();
+        }
+
+        private void InitializeContextMenu()
+        {
+            contextMenuStrip = new ContextMenuStrip();
+
+            var pasteItem = new ToolStripMenuItem("붙여넣기", null, (s, e) => PasteSchedule());
+            contextMenuStrip.Items.Add(pasteItem);
+
+            // 날짜 셀에 우클릭 연결
+            this.MouseUp += DateCellControl_MouseUp;
+            panelContent.MouseUp += DateCellControl_MouseUp;
+            // 모든 주요 컨트롤에 우클릭 연결
+            lblDate.MouseUp += DateCellControl_MouseUp;
+            lblMore.MouseUp += DateCellControl_MouseUp;
+            pnlScheduleList.MouseUp += DateCellControl_MouseUp;
         }
 
 
@@ -122,5 +142,63 @@ namespace PlanEase.Views.Controls
 
             form.ShowDialog();
         }
+
+        private void DateCellControl_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                if (ScheduleClipboard.CopiedSchedule != null)
+                    contextMenuStrip.Items[0].Enabled = true;
+                else
+                    contextMenuStrip.Items[0].Enabled = false;
+
+                contextMenuStrip.Show(Cursor.Position);
+            }
+        }
+
+        private void PasteSchedule()
+        {
+            var original = ScheduleClipboard.CopiedSchedule;
+
+            if (original == null)
+            {
+                MessageBox.Show("복사된 일정이 없습니다.");
+                return;
+            }
+
+            DateTime newStart = this.Date.Date
+                .AddHours(original.StartTime.Hour)
+                .AddMinutes(original.StartTime.Minute);
+            DateTime newEnd = this.Date.Date
+                .AddHours(original.EndTime.Hour)
+                .AddMinutes(original.EndTime.Minute);
+
+            var copied = new Schedule
+            {
+                UserId = original.UserId,
+                Title = original.Title + " (복사됨)",
+                Description = original.Description,
+                Tags = new List<string>(original.Tags),
+                Priority = original.Priority,
+                StartTime = newStart,
+                EndTime = newEnd,
+                IsCompleted = false
+            };
+
+            scheduleManager.AddSchedule(copied);
+            LoadSchedules(); // 일정 새로고침
+        }
+        public void LoadSchedules()
+        {
+            ClearSchedules();
+            var schedules = scheduleManager.GetSchedulesForDate(this.Date);
+            foreach (var sched in schedules)
+            {
+                var item = new ScheduleItemControl(sched.Title, sched.Priority, scheduleManager);
+                item.ScheduleId = sched.Id;
+                AddScheduleControl(item);
+            }
+        }
+
     }
 }
