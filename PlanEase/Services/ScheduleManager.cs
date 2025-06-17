@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using MySql.Data.MySqlClient;
+using PlanEase.Services.ScheduleConflict;
 
 namespace PlanEase.Services
 {
